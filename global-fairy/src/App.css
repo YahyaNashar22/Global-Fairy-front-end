@@ -1,0 +1,36 @@
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+:root {
+    --main-font-family: 'Lato', sans-serif;
+    --black-color: #000000;
+    --black-60: rgba(255, 255, 255, 0.6)
+    --white-color: #FFFFFF
+    --linen-color: #F3EBE1;
+    --magenta-dye-color: #D81A84;
+    --murrey-color: #85255B;
+    --rose-background-color: #F9F1E8;
+    --teal-color: #378184;
+    --thulian-pink: #D96093;
+    --wenge: #534B50;
+    --input-color-background: #F5F5F5;
+    --padding-section: 50px;
+}
+
+body {
+    font-family: var(--main-font-family);
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
