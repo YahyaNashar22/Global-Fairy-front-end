@@ -1,10 +1,18 @@
-import Header from "../../layout/Header/Header"
+// import Header from "../../layout/Header/Header"
 import "./Home.module.css"
+// import Numbers from "../../components/Numbers/Numbers"
+import BrandHeader from "../../components/brandHeader/BrandHeader";
+import CategoriesHeader from "../../components/Categories/CategoriesHeader";
 
 const Home = () => {
 return(
     <div>
-        <Header />
+        {/* <Header /> */}
+        {/* <Numbers/> */}
+        <CategoriesHeader></CategoriesHeader>
+        <BrandHeader></BrandHeader>
+
+
     </div>
 )
 }
