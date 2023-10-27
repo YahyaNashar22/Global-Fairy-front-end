@@ -1,0 +1,25 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    height: 50%;
+    border: 1px solid black;
+}
+
+.imageSec {
+    width: 100%;
+    height: 60%;
+    border: 2px solid green;
+    position: relative;
+    display: inline-block;
+}
+
+.imageSec img {
+    width: 100%;
+    height: 100%;
+}
+
+.details {
+    width: 100%;
+    height: 40%;
+}
