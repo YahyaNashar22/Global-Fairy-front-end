@@ -1,16 +1,12 @@
 // import Header from "../../layout/Header/Header"
 import "./Home.module.css"
-// import Numbers from "../../components/Numbers/Numbers"
-import BrandHeader from "../../components/brandHeader/BrandHeader";
-import CategoriesHeader from "../../components/Categories/CategoriesHeader";
+import Numbers from "../../components/Numbers/Numbers"
 
 const Home = () => {
 return(
     <div>
         {/* <Header /> */}
-        {/* <Numbers/> */}
-        <CategoriesHeader></CategoriesHeader>
-        <BrandHeader></BrandHeader>
+        <Numbers/>
 
 
     </div>
