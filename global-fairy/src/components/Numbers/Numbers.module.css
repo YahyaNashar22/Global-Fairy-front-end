@@ -1,121 +1,149 @@
 @import '../../App.css';
 
-.numbersSection{
+.numbersSection {
     font-family: var(--main-font-family);
     height: 100vh;
 }
 
 /* H1 Heading Style*/
-h1{
- display: flex;
-width: 100%;
-height: 12%;
-flex-direction: column;
-align-items: center;
-gap: 8px;
-flex-shrink: 0;
-font-weight: normal;
-position: relative;
-margin: 1% 0;
+h1 {
+    display: flex;
+    width: 100%;
+    height: 12%;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+    font-weight: normal;
+    position: relative;
+    margin: 1% 0;
 }
 
-h1::after{
-    display:block;
-    clear:both;
-    content : "";
+h1::after {
+    display: block;
+    clear: both;
+    content: "";
     position: relative;
-    left    : 0;
-    bottom  : 0;
-    max-width:5%;
-    height  : 1px;
-    width   : 50%;  
-    border-bottom:3px solid #000;
-    margin:0 auto;
-    padding:0px 0px;
+    left: 0;
+    bottom: 0;
+    max-width: 5%;
+    height: 1px;
+    width: 50%;
+    border-bottom: 3px solid #000;
+    margin: 0 auto;
+    padding: 0px 0px;
 }
 
 /* Image section style*/
-.imageSection{
+.imageSection {
     display: flex;
-flex-direction: column;
-    height: 100%;
+    flex-direction: column;
+    height: 90vh;
     width: 90%;
     margin: 0 auto;
     border: 1px solid red;
     align-items: center;
     justify-content: space-around;
 }
-.imageSection1{
-    display: grid;
+
+.imageSection1 {
+    /* display: grid; */
     /* grid-template-areas: 'a a a b c c'; */
-   grid-template-columns: repeat(6,1fr);
-   justify-content: space-between;
-   height: 50%;
-    width: 90%;
+    /* grid-template-columns: repeat(6,1fr); */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 100%;
+    width: 100%;
     margin: 0 auto;
     border: 1px solid black;
-    align-items: center;
 }
-.imageSection2{
-    display: grid;
+
+.imageSection2 {
+    display: flex;
     /* grid-template-areas: 'a a a b c c'
     'd d d d e e'; */
-   grid-template-columns: repeat(6,1fr);
-   justify-content: space-between;
-   height: 50%;
-    width: 90%;
+    /* grid-template-columns: repeat(6,1fr); */
+    flex-direction: row;
+    justify-content: space-between;
+    height: 100%;
+    width: 100%;
     margin: 0 auto;
     border: 1px solid red;
-    align-items: center;
-    justify-content: space-around;
 }
-.imageSection1 figure , .imageSection2 figure {
+
+.imageSection1 figure,
+.imageSection2 figure {
     height: 100%;
-    border: 3px solid green;
-    /* object-fit: fill; */
-
-
+    border: 8px solid green;
+    object-fit: fill;
+    padding: 1%;
+    color: #000;
+    font-size: 2em;
+    font-style: normal;
+    font-weight: 550;
+    line-height: normal;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
-.imageSection1 img , .imageSection2 img{
+
+.imageSection1 img,
+.imageSection2 img {
     /* height: 50%; */
     width: 100%;
     height: 100%;
     /* object-fit: fill; */
-
-
 }
-.imageA{
+
+.imageA {
     /* grid-area: a;
     grid-column: 3fr ; */
-    grid-column-start: 1;
-    grid-column-end: 4;
-
+    /* grid-column-start: 1;
+    grid-column-end: 4; */
+    width: 30%;
+    background-image: url("../../assets/images/shoes.webp");
+    background-repeat: no-repeat;
+    background-size: contain;
 }
-.imageB{
+
+.imageB {
     /* grid-area: b; */
     /* grid-column: 1fr; */
-    grid-column-start: 4;
-    grid-column-end: 5;
-
-
+    /* grid-column-start: 4;
+    grid-column-end: 5; */
+    width: 30%;
+    background-image: url("../../assets/images/fashion1.jpg");
+    background-size: contain;
+    background-repeat: no-repeat;
 }
-.imageC{
+
+.imageC {
     /* grid-area: c; */
     /* grid-column: 6fr ; */
-    grid-column-start: 5;
-    grid-column-end: 6;
+    /* grid-column-start: 5;
+    grid-column-end: 6; */
+    width: 35%;
+    background-image: url("../../assets/images/makeup3.jpg");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
 
+.imageD {   
+    width: 53%;
+    background-image: url("../../assets/images/fashion7.jpg");
+    background-repeat: no-repeat;
+    background-size: contain;
 
 }
-.imageD{
-    /* grid-area: d; */
-    grid-column: 2fr;
 
+.imageE {
+    width: 45%;
+    background-image: url("../../assets/images/fashion4.jpg");
+    background-repeat: no-repeat;
+    background-size: contain;
 
-
-}
-.imageE{
-    /* grid-area: e; */
-    grid-column: span 2;
-    grid-row: 1;
 }
