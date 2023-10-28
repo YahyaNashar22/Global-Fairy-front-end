@@ -2,7 +2,7 @@
 import "./Home.module.css"
 // import Numbers from "../../components/Numbers/Numbers"
 // import BrandHeader from "../../components/brandHeader/BrandHeader"
-import SortBy from "../../components/sortBy.js/SortBy";
+import Arrows from "../../components/arrows/Arrows";
 const Home = () => {
 return(
     <div>
@@ -12,8 +12,7 @@ return(
         {/* <Numbers/> */}
         {/* <ContactSection></ContactSection> */}
         {/* <ProductNbs></ProductNbs> */}
-        <SortBy></SortBy>
-
+<Arrows></Arrows>
 
     </div>
 )
