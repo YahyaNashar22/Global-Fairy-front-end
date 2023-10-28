@@ -4,24 +4,24 @@ import callIcon from "../../assets/icons/telephone.png"
 import emailIcon from "../../assets/icons/mail.png"
 export default function ContactSection() {
     return (
-        <container className={styles.contactContainer}>
+        <main className={styles.contactContainer}>
 
             <section className={styles.contactNb}>
-                <aricle className={styles.callUs}>
+                <article className={styles.callUs}>
                     <div className={styles.contactTitles}>
                     <span className={styles.imgHolder}> <img src={callIcon} alt="Call Icon" /> </span> <h4>Call To Us</h4>
                     </div>
                     <p className={styles.textHolder}> <span className={styles.imgHolderX}> <img src={callIcon} alt="Call Icon" /> </span>We are available 7 days a week.</p>
                     <p className={styles.textHolder}>Phone: +961000000</p>
-                </aricle>
-                <aricle className={styles.msgUs}>
+                </article>
+                <article className={styles.msgUs}>
                     <div className={styles.contactTitles}><span className={styles.imgHolder}> <img src={emailIcon} alt="Message Icon" /> </span> <h4>Write To Us</h4></div>
                     <p className={styles.textHolder}> <span className={styles.imgHolderX}> <img src={emailIcon} alt="Message Icon" /> </span>Fill out our form and we will contact you within 24 hours.</p>
                     <p className={styles.textHolder}>Emails: customer@exclusive.com</p>
                     <p className={styles.textHolder}>Emails: support@exclusive.com</p>
-                </aricle>
+                </article>
             </section>
-            <form className={styles.contactForm}>
+            <form className={styles.contactForm} action="/" method='POST' name="contact">
                 <div className={styles.inputsHolder}>
                     <input className={styles.inputs} type="text" id="name" name="name" placeholder="Your Name" required></input>
                     <input className={styles.inputs} type="email" id="email" name="email" placeholder="Your Email" required></input>
@@ -36,6 +36,6 @@ export default function ContactSection() {
                 </div>
 
             </form>
-        </container>
+        </main>
     )
 }

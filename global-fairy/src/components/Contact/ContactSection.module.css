@@ -158,10 +158,9 @@
     border: 1px solid #c4c4cc;
     ;
 }
-.contactNb , .contactForm {
-}
+
 /**************************************************/
-@media (max-width:450px) {
+@media (max-width:550px) {
     .contactContainer {
         width: 95%;
         display: flex;
