@@ -1,13 +1,14 @@
 @import '../../App.css';
 
-.arrowsContainer{
+.arrowsContainer {
     height: 2.2em;
     display: inline-flex;
     width: auto;
     justify-content: center;
     align-items: center;
 }
-.arrowsContainer .nbSpan{
+
+.arrowsContainer .nbSpan {
     display: inline-flex;
     width: 2.1em;
     color: black;
@@ -18,17 +19,41 @@
     justify-content: center;
 }
 
-.nextA .imgSpan , .back .imgSpan{
+.nextA .imgSpan,
+.back .imgSpan {
     width: 60%;
-    height: 60%;   
+    height: 60%;
 }
-.nbs{
-    border : 2px solid #D1D5DB;
+
+.nbs {
+    border: 2px solid #D1D5DB;
     background: white;
 }
-.back{
-    background-color: #D1D5DB ;
+
+.back {
+    background-color: #D1D5DB;
 }
-.nextA{
+
+.nextA {
     background-color: #1F2937;
+}
+
+@media (max-width:500px) {
+    .arrowsContainer {
+        height: 1.8em;
+
+    }
+
+    .arrowsContainer .nbSpan {
+        width: 2.1em;
+        font-size: 1em;
+        margin: 0 2px;
+    }
+
+}
+
+@media (max-width:400px) {
+    .nbs {
+        display: none;
+    }
 }
