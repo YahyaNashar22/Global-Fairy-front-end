@@ -2,9 +2,7 @@
 import "./Home.module.css"
 // import Numbers from "../../components/Numbers/Numbers"
 // import BrandHeader from "../../components/brandHeader/BrandHeader"
-// import CategoriesHeader from "../../components/Categories/CategoriesHeader"
-import ContactSection from "../../components/Contact/ContactSection"
-
+import SortBy from "../../components/sortBy.js/SortBy";
 const Home = () => {
 return(
     <div>
@@ -12,7 +10,9 @@ return(
         {/* <CategoriesHeader></CategoriesHeader>
         <BrandHeader></BrandHeader> */}
         {/* <Numbers/> */}
-        <ContactSection></ContactSection>
+        {/* <ContactSection></ContactSection> */}
+        {/* <ProductNbs></ProductNbs> */}
+        <SortBy></SortBy>
 
 
     </div>
