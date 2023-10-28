@@ -1,13 +1,16 @@
 // import Header from "../../layout/Header/Header"
 import "./Home.module.css"
 import ProductCard from "../../components/productCard/ProductCard"
+import SimiliarSection from "../../components/similiarSection/SimiliarSection"
+
 
 const Home = () => {
 return(
     <div>
         {/* <Header /> */}
-        <ProductCard/>
-    </div>
+
+<SimiliarSection/>
+     </div>
 )
 }
 
