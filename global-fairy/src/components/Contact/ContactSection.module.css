@@ -1,77 +1,274 @@
 @import '../../App.css';
 
-.contactContainer{
-    border: 3px solid red;
+.contactContainer {
+    margin: 50px auto auto auto;
     width: 90%;
-    margin: 0 auto;
     display: flex;
     flex-direction: row;
-    gap:2%;
-    height: 70vh;
+    gap: 2%;
+    height: 70vh; /* return it to 60*/ 
+    padding: auto;
 }
 
-.contactNb{
+.contactNb {
     display: flex;
     padding: 2em 2em 2em 2em;
     flex-direction: column;
     height: 100%;
-    /* border: 1px solid black; */
     box-shadow: 0px 1px 13px 0px rgba(0, 0, 0, 0.1);
-    width: 35%;
+    width: 30%;
+    justify-content: space-around;
+}
 
-    
+.callUs {
+    height: 40%;
+
 }
-.contactNb span{
-    display: block;
-}
-.callUs{
-    height: 50%;
-    width: 80%;
+.callUs , .msgUs{
+    width: 95%;
     padding: 1em;
 }
-.msgUs{
+.msgUs {
     border-top: 3px solid #c4c4cc;
-    height: 50%;
-    width: 80%;
-    padding: 1em;
+    height: 60%; 
+}
+
+.callUs,
+.msgUs {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 
 }
-.contactForm{
-border: 1px solid green;
-width: 65%;
-box-shadow: 0px 1px 13px 0px rgba(0, 0, 0, 0.1);
+
+.contactTitles h4 {
+    display: inline-block;
+    font-size: 1.05em;
+    font-weight: normal;
 
 }
-.inputs{
-    width:25%;
-    height: 7%;
+
+.contactTitles {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5em;
+}
+ .imgHolderX{
+    display:none;
+ }
+
+.imgHolder , .imgHolderX{
+    width: 2.7em;
+    height: 2.7em;
+    border-radius: 50%;
+    background-color: var(--thulian-pink);
+    justify-content: center;
+    align-items: center;
+    /* display: flex; */
+}
+.imgHolder{
+    display: flex;
+}
+.imgHolder img , .imgHolderX img{
+    width: 60%;
+    height: 60%;
+}
+.textHolder{
+    font-size: 1.05em;
+
+}
+
+.contactForm {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    width: 70%;
+    box-shadow: 0px 1px 13px 0px rgba(0, 0, 0, 0.1);
+    padding: 2em;
+    /* border: 1px solid red; */
+    height: 100%;
+
+}
+
+.inputsHolder {
+    display: flex;
+    height: 10%;
+    align-items: center;
+    justify-content: space-between;
+}
+.inputsHolder , .msgHolder , .btnHolder{
+    width: 95%;
+
+}
+
+
+.msgHolder {
+    display: flex;
+    height: 70%;
+}
+
+.inputs {
+    width: 30%;
+    height: 90%;
     border-radius: 4px;
-background:  #F5F5F5;
-padding: 0.5em 0 0.5em 0.2em;
-border-style: none;
-margin-right: 10px;
+    background: #F5F5F5;
+    padding: 0.5em 0 0.5em 0.2em;
+    border-style: none;
+    margin-right: 10px;
+
 }
-.inputs::placeholder{
+
+.inputs::placeholder,
+.msgInput::placeholder {
     opacity: 0.6;
     font-size: 1.2em;
 }
 
-.msgInput{
-    width: 90%;
+.msgInput {
+    width: 100%;
     border-radius: 4px;
-    background:  #F5F5F5;
-    padding: 0.5em 0 0.5em 0.2em;
+    background: #F5F5F5;
+    padding: 0.8em 0 0em 0.8em;
     border-style: none;
-    margin-right: 10px;
-    margin-top: 10px;
-    height: 50%;
+    /* margin-right: 10px;
+    margin-top: 10px; */
+    height: 90%;
+    margin:  auto; 
+
 }
-.msgBtn{
+.btnHolder{
+    display: flex;
+    justify-content: flex-end;
+}
+.msgBtn {
     border-radius: 4px;
-background: var(--thulian-pink);
-width: 15em;
-height: 3em;
-font-size: 1em;
-color:#FFF;
-border-style: none;
+    background: var(--thulian-pink);
+    width:20%;
+    height: 3em;
+    font-size: 1em;
+    color: #FFF;
+    border-style: none;
+}
+
+
+.inputs:focus,
+.msgInput:focus {
+    outline: none;
+    border: 1px solid #c4c4cc;
+    ;
+}
+.contactNb , .contactForm {
+}
+/**************************************************/
+@media (max-width:450px) {
+    .contactContainer {
+        width: 95%;
+        display: flex;
+        flex-direction: column;
+        height: 80vh;
+        padding: auto;
+    }
+    .contactNb {
+        display: flex;
+        flex-direction: column;
+        height: 50%;
+        box-shadow: 0px 1px 13px 0px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        justify-content: space-around;
+    }
+  
+    .contactForm {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        box-shadow: 0px 1px 13px 0px rgba(0, 0, 0, 0.1);
+        padding: 1em;
+        height: 70%;  
+    }
+    .imgHolderX{
+        /* display: inline-flex; */
+        width: 2.2em;
+        height: 2.2em;
+    }
+    .inputsHolder {
+        display: flex;
+        height: 50%;
+        align-items: center;
+        justify-content: space-around;
+        flex-direction: column;
+        width: 100%;
+        gap:5px;
+    }
+    .inputs {
+        min-width: 90%;
+        height: 33%;
+        padding: 0.5em 0 0.5em 0.2em;
+        margin-right: 10px;
+    }
+    .msgHolder{
+        height: 50%;
+    }
+    .msgInput{
+        height: 95%;
+        margin: auto; 
+    }
+    .btnHolder{
+        justify-content: center;
+    }
+    .btnHolder{
+        height: 20%;
+    }
+    .msgBtn {
+        width:50%;
+        height: 3em;
+        font-size: 1em;
+    }
+}
+@media (max-width:790px) {
+    .imgHolder{
+        width: 1.5em;
+        height: 1.5em;
+    }
+    .contactTitles h4 {
+        font-size: 0.7em;
+    
+    }
+    .textHolder{
+        font-size: 0.85em;
+    }
+    .contactNb , .contactForm {
+        padding: 0em;
+    }
+}
+
+@media (max-width:980px){
+    .imgHolder{
+        width: 2.2em;
+        height: 2.2em;
+    }
+    .contactTitles h4 {
+        font-size: 1em;
+    
+    }
+    .textHolder{
+        font-size: 0.95em;
+    }
+    .contactNb , .contactForm {
+        padding: 1em;
+    }
+    .inputsHolder , .msgHolder , .btnHolder{
+        width: 100%;
+    
+    }
+    .inputs{
+        width: 33%;
+    }
+}
+
+@media (max-width:1110px){
+    .callUs , .msgUs{
+        width: 100%;
+        padding: 0.2em;
+    }
 }
