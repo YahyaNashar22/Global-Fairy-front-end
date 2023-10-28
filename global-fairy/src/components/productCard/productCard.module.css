@@ -1,15 +1,19 @@
+@import '../../App.css';
+
 .card {
     display: flex;
     flex-direction: column;
-    width: 30%;
-    height: 50%;
-    border: 1px solid black;
+    width: 15vw;
+    height: 43vh;
+    border: 1px solid #E5E7EB;
+    color: var(--wenge);
+    font-size: 1em;
+    margin: 50px
 }
 
 .imageSec {
     width: 100%;
-    height: 60%;
-    border: 2px solid green;
+    height: 67%;
     position: relative;
     display: inline-block;
 }
@@ -17,9 +21,25 @@
 .imageSec img {
     width: 100%;
     height: 100%;
+    object-fit: fill;
 }
 
 .details {
     width: 100%;
     height: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+    padding:2px;
+}
+.soldPan{
+    align-self: flex-end;
+    width: 40%;
+}
+.priceCard{
+    font-weight: bold;
+}
+.blur{
+    opacity: 0.7;
 }
