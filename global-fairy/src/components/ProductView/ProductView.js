@@ -3,6 +3,7 @@ import style from './ProductView.module.css';
 import mainImage from '../../assets/images/main.jpeg';
 import imageOne from '../../assets/images/imageOne.png';
 import imageTwo from '../../assets/images/imageTwo.png';
+import Colors from '../../components/Colors/Colors'
 
 const ProductView = () => {
     useEffect(() => {
@@ -57,14 +58,7 @@ const ProductView = () => {
                         <div className={style.price}>$26</div>
                         <div className={style.description}>This graphic t-shirt which is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style.</div>
                     </div>
-                    <div className={style.colorsArea}>
-                        <p className={style.title}>Select A Color</p>
-                        <ul className={style.colors}>
-                            <li className={style.color} style={{ backgroundColor: 'aqua' }}></li>
-                            <li className={style.color}></li>
-                            <li className={style.color}></li>
-                        </ul>
-                    </div>
+                    <Colors />
                     <div className={style.size}>
                         <p className={style.title}>Choose Size</p>
                         <div className={style.sizeButtons}>
