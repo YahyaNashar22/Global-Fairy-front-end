@@ -3,9 +3,11 @@ import style from './ProductView.module.css';
 import mainImage from '../../assets/images/main.jpeg';
 import imageOne from '../../assets/images/imageOne.png';
 import imageTwo from '../../assets/images/imageTwo.png';
-import Colors from '../../components/Colors/Colors'
+import Colors from '../../components/Colors/Colors';
+import PurshaseButtons from '../PurshaseButtons/PurshaseButtons'
 
 const ProductView = () => {
+
     useEffect(() => {
         const decreaseButton = document.querySelector(".decrease");
         const increaseButton = document.querySelector(".increase");
@@ -68,17 +70,7 @@ const ProductView = () => {
                             <button className={style.xl}>X-Large</button>
                         </div>
                     </div>
-                    <div className={style.purshaseButtons}>
-                        <button className={style.counter}>
-                            <span className={style.decrease}>-</span>
-                            <span className={style.count}>1</span>
-                            <span className={style.increase}>+</span>
-                        </button>
-                        <button className={style.addToCard}>
-                            Add to Cart
-                        </button>
-                    </div>
-                    <button className={style.soldout} style={{ display: 'none' }}>Sold Out</button>
+                    <PurshaseButtons />
                 </div>
             </div>
         </section>
