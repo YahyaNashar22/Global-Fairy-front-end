@@ -132,7 +132,6 @@ h1::after {
         height: 100%;
         width: 100%;
         margin: 0 auto;
-        /* flex-wrap: wrap; */
     }
     
     .imageSection2 {
