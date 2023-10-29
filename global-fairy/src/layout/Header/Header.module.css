@@ -23,44 +23,6 @@ header {
     gap: 45px;
 }
 
-.search {
-    position: relative;
-}
-.search input {
-    width: 346px;
-    height: 46px;
-    padding: 12px 16px 12px 35px;
-    flex-shrink: 0;
-    border-radius: 62px;
-    border: 1px solid #000;
-    background: #F9F1E8;
-}
-.search input::placeholder {
-    color: rgba(0, 0, 0, 0.40);
-    font-family: Lato;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    transition: .2s;
-}
-.search input:focus::placeholder { 
-    opacity: 0;
-}
-.search input:focus { 
-    border-color: var(--Magenta-dye, #D81A84);
-    outline: none;
-}
-.search img {
-    position: absolute;
-    top: 50%;
-    left: 10px;
-    transform: translateY(-50%);
-    color: rgba(0, 0, 0, 0.40);
-    width: 20px;
-    height: 20px;
-}
-
 .userIcon img {
     width: 46px;
     height: 43px;
