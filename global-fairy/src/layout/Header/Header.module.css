@@ -17,18 +17,6 @@ header {
     margin: 10px 0;
 }
 
-.nav ul {
-    display: flex;
-    gap: 47px;
-}
-.nav a {
-    color: black;
-    font-size: 18px;
-}
-.nav a:hover {
-    color: var(--Magenta-dye, #D81A84);
-}
-
 .content {
     display: flex;
     align-items: center;

@@ -3,6 +3,9 @@ import style from './Header.module.css';
 import logo from '../../assets/images/logo.jpg';
 import userIcon from '../../assets/images/user.png';
 import search from '../../assets/images/search.svg';
+import NavBar from "../NavBar/NavBar";
+// import Home from '../../pages/Home/Home'
+// import NavBar from '../NavBar/NavBar'
 
 const Header = () => {
     return(
@@ -11,15 +14,12 @@ const Header = () => {
                 <a href="/home" className={style.logo}>
                     <img src={logo} alt="Logo" />
                 </a>
+                {
+                /* <NavBar />
+                <Search /> */
+                }
                 <div className={style.content}>
-                    <nav className={style.nav}>
-                        <ul>
-                            <li><a href="/">Home</a></li>
-                            <li><a href="/about">About</a></li>
-                            <li><a href="/contact">Contact</a></li>
-                            <li><a href="/signup">Sign Up</a></li>
-                        </ul>
-                    </nav>
+                    <NavBar />
                     <form action="/search" method="get" className={style.search}>
                         <input type="text" name="Search" placeholder="Search for products..." />
                         <img src={search} alt="" />
