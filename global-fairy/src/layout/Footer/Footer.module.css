@@ -144,3 +144,53 @@ a {
   text-align: center;
   padding: 45px;
 }
+
+/* Medium */
+@media (max-width: 992px) {
+  .container {
+      /* flex-direction: column; */
+      /* flex-wrap: nowrap; */
+      justify-content: center;
+      align-items: center;
+      gap: 60px 30px;
+      flex-wrap: wrap;
+  }
+  .container > div {
+      width: 47%;
+  }
+  .logo-description {
+      align-items: flex-start;
+  }
+  .signUp label {
+      font-size: 15px;
+  }
+}
+
+/* Small */
+@media (max-width: 768px) {
+  .container {
+      flex-direction: column;
+      gap: 50px;
+  }
+  .container > div {
+      width: 100%;
+      align-items: center;
+  }
+  .company, .support {
+      gap: 15px;
+  }
+  .social .title {
+      margin-bottom: 15px;
+  }
+  .social .signUp {
+      align-items: center;
+  }
+  .inputBox .emailInput {
+      width: 200px;
+  }
+  .inputBox .submit {
+      padding: 13px 20px 13px 20px;
+      text-align: center;
+      font-size: 16px;
+  }
+}
