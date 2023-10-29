@@ -11,9 +11,7 @@
   margin-right: auto;
   display: flex;
   justify-content: space-evenly;
-  gap: 25px;
-
-  
+  gap: 30px;
 }
 
 .imageContainer {
@@ -56,13 +54,14 @@
 .content .description {
   color: rgba(0, 0, 0, 0.60);
   font-size: 18px;
-  margin: 20px 0;
+  margin-top: 20px;
+  margin-bottom: 25px;
   width: 100%;
 }
 
 .size {
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding-top: 25px;
+  padding-bottom: 25px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.10);
 }
 .size .title {
