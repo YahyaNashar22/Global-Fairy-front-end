@@ -6,10 +6,9 @@
     display: flex;
     flex-direction: row;
     gap: 2%;
-    height: 70vh; /* return it to 60*/ 
+    height: 70vh; 
     padding: auto;
 }
-
 .contactNb {
     display: flex;
     padding: 2em 2em 2em 2em;
@@ -22,7 +21,6 @@
 
 .callUs {
     height: 40%;
-
 }
 .callUs , .msgUs{
     width: 95%;
@@ -65,7 +63,6 @@
     background-color: var(--thulian-pink);
     justify-content: center;
     align-items: center;
-    /* display: flex; */
 }
 .imgHolder{
     display: flex;
@@ -76,7 +73,6 @@
 }
 .textHolder{
     font-size: 1.05em;
-
 }
 
 .contactForm {
@@ -86,9 +82,7 @@
     width: 70%;
     box-shadow: 0px 1px 13px 0px rgba(0, 0, 0, 0.1);
     padding: 2em;
-    /* border: 1px solid red; */
     height: 100%;
-
 }
 
 .inputsHolder {
@@ -99,9 +93,7 @@
 }
 .inputsHolder , .msgHolder , .btnHolder{
     width: 95%;
-
 }
-
 
 .msgHolder {
     display: flex;
@@ -131,8 +123,6 @@
     background: #F5F5F5;
     padding: 0.8em 0 0em 0.8em;
     border-style: none;
-    /* margin-right: 10px;
-    margin-top: 10px; */
     height: 90%;
     margin:  auto; 
 
@@ -186,7 +176,6 @@
         height: 70%;  
     }
     .imgHolderX{
-        /* display: inline-flex; */
         width: 2.2em;
         height: 2.2em;
     }
