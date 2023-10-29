@@ -137,16 +137,12 @@ h1::after {
     
     .imageSection2 {
         display: flex;
-        /* grid-template-areas: 'a a a b c c'
-        'd d d d e e'; */
-        /* grid-template-columns: repeat(6,1fr); */
         flex-direction: row;
         justify-content: center;
         height: 100%;
         width: 100%;
         margin: 0 auto;
         gap:1em;
-        /* flex-wrap: wrap; */
 
     }
     .imageA , .imageB , .imageC , .imageD , .imageE {
