@@ -12,6 +12,8 @@
   display: flex;
   justify-content: space-evenly;
   gap: 25px;
+
+  
 }
 
 .imageContainer {
@@ -30,20 +32,16 @@
   height: 200px;
   border-radius: 20px;
 }
-.mainImage {
-  width: 430px;
-  height: 630px;
-}
+
 .mainImage img {
   width: 430px;
   height: 630px;
   border-radius: 20px;
 }
-
 .details {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 .content .mainTitle {
@@ -51,17 +49,19 @@
   font-size: 40px;
 }
 .content .price {
-  margin: 38px 0;
+  margin: 20px 0;
   color: #000;
   font-size: 40px;
 }
 .content .description {
   color: rgba(0, 0, 0, 0.60);
   font-size: 18px;
+  margin: 20px 0;
+  width: 100%;
 }
 
 .colorsArea {
-  padding: 30px 0;
+  padding: 20px 0;
   border-top: 1px solid rgba(0, 0, 0, 0.10);
   border-bottom: 1px solid rgba(0, 0, 0, 0.10);
 }
@@ -92,7 +92,8 @@
 }
 
 .size {
-  padding-bottom: 30px;
+  padding-top: 20px;
+  padding-bottom: 20px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.10);
 }
 .size .title {
@@ -106,7 +107,7 @@
   gap: 12px;
 }
 .size button {
-  padding: 12px 24px;
+  padding: 12px;
   border-radius: 62px;
   background: #F0F0F0;
   color: rgba(0, 0, 0, 0.60);
@@ -125,6 +126,7 @@
 }
 
 .purshaseButtons {
+  padding-top: 20px;
   display: flex;
   gap: 20px;
 }
@@ -132,7 +134,7 @@
   color: #000;
   font-size: 16px;
   display: flex;
-  width: 190px;
+  width: 30%;
   height: 65px;
   padding: 16px 15px;
   justify-content: space-between;
@@ -158,7 +160,7 @@
   cursor: pointer;
 }
 .addToCard {
-  width: 400px;
+  width: 40%;
   height: 65px;
   padding: 16px 54px;
   flex-shrink: 0;
@@ -168,6 +170,7 @@
   border: none;
   font-size: 16px;
   transition: .2s;
+  flex: 1;
   cursor: pointer;
 }
 .addToCard:hover {
@@ -175,7 +178,7 @@
 }
 
 .soldout {
-  width: 400px;
+  width: 60%;
   height: 65px;
   padding: 16px 54px;
   flex-shrink: 0;
@@ -186,4 +189,97 @@
   font-size: 16px;
   transition: .2s;
   cursor: pointer;
+}
+
+@media (max-width: 992px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .imageContainer {
+    justify-content: center;
+    align-items: center;
+  }
+  .mainImage {
+    max-width: 100%;
+  }
+
+  .details {
+    align-items: center;
+  }
+  .content {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .content .description {
+    margin-top: 0;
+    margin-bottom: 20px;
+  }
+  .content .price {
+    margin: 20px 0;
+  }
+  .colorsArea {
+    padding: 20px 0;
+    width: 100%;
+  }
+  .colorsArea .title {
+    text-align: center;
+  }
+  .colors {
+    justify-content: center;
+  }
+  .size {
+    text-align: center;
+    padding-top: 20px;
+    width: 100%;
+  }
+  .sizeButtons {
+    justify-content: center;
+  }
+  .purshaseButtons {
+    margin-top: 20px;
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .mainImage img {
+    width: 260px;
+    height: auto;
+  }
+  .threeImages img {
+    width: 80px;
+    height: auto;
+  }
+  .content {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.10);
+  }
+  .content .mainTitle,
+  .content .price {
+    font-size: 25px;
+  }
+  .content .description {
+    width: 90%;
+    font-size: 16px;
+  }
+  .colorsArea {
+    border: none;
+  }
+  .colorsArea .title,
+  .size .title {
+    font-size: 16px;
+  }
+  .size {
+  border-top: 1px solid rgba(0, 0, 0, 0.10);
+  }
+  .size .sizeButtons {  
+    flex-wrap: wrap;
+  }
+  .purshaseButtons {
+    justify-content: space-evenly;
+    width: 100%;
+    gap: 10px
+  }
 }
