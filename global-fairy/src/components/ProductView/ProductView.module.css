@@ -1,0 +1,189 @@
+.productView {
+  padding-top: var(--padding-section);
+  padding-bottom: var(--padding-section)
+} 
+/* container */
+.container {
+  width: 90%;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: space-evenly;
+  gap: 25px;
+}
+
+.imageContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 15px;
+}
+.threeImages {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.threeImages img {
+  width: 150px;
+  height: 200px;
+  border-radius: 20px;
+}
+.mainImage {
+  width: 430px;
+  height: 630px;
+}
+.mainImage img {
+  width: 430px;
+  height: 630px;
+  border-radius: 20px;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.content .mainTitle {
+  color: #000;
+  font-size: 40px;
+}
+.content .price {
+  margin: 38px 0;
+  color: #000;
+  font-size: 40px;
+}
+.content .description {
+  color: rgba(0, 0, 0, 0.60);
+  font-size: 18px;
+}
+
+.colorsArea {
+  padding: 30px 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.10);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.10);
+}
+.colorsArea .title {
+  color: rgba(0, 0, 0, 0.60);
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+.colorsArea .colors {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+.colorsArea .color {
+  width: 37px;
+  height: 37px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.colorsArea .color:first-child {
+  background-color: #E8E5DF;
+}
+.colorsArea .color:nth-child(2) {
+  background-color: #314F4A;
+}
+.colorsArea .color:last-child{
+  background-color: #31344F;
+}
+
+.size {
+  padding-bottom: 30px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.10);
+}
+.size .title {
+  color: rgba(0, 0, 0, 0.60);
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+.size .sizeButtons {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+.size button {
+  padding: 12px 24px;
+  border-radius: 62px;
+  background: #F0F0F0;
+  color: rgba(0, 0, 0, 0.60);
+  font-size: 16px;
+  border: none;
+  transition: .2s;
+  cursor: pointer;
+}
+.size button:hover {
+  background: var(--Thulian-pink, #D96093);
+  color: white;
+}
+.size .l {
+  background: var(--Thulian-pink, #D96093);
+  color: white;
+}
+
+.purshaseButtons {
+  display: flex;
+  gap: 20px;
+}
+.counter {
+  color: #000;
+  font-size: 16px;
+  display: flex;
+  width: 190px;
+  height: 65px;
+  padding: 16px 15px;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 62px;
+  background: #F0F0F0;
+  border: 1px solid #ccc;
+}
+.decrease {
+  padding: 10px;
+  font-size: 25px;  
+  cursor: pointer;
+}
+.count {
+  color: #000;
+  font-size: 16px;
+  flex-grow: 1;
+  text-align: center;
+}
+.increase {
+  padding: 10px;
+  font-size: 25px;
+  cursor: pointer;
+}
+.addToCard {
+  width: 400px;
+  height: 65px;
+  padding: 16px 54px;
+  flex-shrink: 0;
+  border-radius: 62px;
+  background: var(--Thulian-pink, #D96093);
+  color: white;
+  border: none;
+  font-size: 16px;
+  transition: .2s;
+  cursor: pointer;
+}
+.addToCard:hover {
+  background: var(--Thulian-pink, #bd5580);
+}
+
+.soldout {
+  width: 400px;
+  height: 65px;
+  padding: 16px 54px;
+  flex-shrink: 0;
+  border-radius: 62px;
+  background-color: #E51E1E;
+  color: white;
+  border: none;
+  font-size: 16px;
+  transition: .2s;
+  cursor: pointer;
+}

@@ -4,14 +4,15 @@
 :root {
     --main-font-family: 'Lato', sans-serif;
     --black-color: #000000;
-    --black-60: rgba(255, 255, 255, 0.6)
-    --white-color: #FFFFFF
+    --black-60: rgba(255, 255, 255, 0.6);
+    --white-color: #FFFFFF;
     --linen-color: #F3EBE1;
     --magenta-dye-color: #D81A84;
     --murrey-color: #85255B;
     --rose-background-color: #F9F1E8;
     --teal-color: #378184;
     --thulian-pink: #D96093;
+    --sold-out-background-color: ##E51E1E;
     --wenge: #534B50;
     --input-color-background: #F5F5F5;
     --padding-section: 50px;
