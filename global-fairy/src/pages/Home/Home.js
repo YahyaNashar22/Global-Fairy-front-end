@@ -1,10 +1,10 @@
-import Header from "../../layout/Header/Header"
+import Footer from "../../layout/Footer/Footer";
 import "./Home.module.css"
 
 const Home = () => {
 return(
     <div>
-        <Header />
+        <Footer />
     </div>
 )
 }

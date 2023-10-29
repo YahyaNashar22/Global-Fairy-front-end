@@ -1,0 +1,146 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+ul {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+
+.footer {
+  background-color: var(--Rose-Background-Color, #F9F1E8);
+}
+
+.container {
+  width: 90%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 15px;
+  gap: 30px;
+}
+
+.logoDescription {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.logoDescription img {
+  width: 150px;
+  margin-bottom: 20px;
+}
+.logoDescription p {
+  color: rgba(0, 0, 0, 0.60);
+  text-align: center;
+  font-size: 17px;
+  width: 300px;
+  font-style: normal;
+  font-weight: 400;
+}
+
+
+.company, .support {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 25px;
+}
+.title {
+  color: #000;
+  font-family: Lato;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+.links li:not(:last-child) {
+  margin-bottom: 20px;
+}
+.links a {
+  color: rgba(0, 0, 0, 0.70);
+  font-size: 18px;
+}
+.links a:hover {
+  color: var(--Magenta-dye, #D81A84);
+}
+
+.social {
+  height: 188px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.social .title {
+  margin-bottom: 25px;
+
+}
+.socialLinks {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 30px;
+}
+.socialLinks a img {
+  width: 32px;
+  height: 32px;
+}
+.signUp {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+.signUp label {
+  color: rgba(0, 0, 0, 0.60);
+  font-size: 16px;
+}
+.inputBox {
+  display: flex;
+}
+.inputBox .emailInput {
+  /* width: 250px; */
+  padding: 14px 16px;
+  border: 1px solid var(--grey-grey-400, #9CA3AF);
+  background: #FFF;
+}
+.inputBox .emailInput::placeholder {
+  color: rgba(0, 0, 0, 0.60);
+  font-size: 16px;
+  transition: .2s;
+}
+.inputBox .emailInput:focus::placeholder {
+  opacity: 0;
+}
+.inputBox .emailInput:focus {
+  outline: none;
+}
+.inputBox .submit {
+  padding: 13px 30px 13px 24px;
+  background: var(--Thulian-pink, #D96093);
+  color: var(--White, #FFF);
+  text-align: center;
+  font-size: 16px;
+  border: none;
+  transition: .2s;
+  cursor: pointer;
+}
+.inputBox .submit:hover {
+  background: #bb537e ;
+}
+
+
+.copyright {
+  color: rgba(0, 0, 0, 0.60);
+  font-size: 16px;
+  font-weight: 400;
+  text-align: center;
+  padding: 45px;
+}
