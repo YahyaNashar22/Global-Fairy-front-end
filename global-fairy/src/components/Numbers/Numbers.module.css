@@ -1,15 +1,20 @@
 @import '../../App.css';
 
-.numbersSection {
+ .numbersSection{
     font-family: var(--main-font-family);
-    height: 100vh;
-}
+    width: 80%;
+    margin: 0 auto;
+    height: 99vh;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    gap: 0;
+ } 
 
-/* H1 Heading Style*/
 h1 {
     display: flex;
     width: 100%;
-    height: 12%;
+    height: 8%;
     flex-direction: column;
     align-items: center;
     gap: 8px;
@@ -17,6 +22,7 @@ h1 {
     font-weight: normal;
     position: relative;
     margin: 1% 0;
+    justify-content: center ;
 }
 
 h1::after {
@@ -26,7 +32,7 @@ h1::after {
     position: relative;
     left: 0;
     bottom: 0;
-    max-width: 5%;
+    max-width: 7%;
     height: 1px;
     width: 50%;
     border-bottom: 3px solid #000;
@@ -38,47 +44,38 @@ h1::after {
 .imageSection {
     display: flex;
     flex-direction: column;
-    height: 90vh;
-    width: 90%;
+    height: 90%;
+    width: 100%;
     margin: 0 auto;
-    border: 1px solid red;
     align-items: center;
     justify-content: space-around;
 }
-
-.imageSection1 {
-    /* display: grid; */
-    /* grid-template-areas: 'a a a b c c'; */
-    /* grid-template-columns: repeat(6,1fr); */
+.imageSection1 , .imageSection2{
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
     height: 100%;
     width: 100%;
+}
+.imageSection1 {
+   
+    justify-content: space-evenly; 
     margin: 0 auto;
-    border: 1px solid black;
 }
 
 .imageSection2 {
-    display: flex;
-    /* grid-template-areas: 'a a a b c c'
-    'd d d d e e'; */
-    /* grid-template-columns: repeat(6,1fr); */
-    flex-direction: row;
-    justify-content: space-between;
-    height: 100%;
-    width: 100%;
+    justify-content: center;
     margin: 0 auto;
-    border: 1px solid red;
+    gap:2em
 }
 
-.imageSection1 figure,
-.imageSection2 figure {
+
+.imageSection1 figcaption,
+.imageSection2 figcaption {
     height: 100%;
-    border: 8px solid green;
+    border: 0.3em solid #FFF;
     object-fit: fill;
     padding: 1%;
-    color: #000;
+    color: #FFF ;
     font-size: 2em;
     font-style: normal;
     font-weight: 550;
@@ -89,61 +86,103 @@ h1::after {
     justify-content: center;
     word-wrap: break-word;
     overflow-wrap: break-word;
+    text-align: center;
 }
 
-.imageSection1 img,
-.imageSection2 img {
-    /* height: 50%; */
-    width: 100%;
-    height: 100%;
-    /* object-fit: fill; */
+.imageA , .imageB , .imageC , .imageD , .imageE {
+    background-repeat: no-repeat;
+    background-size:cover;
+}
+
+.imageA , .imageB , .imageC  {
+  width: 30%;
+}
+.imageD , .imageE{
+    width: 35%;
 }
 
 .imageA {
-    /* grid-area: a;
-    grid-column: 3fr ; */
-    /* grid-column-start: 1;
-    grid-column-end: 4; */
-    width: 30%;
-    background-image: url("../../assets/images/shoes.webp");
-    background-repeat: no-repeat;
-    background-size: contain;
+    background-image: url("../../assets/images/jean.jpeg");
 }
 
 .imageB {
-    /* grid-area: b; */
-    /* grid-column: 1fr; */
-    /* grid-column-start: 4;
-    grid-column-end: 5; */
-    width: 30%;
-    background-image: url("../../assets/images/fashion1.jpg");
-    background-size: contain;
-    background-repeat: no-repeat;
+    background-image: url("../../assets/images/client.jpg");
+  
 }
 
 .imageC {
-    /* grid-area: c; */
-    /* grid-column: 6fr ; */
-    /* grid-column-start: 5;
-    grid-column-end: 6; */
-    width: 35%;
-    background-image: url("../../assets/images/makeup3.jpg");
-    background-size: contain;
-    background-repeat: no-repeat;
+    background-image: url("../../assets/images/makeup0.jpg");  
 }
 
 .imageD {   
-    width: 53%;
-    background-image: url("../../assets/images/fashion7.jpg");
-    background-repeat: no-repeat;
-    background-size: contain;
+    background-image: url("../../assets/images/shop.jpeg");
 
 }
 
 .imageE {
-    width: 45%;
-    background-image: url("../../assets/images/fashion4.jpg");
-    background-repeat: no-repeat;
-    background-size: contain;
+    background-image: url("../../assets/images/clt.jpg");
 
+}
+
+@media (max-width:940px){
+    .imageSection1 {
+        display: flex;
+        flex-direction:row;
+        justify-content: space-evenly;
+        height: 100%;
+        width: 100%;
+        margin: 0 auto;
+        /* flex-wrap: wrap; */
+    }
+    
+    .imageSection2 {
+        display: flex;
+        /* grid-template-areas: 'a a a b c c'
+        'd d d d e e'; */
+        /* grid-template-columns: repeat(6,1fr); */
+        flex-direction: row;
+        justify-content: center;
+        height: 100%;
+        width: 100%;
+        margin: 0 auto;
+        gap:1em;
+        /* flex-wrap: wrap; */
+
+    }
+    .imageA , .imageB , .imageC , .imageD , .imageE {
+width: 50%;
+    }
+}
+
+@media (max-width:750px){
+    h1{
+        font-size: 1.5em;
+    }
+    .numbersSection{
+        height: auto;
+        border: 1px solid red;
+    }
+    .imageSection1 {
+        height: auto;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+    }
+    
+    .imageSection2 {
+        height: auto;
+
+   flex-direction: column;
+   justify-content: center;
+align-items: center;
+    }
+
+.imageSection1 figcaption,
+.imageSection2 figcaption {
+    height: 10em;
+    width: 80%;
+    font-size: 1.5em;
+    justify-content: center;
+    align-items: center;
+}
 }
