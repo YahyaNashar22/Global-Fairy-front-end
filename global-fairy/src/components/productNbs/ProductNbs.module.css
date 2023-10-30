@@ -1,0 +1,13 @@
+@import '../../App.css';
+
+.nbContainer{
+    border: 1px solid red;
+    display: inline;
+    font-size: 1.1em;
+}
+.showNb{
+color: var(--black-60);
+}
+.productNb{
+color:var(--wenge)
+}

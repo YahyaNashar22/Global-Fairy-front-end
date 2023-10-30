@@ -1,0 +1,86 @@
+@import '../../App.css';
+
+.arrowsContainer {
+    height: 2em;
+    display: inline-flex;
+    width: auto;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid red;
+}
+
+.arrowsContainer .nbSpan {
+    /* display: inline-flex; */
+    width: 2em;
+    color: black;
+    font-size: 1.2em;
+    margin: 0 2px;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.nextA .imgSpan,
+.back .imgSpan {
+    width: 50%;
+    height: 60%;
+}
+
+.nbs {
+    border: 2px solid #D1D5DB;
+    background: white;
+    display: inline-flex;
+
+}
+
+.back {
+    background-color: #D1D5DB;
+    display: inline-flex;
+
+}
+
+.nextA {
+    background-color: #1F2937;
+    display: inline-flex;
+
+}
+
+@media (max-width:850px) {
+    .arrowsContainer {
+        height: 1.7em;
+
+    }
+    .arrowsContainer .nbSpan {
+        width: 1.em;
+        margin: 0 1px;
+        font-size: 0.9em;
+    }
+
+}
+@media (max-width:500px) {
+    .arrowsContainer {
+        height: 1.5em;
+
+    }
+
+    .arrowsContainer .nbSpan {
+        width: 1.5em;
+        font-size: 0.9em;
+        margin: 0 1px;
+    }
+
+}
+
+@media (max-width:400px) {
+    .nbs {
+        display: none;
+    }
+    .arrowsContainer .nbSpan {
+        width: 2em;
+        margin: 0 3px;
+    }
+    .arrowsContainer {
+        height: 1.5em;   
+    }
+    
+}
