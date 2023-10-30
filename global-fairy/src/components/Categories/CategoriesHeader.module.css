@@ -1,0 +1,31 @@
+@import '../../App.css';
+
+.CategoriesHeader{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    width: 80%;
+    height: 12%;
+    background-color: #FFF;
+    color: var(--black-60);
+    text-align: center;
+    font-size: 2em;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 0.92px;
+    padding: 12px 0;
+}
+
+.CategoriesHeader h3{
+    padding: 0 3%;
+    font-weight: normal;
+}
+ @media (max-width:550px){
+    .CategoriesHeader{
+        width: 100%;
+        height: 12%;
+        font-size: 1.3em;
+    }
+ }
