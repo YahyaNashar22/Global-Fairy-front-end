@@ -70,3 +70,81 @@
   height: 790px;
   margin-top: 10px;
 }
+
+@media (max-width: 992px) {
+  .container {
+    gap: 20px;
+  }
+  .category {
+    font-size: 27px;
+  }
+  .category:not(:first-child) {
+    margin-left: 20px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .container {
+    gap: 50px;
+  }
+  .content .mainTitle {
+    color: #000;
+    font-size: 60px;
+    font-weight: bold;
+  }
+  .content .subTitle {
+    font-size: 30px;
+  }
+  .content p {
+    font-size: 18px;
+    width: 85%;
+  }
+  .content .callToAction {
+    padding: 16px 40px;
+    font-size: 18px;
+  }
+  
+  .image {
+    height: 600px;
+    margin-top: 60px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 30px 30px 50px;
+  }
+  .mainContent {
+    align-items: center;
+    gap: 60px;
+  }
+  .content {
+    align-items: center;
+  }
+  .content .mainTitle {
+    font-size: 40px;
+    margin-bottom: 15px;
+  }
+  .content .subTitle {
+    font-size: 25px;
+    text-align: center;
+  }
+  .content p {
+    margin: 25px 0;
+    font-size: 16px;
+    width: 85%;
+    text-align: center;
+  }
+  .callToAction {
+    padding: 13px 38px;
+  }
+  .category {
+    font-size: 20px;
+  }
+  .category:not(:first-child) {
+    margin-left: 20px;
+  }
+  .image {
+    display: none;
+  }
+}
