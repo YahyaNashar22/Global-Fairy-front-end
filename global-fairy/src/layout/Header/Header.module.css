@@ -1,5 +1,6 @@
 header {
     background-color: var(--rose-background-color);
+    position: relative;
 }
 
 .container {
@@ -28,4 +29,65 @@ header {
     height: 43px;
     flex-shrink: 0;
     cursor: pointer;
+}
+
+.burger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.bar {
+    width: 25px;
+    height: 2px;
+    background-color: #000;
+    margin: 3px 0;
+    transition: 0.4s;
+}
+
+.open .bar {
+    background-color: transparent;
+}
+
+/* Media query for small screens (less than 992px) */
+
+@media (max-width: 1200px) {
+    .content {
+        gap: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container .logo img {
+        width: 130px;
+    }
+    .container .content {
+        gap: 20px;
+    }
+    .content .userIcon {
+        display: none;
+    }
+}
+
+@media (max-width: 992px) {
+    header {
+        position: relative;
+    }    
+
+    .container {
+        position: relative;
+    }
+    .container .content {
+        gap: 20px;
+    }
+
+    .burger {
+        display: flex;
+    }
+
+    .open .content {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
 }
