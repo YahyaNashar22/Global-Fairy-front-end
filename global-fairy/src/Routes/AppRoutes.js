@@ -9,6 +9,12 @@ function AppRoutes() {
         <Routes>
           <Route index element={<Home />} />
           <Route path="/home" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/brand" element={<Brand />} />
+          <Route path="/category" element={<Category />} />
+          <Route path="/dashborad" element={<Dashborad />} />
+          <Route path="/addproduct" element={<Addproduct />} />
           </Routes>
       </BrowserRouter>
     </div>
