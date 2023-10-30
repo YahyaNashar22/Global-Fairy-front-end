@@ -1,3 +1,19 @@
+.nav {
+  animation: rotateMenu 400ms ease-in-out forwards;
+  transform-origin: top center
+}
+@keyframes rotateMenu {
+  0% {
+    transform: rotateX(-90deg)
+  }
+  70% {
+    transform: rotateX(20deg) 
+  }
+  100% {
+    transform: rotateX(0deg) 
+  }
+}
+
 .nav ul {
   display: flex;
   gap: 47px;
@@ -8,4 +24,37 @@
 }
 .nav a:hover {
   color: var(--Magenta-dye, #D81A84);
+}
+
+@media (max-width: 767px) {
+  .nav ul li {
+    padding: 30px;
+  }
+}
+@media (max-width: 992px) {
+  .nav {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    transition: 1s;
+    width: 40%;
+    border-top: 1px solid var(--Magenta-dye, #D81A84);;
+  }
+    .nav ul {
+      display: flex;
+      flex-direction: column;
+      background-color: #F9F1E8;
+      width: 100%;
+      gap: 0;
+    }
+    .nav ul li {
+      padding: 40px;
+    }
+}
+
+@media (max-width: 1200px) {
+  .nav ul {
+    display: flex;
+    /* gap: 35px; */
+  }
 }
