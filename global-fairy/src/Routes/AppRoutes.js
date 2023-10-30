@@ -7,6 +7,7 @@ import Brand from '../pages/Brand/Brand'
 import Category from '../pages/Category/Category'
 import Dashboard from '../pages/Dashboard/Dashboard'
 import AddProduct from '../pages/AddProduct/AddProduct'
+import ProductView from '../pages/ProductView/ProductView'
 
 function AppRoutes() {
   return (
@@ -21,6 +22,7 @@ function AppRoutes() {
           <Route path="/category" element={<Category />} />
           <Route path="/dashborad" element={<Dashboard />} />
           <Route path="/addproduct" element={<AddProduct />} />
+          <Route path="/productview" element={<ProductView />} />
         </Routes>
       </BrowserRouter>
     </div>

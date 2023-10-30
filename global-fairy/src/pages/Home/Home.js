@@ -5,8 +5,7 @@ import "./Home.module.css"
 const Home = () => {
     return(
         <div>
-            <Hero />
-            <Brand></Brand>
+
         </div>
     )
 }
