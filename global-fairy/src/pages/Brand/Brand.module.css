@@ -1,0 +1,40 @@
+.brandPage{
+    /* border: 1px solid red; */
+    width: 95%;
+    margin: 0 auto;
+
+}
+.headerBrand{
+    /* border: 1px solid red; */
+width: 100%;
+}
+.mainBrand{
+    /* border: 1px solid red; */
+width: 100%;
+height: auto;
+margin: 0 auto;
+}
+.addComp{
+    height: 2%;
+    /* border: 1px solid black; */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0.5em;
+
+}
+.mainProduct{
+    border: 1px solid green;
+    height: auto;
+    width: auto;
+    display: flex;
+    flex-direction: row;
+    gap: 0.7em;
+
+}
+.products{
+border: 1px solid red;
+width: 100%;
+display: flex;
+flex-direction: row;
+}
