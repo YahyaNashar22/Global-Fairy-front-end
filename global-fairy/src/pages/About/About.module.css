@@ -25,7 +25,7 @@ img {
 text-align: center; 
 margin-top: 20px;   
 }.frame {
-width: 100px; /* Adjust the dimensions as needed */
+width: 100px; 
 height: 100px;
 display: flex;
 align-items: center;
@@ -41,8 +41,8 @@ height: 50px;
 }
 
 .blackFrame {
-background-color: #888; /* Gray frame */
-width: 80px; /* Adjust the dimensions of the gray frame */
+background-color: #888; 
+width: 80px; 
 height: 80px;
 display: flex;
 align-items: center;
