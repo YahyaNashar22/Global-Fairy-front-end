@@ -1,12 +1,12 @@
-import Header from "../../layout/Header/Header"
+import Hero from "../../layout/Hero/Hero"
+import "./Home.module.css"
 
 const Home = () => {
-return(
-    <div>
-
-    </div>
-
-)
+    return(
+        <div>
+            <Hero />
+        </div>
+    )
 }
 
 export default Home;
