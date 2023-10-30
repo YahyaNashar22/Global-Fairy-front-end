@@ -1,27 +1,42 @@
+.brandSection {
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
 .imageContainer {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 20px;
-    padding: 10px;
+    margin: auto;
+    padding: 15px;
+    width: 90%;
 }
 
-.row {
+.row, .twoBrands {
     display: flex;
     justify-content: center;
-    margin: 10px;
+    align-items: center;
+    /* margin: 10px; */
+    margin: 10px 0;
+    gap: 16%;
 }
-
-.row img {
-    width: 200px; 
-    height: 200px;
+.twoBrands {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16%;
+    margin: 0;
+}
+.twoBrands img {
+    width: 160px; 
+    height: 160px;
     border-radius: 50%; 
-     margin: 10px; 
+    margin: 10px; 
     border: 2px solid #555;
 }
 
-h1{
-    display: flex;
+.heading {
+display: flex;
 width: 100%;
 height: 30%;
 flex-direction: column;
@@ -30,8 +45,10 @@ gap: 8px;
 flex-shrink: 0;
 font-weight: normal;
 position: relative;
+font-size: 45px;
+margin-bottom: 20px;
 }
-h1::after{
+.heading::after{
     display:block;
     clear:both;
     content : "";
@@ -44,4 +61,36 @@ h1::after{
     border-bottom:2px solid #000;
     margin:0 auto;
     padding:0px 0px;
+}
+
+@media (max-width: 992px) {
+    .heading {
+        font-size: 38px;
+    }
+    .row, .twoBrands {
+        gap: 8%;
+    }
+    .twoBrands img {
+        width: 120px; 
+        height: 120px;
+    }
+}
+
+@media (max-width: 767px) {
+    .heading {
+        font-size: 35px;
+    }
+    .row {
+        flex-direction: column;
+    }
+    .twoBrands {
+        gap: 5%;
+    }
+    .twoBrands img {
+        width: 105px; 
+        height: 105px;
+    }
+    .deleteImage {
+        display: none;
+    }
 }
