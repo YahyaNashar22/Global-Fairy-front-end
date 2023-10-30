@@ -1,0 +1,31 @@
+header {
+    background-color: var(--rose-background-color);
+}
+
+.container {
+    width: 90%;
+    margin: 0 auto;
+    padding: 0 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img {
+    width: 160px;
+    flex-shrink: 0;
+    margin: 10px 0;
+}
+
+.content {
+    display: flex;
+    align-items: center;
+    gap: 45px;
+}
+
+.userIcon img {
+    width: 46px;
+    height: 43px;
+    flex-shrink: 0;
+    cursor: pointer;
+}
