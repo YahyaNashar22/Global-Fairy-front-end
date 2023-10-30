@@ -1,0 +1,80 @@
+
+.purshaseButtons {
+  padding-top: 25px;
+  display: flex;
+  gap: 25px;
+}
+.counter {
+  color: #000;
+  font-size: 16px;
+  display: flex;
+  width: 25%;
+  height: 65px;
+  padding: 16px 15px;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 62px;
+  background: #F0F0F0;
+  border: 1px solid #ccc;
+}
+.decrease {
+  padding: 10px;
+  font-size: 25px;  
+  cursor: pointer;
+}
+.count {
+  color: #000;
+  font-size: 16px;
+  flex-grow: 1;
+  text-align: center;
+}
+.increase {
+  padding: 10px;
+  font-size: 25px;
+  cursor: pointer;
+}
+.addToCard {
+  width: 60%;
+  height: 65px;
+  padding: 16px 54px;
+  flex-shrink: 0;
+  border-radius: 62px;
+  background: var(--Thulian-pink, #D96093);
+  color: white;
+  border: none;
+  font-size: 16px;
+  transition: .2s;
+  cursor: pointer;
+}
+.addToCard:hover {
+  background: var(--Thulian-pink, #bd5580);
+}
+
+.soldout {
+  width: 60%;
+  height: 65px;
+  padding: 16px 54px;
+  flex-shrink: 0;
+  border-radius: 62px;
+  background-color: #E51E1E;
+  color: white;
+  border: none;
+  font-size: 16px;
+  transition: .2s;
+  cursor: pointer;
+}
+
+@media (max-width: 992px) {
+  .purshaseButtons {
+    justify-content: center;
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .purshaseButtons {
+    justify-content: space-evenly;
+    width: 100%;
+    gap: 10px
+  }
+}
