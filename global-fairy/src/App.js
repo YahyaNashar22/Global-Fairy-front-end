@@ -1,10 +1,14 @@
 import './App.css';
-import Home from "./pages/Home/Home"
+import AppRoutes from './Routes/AppRoutes';
+import Header from './layout/Header/Header'
+import Footer from './layout/Footer/Footer'
 
 function App() {
   return (
     <div className="app">
-      <Home />
+      <Header />
+      <AppRoutes />
+      <Footer />
     </div>
   );
 }
