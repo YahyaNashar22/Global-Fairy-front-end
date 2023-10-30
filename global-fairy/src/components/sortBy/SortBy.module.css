@@ -18,16 +18,17 @@ font-size: inherit;
 
 .sortDropDown select{
     border: none;
-    /* outline: none; */
     background: none;
     font-size: 1em;
 
 }
-
+.sortDropDown select:focus{
+outline: none;
+}
 .sortDropDown select:focus  option:hover{
     border: none;
     background-color: var(--input-color-background);
-    /* outline: 0; */
 }
+
 
 
