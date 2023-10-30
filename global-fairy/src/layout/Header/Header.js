@@ -6,13 +6,11 @@ import NavBar from "../NavBar/NavBar";
 import Search from '../../components/Search/Search'
 
 const Header = () => {
+    /* THIS IS TO SHOW AND HIDE THE DROP MENU */
     const [isNavOpen, setIsNavOpen] = useState(false);
-
     const toggleNav = () => {
         setIsNavOpen(!isNavOpen);
     }
-
-    // Use useEffect to ensure the navigation menu is shown when screen width > 992px
     useEffect(() => {
         const handleResize = () => {
             if (window.innerWidth > 992) {
@@ -21,14 +19,8 @@ const Header = () => {
                 setIsNavOpen(false);
             }
         };
-
-        // Add event listener to handle window resize
         window.addEventListener('resize', handleResize);
-
-        // Call the handleResize function on initial load
         handleResize();
-
-        // Clean up the event listener when the component unmounts
         return () => {
             window.removeEventListener('resize', handleResize);
         };
@@ -46,7 +38,7 @@ const Header = () => {
                     <div className={style.userIcon}>
                         <img src={userIcon} alt="User Icon" />
                     </div>
-                    <div className={style.burger} onClick={toggleNav}>
+                    <div className={style.burger} onClick={toggleNav} >
                         <div className={`${style.bar} ${isNavOpen ? style.open : ''}`}></div>
                         <div className={`${style.bar} ${isNavOpen ? style.open : ''}`}></div>
                         <div className={`${style.bar} ${isNavOpen ? style.open : ''}`}></div>

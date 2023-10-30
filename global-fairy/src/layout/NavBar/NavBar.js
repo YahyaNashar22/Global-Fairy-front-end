@@ -1,7 +1,7 @@
 import React from 'react';
 import style from './NavBar.module.css';
 
-const NavBar = ({ toggleNav }) => {
+const NavBar = () => {
     return (
         <nav className={style.nav}>
             <ul>
