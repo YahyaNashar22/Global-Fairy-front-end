@@ -2,7 +2,8 @@ import React from 'react';
 import { useState,useEffect } from 'react';
 import style from './Hero.module.css';
 import clothesAnimation from '../../assets/images/clothesAnimation.png';
-import AnimationC from '../../assets/images/AnimatioC.png'
+import AnimationC from '../../assets/images/suits.png'
+// import AnimationC from '../../assets/images/clothes2.png'
 import AnimationS from '../../assets/images/AnimationS.png'
 import AnimationM from '../../assets/images/AnimationM2.png'
 
