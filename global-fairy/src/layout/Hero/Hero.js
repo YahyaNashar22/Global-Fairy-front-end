@@ -1,8 +1,29 @@
 import React from 'react';
+import { useState,useEffect } from 'react';
 import style from './Hero.module.css';
 import clothesAnimation from '../../assets/images/clothesAnimation.png';
+import AnimationC from '../../assets/images/suits.png'
+// import AnimationC from '../../assets/images/clothes2.png'
+import AnimationS from '../../assets/images/AnimationS.png'
+import AnimationM from '../../assets/images/AnimationM2.png'
+
 
 function Hero() {
+  const images = [AnimationC, AnimationM, AnimationS];
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+      const intervalId = setInterval(() => {
+          if(currentIndex === images.length - 1) {
+              setCurrentIndex(0);
+          } 
+          else {
+               setCurrentIndex(currentIndex + 1);
+          }
+      }, 3000)
+      
+      return () => clearInterval(intervalId);
+  }, [currentIndex])
   return (
     <section className={style.hero}>
       <div className={style.container}>
@@ -24,7 +45,7 @@ function Hero() {
             <a href="/makeup" className={`${style.category} ${style.makeup}`}>makeup</a>
           </div>
         </div>
-        <img className={style.image} src={clothesAnimation} alt="A Girl Wearing a Set of Clothes" />
+        <img className={style.image} src={images[currentIndex]} alt="A Girl Wearing a Set of Clothes" />
       </div>
     </section>
   );
