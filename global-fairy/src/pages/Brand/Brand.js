@@ -36,7 +36,9 @@ const Brand = () => {
                         <ProductCard />
                         <ProductCard /> */}
                         <ProductCard />
-                     
+                        <ProductCard />
+                        <ProductCard />
+                        <ProductCard />
                      
                       
                     </div>
