@@ -6,6 +6,7 @@ import ProductNbs from '../../components/productNbs/ProductNbs'
 import SortBy from '../../components/sortBy/SortBy'
 import ProductCard from '../../components/productCard/ProductCard'
 import Arrows from '../../components/arrows/Arrows'
+import Filter from '../../assets/icons/filter.png'
 
 
 
@@ -21,7 +22,17 @@ const Brand = () => {
 
             <div className={styles.mainBrand}>
                 <div className={styles.addComp}>
-                    <ProductNbs />
+
+                    
+                    <div className="content">
+                        <div className="filter">
+                            <img src={Filter} alt="Filter Icon" />
+                            <span>Filter</span>
+                        </div>
+                        <ProductNbs />
+                    </div>
+
+                    
                     <SortBy />
                 </div>
                 <div className={styles.mainProduct}>
@@ -39,16 +50,12 @@ const Brand = () => {
                         <ProductCard />
                         <ProductCard />
                         <ProductCard />
-                     
-                      
                     </div>
-
                 </div>
             </div>
-<div className={styles.arrow}>
-    <Arrows/>
-
-</div>
+            <div className={styles.arrow}>
+                <Arrows/>
+            </div>
         </div>
     )
 }
