@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import CategoriesHeader from '../../components/Categories/CategoriesHeader'
 import BrandHeader from '../../components/brandHeader/BrandHeader'
 import SideBar from '../../components/SideBar/Sidebar'
@@ -6,16 +6,18 @@ import ProductNbs from '../../components/productNbs/ProductNbs'
 import SortBy from '../../components/sortBy/SortBy'
 import ProductCard from '../../components/productCard/ProductCard'
 import Arrows from '../../components/arrows/Arrows'
-
+import { useParams } from 'react-router-dom';
 
 
 import styles from "./Brand.module.css"
 const Brand = () => {
+    const {type,name}=useParams()
+const [categories,setCategories]=useState(["Clothes","Shoes","Makeup"])    
     return (
         <div className={styles.brandPage}>
             <div className={styles.headerBrand}>
-                <CategoriesHeader />
-                <BrandHeader />
+                <CategoriesHeader categories={categories}/>
+            {type==="Brand"?<BrandHeader name={name}/>:null } 
             </div>
 
 
