@@ -1,12 +1,14 @@
-import React from 'react';
-import style from './ProductView.module.css'
+import ProductViewDetails from '../../components/ProductView/ProductView'
+import SimiliarSection from '../../components/similiarSection/SimiliarSection'
+import "./ProductView.module.css"
 
 const ProductView = () => {
-return(
-    <div>
-        
-    </div>
-)
+    return(
+        <>
+          <ProductViewDetails />
+          <SimiliarSection />
+        </>
+    )
 }
 
 export default ProductView;
