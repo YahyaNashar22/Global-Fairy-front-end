@@ -6,7 +6,7 @@ import AnimationC from '../../assets/images/suits.png'
 // import AnimationC from '../../assets/images/clothes2.png'
 import AnimationS from '../../assets/images/AnimationS.png'
 import AnimationM from '../../assets/images/AnimationM2.png'
-
+import { Link } from 'react-router-dom';
 
 function Hero() {
   const images = [AnimationC, AnimationM, AnimationS];
@@ -35,14 +35,16 @@ function Hero() {
               Browse through our diverse range of meticulously crafted garments,
               designed to bring out your individuality and cater to your sense of style.
             </p>
-            <a href="/clothes">
+            <a href="/Category/Clothes">
               <button className={style.callToAction}>Shop Now</button>
             </a>
           </div>
           <div className={style.categories}>
-            <a href="/clothes" className={`${style.category} ${style.clothes}`}>clothes</a>
-            <a href="/shoes" className={`${style.category} ${style.shoes}`}>shoes</a>
-            <a href="/makeup" className={`${style.category} ${style.makeup}`}>makeup</a>
+            {/* <a href="Category/Clothes" className={`${style.category} ${style.clothes}`}>clothes</a> */}
+            <Link to="/Products/Category/Clothes" className={`${style.category} ${style.clothes}`}>clothes</Link>
+
+            <a href="Category/Shoes" className={`${style.category} ${style.shoes}`}>shoes</a>
+            <a href="Category/Makeup" className={`${style.category} ${style.makeup}`}>makeup</a>
           </div>
         </div>
         <img className={style.image} src={images[currentIndex]} alt="A Girl Wearing a Set of Clothes" />
