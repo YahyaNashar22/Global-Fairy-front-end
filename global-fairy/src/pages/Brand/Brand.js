@@ -23,8 +23,8 @@ const [categories,setCategories]=useState(["Clothes","Shoes","Makeup"])
 
             <div className={styles.mainBrand}>
                 <div className={styles.addComp}>
-                    <ProductNbs />
-                    <SortBy />
+                    <span className={styles.addedComp}><ProductNbs /></span>
+                   <span className={styles.addedComp}><SortBy /></span> 
                 </div>
                 <div className={styles.mainProduct}>
                     <div className={styles.sideB}> 
@@ -34,7 +34,9 @@ const [categories,setCategories]=useState(["Clothes","Shoes","Makeup"])
                         <ProductCard />
                         <ProductCard />
                         <ProductCard />
-                        <ProductCard />                      
+                        <ProductCard />   
+                        <ProductCard />
+                        <ProductCard />                    
                       
                     </div>
 

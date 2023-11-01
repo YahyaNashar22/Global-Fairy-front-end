@@ -10,3 +10,10 @@ color:#1F2937;
 .productNb{
 color:var(--wenge)
 }
+@media  (max-width:900px){
+    .nbContainer {
+        font-size: 1em;
+    
+    }
+    
+}
