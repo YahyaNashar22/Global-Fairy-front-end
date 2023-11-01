@@ -6,6 +6,7 @@ import Brand from '../pages/Brand/Brand';
 import Category from '../pages/Category/Category';
 import Dashboard from '../pages/Dashboard/Dashboard';
 import Addproduct from '../pages/Addproduct/Addproduct';
+import ProductView from '../pages/ProductView/ProductView'
 import LayoutWithHeaderFooter from './LayoutWithHeaderFooter';
 import LayoutWithoutHeaderFooter from './LayoutWithoutHeaderFooter';
 
@@ -20,6 +21,7 @@ function AppRoutes() {
         <Route path="/contact" element={<LayoutWithHeaderFooter> <Contact /> </LayoutWithHeaderFooter>} />
         <Route path="/brand" element={<LayoutWithHeaderFooter> <Brand /> </LayoutWithHeaderFooter>} />
         <Route path="/category" element={<LayoutWithHeaderFooter> <Category /> </LayoutWithHeaderFooter>} />
+        <Route path="/product" element={<LayoutWithHeaderFooter> <ProductView /> </LayoutWithHeaderFooter>} />
 
         {/* Routes without Header and Footer */}
         <Route path="/dashboard" element={<LayoutWithoutHeaderFooter> <Dashboard /> </LayoutWithoutHeaderFooter>} />
