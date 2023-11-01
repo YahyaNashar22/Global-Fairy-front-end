@@ -1,14 +1,49 @@
 @import '../../App.css';
 
+.contactPage {
+    margin: 1.5em auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+}
+
 .contactContainer {
-    margin: 4em auto;;
+    margin: 2em auto;
     width: 85%;
     display: flex;
     flex-direction: row;
     gap: 2%;
-    height: 70vh; 
+    height: 100%;
     padding: auto;
+
 }
+
+.contactTitle {
+    width: 85%;
+    text-align: center;
+    font-size: 3em;
+    flex-shrink: 0;
+    font-weight: normal;
+    height: 10%;
+}
+
+.contactTitle::after {
+    display: block;
+    clear: both;
+    content: "";
+    position: relative;
+    left: 0;
+    bottom: 0;
+    max-width: 5%;
+    height: 1px;
+    width: 50%;
+    border-bottom: 3px solid #000;
+    margin: 0 auto;
+    padding: 0px 0px;
+}
+
 .contactNb {
     display: flex;
     padding: 2em 2em 2em 2em;
@@ -17,18 +52,22 @@
     box-shadow: 0px 1px 13px 0px rgba(0, 0, 0, 0.1);
     width: 30%;
     justify-content: space-around;
+    gap: 1em
 }
 
 .callUs {
     height: 40%;
 }
-.callUs , .msgUs{
+
+.callUs,
+.msgUs {
     width: 95%;
     padding: 1em;
 }
+
 .msgUs {
     border-top: 3px solid #F5F5F5;
-    height: 60%; 
+    height: 60%;
 }
 
 .callUs,
@@ -36,14 +75,12 @@
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-
 }
 
 .contactTitles h4 {
     display: inline-block;
     font-size: 1.05em;
     font-weight: normal;
-
 }
 
 .contactTitles {
@@ -52,11 +89,13 @@
     align-items: center;
     gap: 0.5em;
 }
- .imgHolderX{
-    display:none;
- }
 
-.imgHolder , .imgHolderX{
+.imgHolderX {
+    display: none;
+}
+
+.imgHolder,
+.imgHolderX {
     width: 2.7em;
     height: 2.7em;
     border-radius: 50%;
@@ -64,22 +103,30 @@
     justify-content: center;
     align-items: center;
 }
-.imgHolder{
+
+.imgHolder {
     display: flex;
 }
-.imgHolder img , .imgHolderX img{
+
+.imgHolder img,
+.imgHolderX img {
     width: 60%;
     height: 60%;
 }
-.textHolder{
+
+.textHolder {
     font-size: 1.05em;
+}
+
+.form {
+    width: 70%;
 }
 
 .contactForm {
     display: flex;
     flex-direction: column;
     gap: 1em;
-    width: 70%;
+    width: 100%;
     box-shadow: 0px 1px 13px 0px rgba(0, 0, 0, 0.1);
     padding: 2em;
     height: 100%;
@@ -92,11 +139,12 @@
     height: 10%;
     align-items: center;
     justify-content: space-between;
-
 }
-.inputsHolder , .msgHolder , .btnHolder{
-    width: 95%;
 
+.inputsHolder,
+.msgHolder,
+.btnHolder {
+    width: 95%;
 }
 
 .msgHolder {
@@ -109,13 +157,11 @@
 .inputs {
     width: 31%;
     height: 90%;
-    border-radius: 4px;
+    border-radius: 62px;
     background: #F5F5F5;
     padding: 0.5em 0 0em 0.7em;
-    /* text-align:start; */
     border-style: none;
     margin-right: 10px;
-
 }
 
 .inputs::placeholder,
@@ -126,22 +172,24 @@
 
 .msgInput {
     width: 100%;
-    border-radius: 4px;
+    border-radius: 35px;
     background: #F5F5F5;
-    padding: 0.8em 0 0em 0.8em;
+    padding: 1em 0 0em 1.2em;
     border-style: none;
     height: 90%;
-    margin:  auto; 
+    margin: auto;
 
 }
-.btnHolder{
+
+.btnHolder {
     display: flex;
     justify-content: flex-end;
 }
+
 .msgBtn {
-    border-radius: 4px;
+    border-radius: 62px;
     background: var(--thulian-pink);
-    width:20%;
+    width: 20%;
     height: 3em;
     font-size: 1em;
     color: #FFF;
@@ -153,39 +201,59 @@
 .msgInput:focus {
     outline: none;
     border: 1px solid #c4c4cc;
-    ;
+
 }
 
 /**************************************************/
 @media (max-width:750px) {
+    .contactTitle {
+        font-size: 2em;
+        flex-shrink: 0;
+        font-weight: normal;
+        position: relative;
+    }
+
+    .contactTitle::after {
+        max-width: 12%;
+    }
+
     .contactContainer {
         width: 80%;
         display: flex;
         flex-direction: column;
-        height: 80vh;
+        height: 100%;
         padding: auto;
     }
+
     .contactNb {
         display: flex;
         flex-direction: column;
-        height: 50%;
+        height: auto;
         box-shadow: 0px 1px 13px 0px rgba(0, 0, 0, 0.1);
         width: 100%;
-        justify-content: space-around;
+        justify-content: space-evenly;
+        padding: 0;
     }
-  
+
+    .form {
+        width: 100%;
+        height: auto;
+    }
+
     .contactForm {
         display: flex;
         flex-direction: column;
         width: 100%;
         box-shadow: 0px 1px 13px 0px rgba(0, 0, 0, 0.1);
         padding: 1em;
-        height: 70%;  
+        height: auto;
     }
-    .imgHolderX{
+
+    .imgHolderX {
         width: 2.2em;
         height: 2.2em;
     }
+
     .inputsHolder {
         display: flex;
         height: 50%;
@@ -193,85 +261,110 @@
         justify-content: space-around;
         flex-direction: column;
         width: 100%;
-        gap:9px;
+        gap: 9px;
     }
+
     .inputs {
         min-width: 100%;
         height: 33%;
         padding: 0.5em 0 0.5em 0.2em;
         margin-right: 10px;
     }
-    .msgHolder{
+
+    .msgHolder {
         height: 50%;
         width: 100%;
     }
-    .msgInput{
-        height: 95%;
-        margin: auto; 
+
+    .msgInput {
+        height: 120px;
+        margin: auto;
     }
-    .btnHolder{
+
+    .btnHolder {
         justify-content: center;
     }
-    .btnHolder{
+
+    .btnHolder {
         height: 20%;
     }
+
     .msgBtn {
-        width:50%;
+        width: 50%;
         height: 3em;
         font-size: 1em;
     }
-    .textHolder{
+
+    .textHolder {
         font-size: 0.8em;
     }
-    .callUs , .msgUs{
+
+    .callUs,
+    .msgUs {
         width: 100%;
         padding: 0.5em;
+        justify-content: space-evenly;
+
     }
 }
+
 @media (max-width:790px) {
-    .imgHolder{
+    .imgHolder {
         width: 1.5em;
         height: 1.5em;
     }
+
     .contactTitles h4 {
         font-size: 0.7em;
-    
+
     }
-    .textHolder{
+
+    .textHolder {
         font-size: 0.8em;
     }
-    .contactNb , .contactForm {
+
+    .contactNb,
+    .contactForm {
         padding: 0em;
     }
-  
+
 }
 
-@media (max-width:980px){
-    .imgHolder{
+@media (max-width:980px) {
+    .imgHolder {
         width: 2.2em;
         height: 2.2em;
     }
+
     .contactTitles h4 {
         font-size: 1em;
-    
+
     }
-    .textHolder{
+
+    .textHolder {
         font-size: 0.95em;
     }
-    .contactNb , .contactForm {
+
+    .contactNb,
+    .contactForm {
         padding: 1em;
     }
-    .inputsHolder , .msgHolder , .btnHolder{
+
+    .inputsHolder,
+    .msgHolder,
+    .btnHolder {
         width: 100%;
-    
     }
-    .inputs{
+
+    .inputs {
         width: 33%;
     }
 }
 
-@media (max-width:1110px){
-    .callUs , .msgUs{
+@media (max-width:1110px) {
+
+    .callUs,
+    .msgUs {
         width: 100%;
         padding: 0.2em;
     }
