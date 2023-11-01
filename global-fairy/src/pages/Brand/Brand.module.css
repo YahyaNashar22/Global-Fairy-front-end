@@ -1,66 +1,67 @@
-.brandPage{
-    width: 92%;
-    margin: 0 auto;
-    height: auto;
-}
-.headerBrand{
-width: 100%;
-}
-.mainBrand{
-width: 100%;
-height: auto;
-margin: 0 auto;
-}
-.addComp{
-    height: 2%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    padding: 1.3em;
+.brandPage {
+  width: 92%;
+  margin: 0 auto 3em auto;
+  height: auto;
 }
 
-
-.mainProduct{
-    height: auto;
-    width: auto;
-    display: flex;
-    flex-direction: row;
-
+.headerBrand {
+  width: 100%;
 }
 
-
-.products{
- width: 100%;
-display: flex;
-flex-direction: row;
-flex-wrap: wrap;
-flex-flow: row wrap;
-justify-content: space-evenly;
-align-items: stretch;
-align-content: flex-start; 
-gap:1.5em;
-padding: 0 auto;
+.mainBrand {
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
 }
 
-
-.arrow{
-display: flex;
-justify-content: flex-end;
-margin: 1.3em auto;
-}
-.sideB{
-    width: 15%;
-    min-width: 200px;
+.addComp {
+  height: 2%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 1.3em;
 }
 
-@media (max-width:1497px){
-  .products{
-    gap:0.8em
+.mainProduct {
+  height: auto;
+  width: auto;
+  display: flex;
+  flex-direction: row;
+}
+
+.products {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+  align-items: stretch;
+  align-content: flex-start;
+  gap: 1.5em;
+  padding: 0 auto;
+}
+
+.arrow {
+  display: flex;
+  justify-content: flex-end;
+  margin: 1.3em auto;
+}
+
+.sideB {
+  width: 15%;
+  min-width: 200px;
+}
+
+@media (max-width:1497px) {
+  .products {
+    gap: 0.8em
   }
-    
+
 }
-@media (max-width:650px){
-  .brandPage{
+
+@media (max-width:650px) {
+  .brandPage {
     width: 100%;
   }
 }

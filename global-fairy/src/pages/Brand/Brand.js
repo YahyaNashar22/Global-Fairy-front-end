@@ -5,7 +5,6 @@ import SideBar from '../../components/SideBar/Sidebar'
 import ProductNbs from '../../components/productNbs/ProductNbs'
 import SortBy from '../../components/sortBy/SortBy'
 import ProductCard from '../../components/productCard/ProductCard'
-import Arrows from '../../components/arrows/Arrows'
 import { useParams } from 'react-router-dom';
 
 
@@ -37,15 +36,18 @@ const [categories,setCategories]=useState(["Clothes","Shoes","Makeup"])
                         <ProductCard />   
                         <ProductCard />
                         <ProductCard />                    
-                      
+                        <ProductCard />
+                        <ProductCard />   
+                        <ProductCard />
+                        <ProductCard />  
                     </div>
 
                 </div>
             </div>
-<div className={styles.arrow}>
+{/* <div className={styles.arrow}>
     <Arrows/>
 
-</div>
+</div> */}
         </div>
     )
 }
