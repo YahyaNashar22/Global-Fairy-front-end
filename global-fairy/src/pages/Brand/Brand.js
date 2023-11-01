@@ -34,12 +34,7 @@ const [categories,setCategories]=useState(["Clothes","Shoes","Makeup"])
                         <ProductCard />
                         <ProductCard />
                         <ProductCard />
-                        {/* <ProductCard />
-                        <ProductCard />
-                        <ProductCard /> */}
-                        <ProductCard />
-                       
-                     
+                        <ProductCard />                      
                       
                     </div>
 
