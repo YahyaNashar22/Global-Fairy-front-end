@@ -28,7 +28,6 @@ function AppRoutes() {
         <Route path="/addproduct" element={<LayoutWithoutHeaderFooter> <Addproduct /> </LayoutWithoutHeaderFooter>} />
       </Routes>
     </BrowserRouter>
-  );
 }
 
 export default AppRoutes;

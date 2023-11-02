@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from "react";
 import style from './Header.module.css';
 import logo from '../../assets/images/logo.jpg';
-import userIcon from '../../assets/images/user.png';
 import NavBar from "../NavBar/NavBar";
-import Search from '../../components/Search/Search'
 
 const Header = () => {
     /* THIS IS TO SHOW AND HIDE THE DROP MENU */
@@ -34,10 +32,6 @@ const Header = () => {
                 </a>
                 <div className={style.content}>
                     {isNavOpen && <NavBar />}
-                    <Search />
-                    <div className={style.userIcon}>
-                        <img src={userIcon} alt="User Icon" />
-                    </div>
                     <div className={style.burger} onClick={toggleNav} >
                         <div className={`${style.bar} ${isNavOpen ? style.open : ''}`}></div>
                         <div className={`${style.bar} ${isNavOpen ? style.open : ''}`}></div>
