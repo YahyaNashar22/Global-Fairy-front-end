@@ -123,7 +123,7 @@
 }
 
 .imageE {
-    background-image: url("../../assets/images/clt.jpg");
+    background-image: url("../../assets/images/clt2.jpg");
 
 }
 
@@ -180,4 +180,9 @@ align-items: center;
     justify-content: center;
     align-items: center;
 }
+}
+@media (max-width:405px){
+    .title{
+        font-size: 1.1em;
+    }
 }
