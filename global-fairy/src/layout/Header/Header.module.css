@@ -24,13 +24,6 @@ header {
     gap: 45px;
 }
 
-.userIcon img {
-    width: 46px;
-    height: 43px;
-    flex-shrink: 0;
-    cursor: pointer;
-}
-
 .burger {
     display: none;
     flex-direction: column;
@@ -59,9 +52,6 @@ header {
     }
     .container .content {
         gap: 20px;
-    }
-    .content .userIcon {
-        display: none;
     }
 }
 

@@ -35,9 +35,6 @@ const Header = () => {
                 <div className={style.content}>
                     {isNavOpen && <NavBar />}
                     <Search />
-                    <div className={style.userIcon}>
-                        <img src={userIcon} alt="User Icon" />
-                    </div>
                     <div className={style.burger} onClick={toggleNav} >
                         <div className={`${style.bar} ${isNavOpen ? style.open : ''}`}></div>
                         <div className={`${style.bar} ${isNavOpen ? style.open : ''}`}></div>
