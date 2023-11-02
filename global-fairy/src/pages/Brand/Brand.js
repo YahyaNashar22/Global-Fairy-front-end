@@ -5,13 +5,13 @@ import SideBar from '../../components/SideBar/Sidebar'
 import ProductNbs from '../../components/productNbs/ProductNbs'
 import SortBy from '../../components/sortBy/SortBy'
 import ProductCard from '../../components/productCard/ProductCard'
-<<<<<<< HEAD
+// <<<<<<< HEAD
 import Arrows from '../../components/arrows/Arrows'
 import Filter from '../../assets/icons/filter.png'
 
-=======
+// =======
 import { useParams } from 'react-router-dom';
->>>>>>> pagesLinks
+// >>>>>>> pagesLinks
 
 
 import styles from "./Brand.module.css"
@@ -29,22 +29,24 @@ const [categories,setCategories]=useState(["Clothes","Shoes","Makeup"])
             <div className={styles.mainBrand}>
                 {/*  */}
                 <div className={styles.addComp}>
-<<<<<<< HEAD
+                <span className={styles.addedComp}><ProductNbs /></span>
+                   <span className={styles.addedComp}><SortBy /></span> 
+                    </div>
+{/* <<<<<<< HEAD */}
 
                     <div className={styles.content}>
                         <div className={styles.firstBox}>
                             <div className={styles.filterBtn}>
                                 <img src={Filter} className={styles.filterIcon} alt="Filter Icon" />
                                 {/* <span>Filter</span> */}
-                            </div>
+                            {/* </div>
                             <ProductNbs />
-                        </div>
+                        </div> */}
                     </div>
-                    <SortBy />  
-=======
-                    <span className={styles.addedComp}><ProductNbs /></span>
-                   <span className={styles.addedComp}><SortBy /></span> 
->>>>>>> pagesLinks
+                    {/* <SortBy />   */}
+{/* ======= */}
+                   
+{/* >>>>>>> pagesLinks */}
                 </div>
                 {/*  */}
                 <div className={styles.mainProduct}>
@@ -66,39 +68,22 @@ const [categories,setCategories]=useState(["Clothes","Shoes","Makeup"])
                     <div className={styles.products}>
                         <ProductCard />
                         <ProductCard />
-                        <ProductCard />
-<<<<<<< HEAD
-=======
+
                         <ProductCard />   
                         <ProductCard />
-                        <ProductCard />                    
->>>>>>> pagesLinks
-                        <ProductCard />
-                        <ProductCard />   
-                        <ProductCard />
-<<<<<<< HEAD
-                        <ProductCard />
-                        <ProductCard />
-                        <ProductCard />
-=======
-                        <ProductCard />  
->>>>>>> pagesLinks
+
                     </div>
                 </div>
             </div>
-<<<<<<< HEAD
-            {/*  */}
-            <div className={styles.arrow}>
-                <Arrows/>
-            </div>
-=======
+
 {/* <div className={styles.arrow}>
     <Arrows/>
 
 </div> */}
->>>>>>> pagesLinks
+        </div>
         </div>
     )
 }
+
 
 export default Brand;

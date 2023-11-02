@@ -1,11 +1,15 @@
-<<<<<<< HEAD
-.brandPage{
-    /* border: 1px solid red; */
+/* .brandPage{
     width: 92%;
     margin: 0 auto;
     height: auto;
 
+} */
+.brandPage {
+  width: 92%;
+  margin: 0 auto 3em auto;
+  height: auto;
 }
+
 .headerBrand{
     /* border: 1px solid red; */
 width: 100%;
@@ -102,16 +106,6 @@ margin: 1.3em auto;
 .sideB{
     width: 15%;
     /* display: none;  */
-=======
-.brandPage {
-  width: 92%;
-  margin: 0 auto 3em auto;
-  height: auto;
-}
-
-.headerBrand {
-  width: 100%;
->>>>>>> pagesLinks
 }
 
 .mainBrand {
@@ -170,7 +164,6 @@ margin: 1.3em auto;
   .brandPage {
     width: 100%;
   }
-<<<<<<< HEAD
     
 }
 
@@ -319,6 +312,5 @@ margin: 1.3em auto;
 .menuToggle input:checked ~ ul
 {
   transform: none;
-=======
->>>>>>> pagesLinks
+
 }
