@@ -12,6 +12,7 @@ import LayoutWithoutHeaderFooter from './LayoutWithoutHeaderFooter';
 
 function AppRoutes() {
   return (
+    <div>
     <BrowserRouter>
       <Routes>
         {/* Routes with Header and Footer */}
@@ -28,6 +29,8 @@ function AppRoutes() {
         <Route path="/addproduct" element={<LayoutWithoutHeaderFooter> <Addproduct /> </LayoutWithoutHeaderFooter>} />
       </Routes>
     </BrowserRouter>
+    </div>
+  )
 }
 
 export default AppRoutes;
