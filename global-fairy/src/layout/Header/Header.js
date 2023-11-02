@@ -1,14 +1,17 @@
 import React, { useState, useEffect } from "react";
+import { useSharedData } from '../../context/DataContext';
 import style from './Header.module.css';
 import logo from '../../assets/images/logo.jpg';
 import NavBar from "../NavBar/NavBar";
 
 const Header = () => {
+
     /* THIS IS TO SHOW AND HIDE THE DROP MENU */
-    const [isNavOpen, setIsNavOpen] = useState(false);
+    const { isNavOpen, setIsNavOpen } = useSharedData();
+
     const toggleNav = () => {
         setIsNavOpen(!isNavOpen);
-    }
+    };
     useEffect(() => {
         const handleResize = () => {
             if (window.innerWidth > 992) {
@@ -25,7 +28,7 @@ const Header = () => {
     }, []);
 
     return (
-        <header className={style.header}>
+        <header className={`${style.header} ${isNavOpen ? style.SectionOpacity : ``}`}>
             <div className={style.container}>
                 <a href="/home" className={style.logo}>
                     <img src={logo} alt="Logo" />

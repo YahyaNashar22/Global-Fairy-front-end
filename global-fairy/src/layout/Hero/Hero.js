@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState,useEffect } from 'react';
+import { useSharedData } from '../../context/DataContext';
 import style from './Hero.module.css';
 import clothesAnimation from '../../assets/images/clothesAnimation.png';
 import AnimationC from '../../assets/images/suits.png'
@@ -9,6 +10,8 @@ import AnimationM from '../../assets/images/AnimationM2.png'
 
 
 function Hero() {
+  const { isNavOpen } = useSharedData();
+
   const images = [AnimationC, AnimationM, AnimationS];
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -25,7 +28,7 @@ function Hero() {
       return () => clearInterval(intervalId);
   }, [currentIndex])
   return (
-    <section className={style.hero}>
+    <section className={`${style.hero} ${isNavOpen ? style.SectionOpacity : ''}`}>
       <div className={style.container}>
         <div className={style.mainContent}>
           <div className={style.content}>
