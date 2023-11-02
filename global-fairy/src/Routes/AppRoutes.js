@@ -7,7 +7,8 @@ import Brand from '../pages/Brand/Brand';
 import Category from '../pages/Category/Category';
 import Dashboard from '../pages/Dashboard/Dashboard';
 import Addproduct from '../pages/Addproduct/Addproduct';
-import ProductView from '../pages/ProductView/ProductView'
+import ProductView from '../pages/ProductView/ProductView';
+import NotFound from '../pages/NotFound/NotFound';
 import LayoutWithHeaderFooter from './LayoutWithHeaderFooter';
 import LayoutWithoutHeaderFooter from './LayoutWithoutHeaderFooter';
 
@@ -25,12 +26,13 @@ function AppRoutes() {
         <Route path="/contact" element={<LayoutWithHeaderFooter> <Contact /> </LayoutWithHeaderFooter>} />
         <Route path="/Products/:type/:name" element={<LayoutWithHeaderFooter> <Brand /> </LayoutWithHeaderFooter>} />
         <Route path="/category" element={<LayoutWithHeaderFooter> <Category /> </LayoutWithHeaderFooter>} />
-        {/* <Route path="/view" element={<LayoutWithHeaderFooter> <ProductView /> </LayoutWithHeaderFooter>} /> */}
+        <Route path="/view" element={<LayoutWithHeaderFooter> <ProductView /> </LayoutWithHeaderFooter>} />
 
 
           {/* Routes without Header and Footer */}
           <Route path="/dashboard" element={<LayoutWithoutHeaderFooter> <Dashboard /> </LayoutWithoutHeaderFooter>} />
           <Route path="/addproduct" element={<LayoutWithoutHeaderFooter> <Addproduct /> </LayoutWithoutHeaderFooter>} />
+          <Route path="/*" element={<LayoutWithoutHeaderFooter> <NotFound /> </LayoutWithoutHeaderFooter>} />
         </Routes>
       </DataProvider>
       </BrowserRouter>
