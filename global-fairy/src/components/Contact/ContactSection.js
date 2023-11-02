@@ -4,6 +4,8 @@ import callIcon from "../../assets/icons/telephone.png"
 import emailIcon from "../../assets/icons/mail.png"
 export default function ContactSection() {
     return (
+        <div className={styles.contactPage}>
+        <h1 className={styles.contactTitle}>Get In Touch</h1>
         <main className={styles.contactContainer}>
 
             <section className={styles.contactNb}>
@@ -21,7 +23,9 @@ export default function ContactSection() {
                     <p className={styles.textHolder}>Emails: support@exclusive.com</p>
                 </article>
             </section>
-            <form className={styles.contactForm} action="/" method='POST' name="contact">
+            <form className={styles.form} action="/" method='POST' name="contact">
+            <div className={styles.contactForm}>
+
                 <div className={styles.inputsHolder}>
                     <input className={styles.inputs} type="text" id="name" name="name" placeholder="Your Name" required></input>
                     <input className={styles.inputs} type="email" id="email" name="email" placeholder="Your Email" required></input>
@@ -34,8 +38,10 @@ export default function ContactSection() {
                 <div className={styles.btnHolder}>
                     <button className={styles.msgBtn} type='submit' value='submit' >Send Message</button>
                 </div>
+                </div>
 
             </form>
         </main>
+        </div>
     )
 }

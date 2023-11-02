@@ -3,7 +3,7 @@ import style from "./productCard.module.css"
 import productImg from "../../assets/images/product.png"
 import Sold from '../soldOut/Sold'
 export default function ProductCard() {
-  const [isSold, setIsSold] = useState(false)
+  const [isSold, setIsSold] = useState(true)
   const blurClass = isSold? style.blur :null;
   return (
     <div className={style.card}>

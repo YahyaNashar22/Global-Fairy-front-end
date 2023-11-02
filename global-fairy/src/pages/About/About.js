@@ -11,10 +11,10 @@ const About = () => {
         <div className={style.aboutContainer}>
             <div className={style.container}>
                 <div className={style.text}>
-                    <h2 className={style.aboutTitle}>Our Story</h2>
+                    <h2 className={style.aboutTitle}>OUR STORY</h2>
                     <p>Launced in 2015, Exclusive is South Asia’s premier online shopping makterplace with an active presense in
                         Bangladesh. Supported by wide range of tailored marketing, data and service solutions, Exclusive has
-                        10,500 sallers and 300 brands and serves 3 millioons customers across the region.</p>
+                        10,500 sallers and 300 brands and serves 3 millions customers across the region.</p>
                     <p>  Exclusive has more than 1 Million products to offer, growing at a very fast. Exclusive offers a diverse
                         assotment in categories ranging from consumer. </p>
                 </div>
@@ -23,7 +23,7 @@ const About = () => {
                 </div>
             </div>
             <div className={style.whyus}>
-                <h2>WHY US</h2>
+                <h2 className={style.aboutTitle}>WHY US</h2>
                 <div className={style.allIcon}>
                     <div className={style.icon}>
                         <div className={`${style.frame} ${style.grayFrame}`}>

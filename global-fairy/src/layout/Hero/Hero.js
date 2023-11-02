@@ -5,9 +5,9 @@ import style from './Hero.module.css';
 import clothesAnimation from '../../assets/images/clothesAnimation.png';
 import AnimationC from '../../assets/images/suits.png'
 // import AnimationC from '../../assets/images/clothes2.png'
-import AnimationS from '../../assets/images/AnimationS.png'
+import AnimationS from '../../assets/images/AnimationS2.png'
 import AnimationM from '../../assets/images/AnimationM2.png'
-
+import { Link } from 'react-router-dom';
 
 function Hero() {
   const { isNavOpen } = useSharedData();
@@ -33,22 +33,27 @@ function Hero() {
         <div className={style.mainContent}>
           <div className={style.content}>
             <h1 className={style.mainTitle}>Global Fairy</h1>
-            <h2 className={style.subTitle}>FIND WHAT MATCHES YOUR STYLE</h2>
+            <span className={style.subTitle}>FIND WHAT MATCHES YOUR STYLE</span>
             <p>
               Browse through our diverse range of meticulously crafted garments,
               designed to bring out your individuality and cater to your sense of style.
             </p>
-            <a href="/clothes">
+            <Link to="Products/Category/Clothes">
               <button className={style.callToAction}>Shop Now</button>
-            </a>
+            </Link>
           </div>
           <div className={style.categories}>
-            <a href="/clothes" className={`${style.category} ${style.clothes}`}>clothes</a>
-            <a href="/shoes" className={`${style.category} ${style.shoes}`}>shoes</a>
-            <a href="/makeup" className={`${style.category} ${style.makeup}`}>makeup</a>
+            {/* <a href="Category/Clothes" className={`${style.category} ${style.clothes}`}>clothes</a>
+            <a href="Category/Shoes" className={`${style.category} ${style.shoes}`}>shoes</a>
+            <a href="#" className={`${style.category} ${style.makeup}`}>makeup</a> */}
+                  <span  className={`${style.category} ${style.clothes}`}>clothes</span>
+            <span  className={`${style.category} ${style.shoes}`}>shoes</span>
+            <span className={`${style.category} ${style.makeup}`}>makeup</span>
           </div>
         </div>
+        <div className={style.imgHolder} >
         <img className={style.image} src={images[currentIndex]} alt="A Girl Wearing a Set of Clothes" />
+        </div>
       </div>
     </section>
   );

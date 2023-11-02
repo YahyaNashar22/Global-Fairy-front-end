@@ -1,28 +1,35 @@
-import React from 'react';
+import React, { useState } from 'react';
 import CategoriesHeader from '../../components/Categories/CategoriesHeader'
 import BrandHeader from '../../components/brandHeader/BrandHeader'
 import SideBar from '../../components/SideBar/Sidebar'
 import ProductNbs from '../../components/productNbs/ProductNbs'
 import SortBy from '../../components/sortBy/SortBy'
 import ProductCard from '../../components/productCard/ProductCard'
+<<<<<<< HEAD
 import Arrows from '../../components/arrows/Arrows'
 import Filter from '../../assets/icons/filter.png'
 
+=======
+import { useParams } from 'react-router-dom';
+>>>>>>> pagesLinks
 
 
 import styles from "./Brand.module.css"
 const Brand = () => {
+    const {type,name}=useParams()
+const [categories,setCategories]=useState(["Clothes","Shoes","Makeup"])    
     return (
         <div className={styles.brandPage}>
             {/*  */}
             <div className={styles.headerBrand}>
-                <CategoriesHeader />
-                <BrandHeader />
+                <CategoriesHeader categories={categories}/>
+            {type==="Brand"?<BrandHeader name={name}/>:null } 
             </div>
             {/*  */}
             <div className={styles.mainBrand}>
                 {/*  */}
                 <div className={styles.addComp}>
+<<<<<<< HEAD
 
                     <div className={styles.content}>
                         <div className={styles.firstBox}>
@@ -34,6 +41,10 @@ const Brand = () => {
                         </div>
                     </div>
                     <SortBy />  
+=======
+                    <span className={styles.addedComp}><ProductNbs /></span>
+                   <span className={styles.addedComp}><SortBy /></span> 
+>>>>>>> pagesLinks
                 </div>
                 {/*  */}
                 <div className={styles.mainProduct}>
@@ -56,18 +67,36 @@ const Brand = () => {
                         <ProductCard />
                         <ProductCard />
                         <ProductCard />
+<<<<<<< HEAD
+=======
+                        <ProductCard />   
+                        <ProductCard />
+                        <ProductCard />                    
+>>>>>>> pagesLinks
+                        <ProductCard />
+                        <ProductCard />   
+                        <ProductCard />
+<<<<<<< HEAD
                         <ProductCard />
                         <ProductCard />
                         <ProductCard />
-                        <ProductCard />
-                        <ProductCard />
+=======
+                        <ProductCard />  
+>>>>>>> pagesLinks
                     </div>
                 </div>
             </div>
+<<<<<<< HEAD
             {/*  */}
             <div className={styles.arrow}>
                 <Arrows/>
             </div>
+=======
+{/* <div className={styles.arrow}>
+    <Arrows/>
+
+</div> */}
+>>>>>>> pagesLinks
         </div>
     )
 }

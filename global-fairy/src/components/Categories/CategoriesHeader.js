@@ -1,12 +1,18 @@
 import React from 'react'
 import styles from "./CategoriesHeader.module.css"
 
-export default function CategoriesHeader() {
+export default function CategoriesHeader(props) {
+  const categories=props.categories;
   return (
     <section className={styles.CategoriesHeader}>
-        <h3 className={styles.categoryName}>Clothes</h3>
+{      categories.map(elt=>(
+        <h3 className={styles.categoryName}>{elt}</h3>
+)
+)
+}
+        {/* <h3 className={styles.categoryName}>Clothes</h3>
         <h3 className={styles.categoryName}>Shoes</h3> 
-        <h3 className={styles.categoryName}>Makeup</h3>
+        <h3 className={styles.categoryName}>Makeup</h3> */}
 
     </section>
   )
