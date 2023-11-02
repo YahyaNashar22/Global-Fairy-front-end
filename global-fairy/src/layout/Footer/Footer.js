@@ -38,7 +38,7 @@ const Footer = () => {
                 <ul className={style.socialLinks}>
                     <li><a href="#"><img src={facebook} alt="Facebook Icon" /></a></li>
                     <li><a href="#"><img src={twitter} alt="Twitter Icon" /></a></li>
-                    <li><a href="#"><img src={instagram} alt="Instagram Icon" /></a></li>
+                    <li><a href="https://www.instagram.com/globalfairy.lb/"><img src={instagram} alt="Instagram Icon" /></a></li>
                     <li><a href="#"><img src={tiktok} alt="TokTok Icon" /></a></li>
                 </ul>
                 <form className={style.signUp}>
