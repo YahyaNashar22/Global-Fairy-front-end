@@ -1,12 +1,10 @@
-body {
-  background-color: var(--rose-backgorund-color, #F9F1E8);
-}
 .main {
   width: 100vw;
   height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  background-color: var(--rose-backgorund-color, #F9F1E8);
   align-items: center;
   padding: 0 15px;
 }
