@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Home from "./pages/Home/Home";
-import './App.css';
+import Home from "../pages/Home/Home";
+import '../App.css';
 
 function AppRoutes() {
   return (
@@ -9,7 +9,7 @@ function AppRoutes() {
         <Routes>
           <Route index element={<Home />} />
           <Route path="/home" element={<Home />} />
-          </Routes>
+        </Routes>
       </BrowserRouter>
     </div>
   );
