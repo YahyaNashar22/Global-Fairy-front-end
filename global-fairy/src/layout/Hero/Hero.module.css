@@ -152,7 +152,7 @@
   .category:not(:first-child) {
     margin-left: 20px;
   }
-  .image {
+  .imgHolder {
     display: none;
   }
 }

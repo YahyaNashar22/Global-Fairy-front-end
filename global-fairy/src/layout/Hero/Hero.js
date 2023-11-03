@@ -46,13 +46,13 @@ function Hero() {
             {/* <a href="Category/Clothes" className={`${style.category} ${style.clothes}`}>clothes</a>
             <a href="Category/Shoes" className={`${style.category} ${style.shoes}`}>shoes</a>
             <a href="#" className={`${style.category} ${style.makeup}`}>makeup</a> */}
-                  <span  className={`${style.category} ${style.clothes}`}>clothes</span>
-            <span  className={`${style.category} ${style.shoes}`}>shoes</span>
+            <span className={`${style.category} ${style.clothes}`}>clothes</span>
+            <span className={`${style.category} ${style.shoes}`}>shoes</span>
             <span className={`${style.category} ${style.makeup}`}>makeup</span>
           </div>
         </div>
         <div className={style.imgHolder} >
-        <img className={style.image} src={images[currentIndex]} alt="A Girl Wearing a Set of Clothes" />
+          <img className={style.image} src={images[currentIndex]} alt="A Girl Wearing a Set of Clothes" />
         </div>
       </div>
     </section>
