@@ -1,9 +1,4 @@
-/* .brandPage{
-    width: 92%;
-    margin: 0 auto;
-    height: auto;
 
-} */
 .brandPage {
   width: 92%;
   margin: 0 auto 3em auto;
@@ -20,12 +15,13 @@ width: 100%;
 height: auto;
 margin: 0 auto;
 }
-.addComp{
-    height: 2%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.5em;
+
+.addComp {
+  height: 2%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 1.3em;
 }
 
 .firstBox {
@@ -81,53 +77,16 @@ justify-content: center;
 align-items: stretch;
 align-content: flex-start; 
 gap:1em;
-/* border:1px solid red; */
 }
 
-/* .products{
-    width: 100%;
-   display: grid;
-   grid-template-columns: repeat(4,1fr);
-   grid-auto-flow: row wrap;
- 
-   justify-content: center;
-   align-items: stretch;
-   align-content: flex-start; 
-   border:1px solid red;
-   } */
 
-/**/
 
 .arrow{
 display: flex;
 justify-content: flex-end;
 margin: 1.3em auto;
 }
-.sideB{
-    width: 15%;
-    /* display: none;  */
-}
 
-.mainBrand {
-  width: 100%;
-  height: auto;
-  margin: 0 auto;
-}
-
-.addComp {
-  height: 2%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  padding: 1.3em;
-}
-
-.mainProduct {
-  height: auto;
-  width: auto;
-  display: flex;
-  flex-direction: row;
-}
 
 .products {
   width: 100%;
@@ -142,16 +101,12 @@ margin: 1.3em auto;
   padding: 0 auto;
 }
 
-.arrow {
-  display: flex;
-  justify-content: flex-end;
-  margin: 1.3em auto;
-}
 
 .sideB {
   width: 15%;
   min-width: 180px;
 }
+/*************************/
 
 @media (max-width:1497px) {
   .products {
@@ -180,11 +135,7 @@ margin: 1.3em auto;
 {
   display: block;
   position: relative;
-  /* top: 50px; */
-  /* left: 50px; */
-  
-  z-index: 1;
-  
+  z-index: 1; 
   -webkit-user-select: none;
   user-select: none;
 }
@@ -290,8 +241,7 @@ margin: 1.3em auto;
     position: absolute;
     width: 300px;
     margin: -100px 0 0 -50px;
-    padding: 25px;
-    /* padding-top: 125px; */
+   
     background: #ededed;
     list-style-type: none;
     -webkit-font-smoothing: antialiased;
@@ -303,7 +253,7 @@ margin: 1.3em auto;
 .menu li
 {
   padding: 10px 0;
-  font-size: 22px;
+  font-size: 20px;
 }
 
 /*

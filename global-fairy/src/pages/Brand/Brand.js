@@ -5,13 +5,9 @@ import SideBar from '../../components/SideBar/Sidebar'
 import ProductNbs from '../../components/productNbs/ProductNbs'
 import SortBy from '../../components/sortBy/SortBy'
 import ProductCard from '../../components/productCard/ProductCard'
-// <<<<<<< HEAD
 import Arrows from '../../components/arrows/Arrows'
 import Filter from '../../assets/icons/filter.png'
-
-// =======
 import { useParams } from 'react-router-dom';
-// >>>>>>> pagesLinks
 
 
 import styles from "./Brand.module.css"
@@ -51,8 +47,8 @@ const [categories,setCategories]=useState(["Clothes","Shoes","Makeup"])
                 {/*  */}
                 <div className={styles.mainProduct}>
                     <div className={styles.sideB}> 
-                        {/* <SideBar /> */}
-                        <nav role="navigation">
+                        <SideBar /> 
+                        {/* <nav role="navigation"  > *style={{'display':'none'}}
                                     <div className={styles.menuToggle} >
                                         <input type="checkbox" />
                                         <span></span>
@@ -63,7 +59,7 @@ const [categories,setCategories]=useState(["Clothes","Shoes","Makeup"])
                                             <SideBar />
                                         </ul>
                                     </div>
-                                </nav>
+                                </nav> */}
                     </div>
                     <div className={styles.products}>
                         <ProductCard />
