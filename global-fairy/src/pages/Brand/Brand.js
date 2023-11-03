@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import CategoriesHeader from '../../components/Categories/CategoriesHeader'
 import BrandHeader from '../../components/brandHeader/BrandHeader'
 import SideBar from '../../components/SideBar/Sidebar'
@@ -8,12 +8,52 @@ import ProductCard from '../../components/productCard/ProductCard'
 import Arrows from '../../components/arrows/Arrows'
 import Filter from '../../assets/icons/filter.png'
 import { useParams } from 'react-router-dom';
-
+import axios from "axios"
 
 import styles from "./Brand.module.css"
 const Brand = () => {
     const {type,name}=useParams()
-const [categories,setCategories]=useState(["Clothes","Shoes","Makeup"])    
+    const [brand,setBrand]=useState(name)
+
+const [categories,setCategories]=useState(brand.categories)   
+const[shownCategory,setShownCategory]=useState(brand.categories[0].name) 
+const[products,setProducts]=useState([])
+
+//GET THE BRAND
+const getBrand=()=>{
+let requestedData={"name":name}
+axios.get('http://localhost:5000/brand/readByName',requestedData,{
+    headers:{
+"Content-Type":'application/json'
+    },
+})
+.then((response)=>{
+setBrand(response.data)
+})
+.catch((error)=>{
+    console.log(error);
+})
+}
+
+// GET THE CATEGORY
+const getProducts=()=>{
+    let requestedData={"brand":brand.id,"category":shownCategory.id}
+    axios.get('http://localhost:5000/product/category-brand',requestedData,{
+        headers:{
+    "Content-Type":'application/json'
+        },
+    })
+    .then((response)=>{
+    setBrand(response.data)
+    })
+    .catch((error)=>{
+        console.log(error);
+    })
+}
+useEffect(()=>{
+    getBrand();
+},[])
+
     return (
         <div className={styles.brandPage}>
             {/*  */}
