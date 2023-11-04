@@ -1,19 +1,24 @@
 import React from 'react'
 import styles from "./CategoriesHeader.module.css"
-
+import { useParams } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 export default function CategoriesHeader(props) {
-  const categories=props.categories;
+  const {categories} = props
+const {nameType,brandCategory}=useParams()
+const navigate=useNavigate()
+const switchTo=(categorySwitched)=>{
+  navigate(`/Products/Brand/${nameType}/${categorySwitched}`)
+
+}
+
+console.log("this is the type from the componennt :"+brandCategory)
   return (
     <section className={styles.CategoriesHeader}>
-{      categories.map(elt=>(
-        <h3 className={styles.categoryName}>{elt}</h3>
-)
-)
-}
-        {/* <h3 className={styles.categoryName}>Clothes</h3>
-        <h3 className={styles.categoryName}>Shoes</h3> 
-        <h3 className={styles.categoryName}>Makeup</h3> */}
-
+      {categories.map((elt,index) => (
+        <h3 onClick={()=>switchTo(elt.name)}  className={ elt.name === brandCategory ?  styles.selectedCategory: styles.categoryName } key={index}>{elt.name}</h3>
+      )
+      )
+      }
     </section>
   )
 }

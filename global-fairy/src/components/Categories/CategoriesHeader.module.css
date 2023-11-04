@@ -23,6 +23,12 @@
     font-weight: normal;
     color : var(--wenge)
 }
+
+.CategoriesHeader .selectedCategory{
+    padding: 0 3%;
+    font-weight: normal;
+    color:var(--magenta-dye-color)
+}
  @media (max-width:550px){
     .CategoriesHeader{
         width: 100%;
