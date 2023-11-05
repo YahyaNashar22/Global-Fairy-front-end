@@ -42,9 +42,21 @@ const Dashboard = () => {
         }
     }
 
+    const checkInputValue=(value)=>{
+        console.log(value)
+        if(value.trim()===''){
+            console.log("Hello")
+            setFilteredProducts(products)
+        }
+    }
+const viewALl=()=>{
+    setFilteredProducts(products)
+}
     const getfilteredProducts = () => {
         const attribute=document.querySelector('select option:checked').value
-        const value=document.querySelector('input').value
+        const value=document.querySelector('#input').value
+        console.log(attribute)
+        console.log(value)
         if (attribute === 'id') {
             const filtered = products.filter(product => product._id === value)
             setFilteredProducts(filtered)
@@ -74,7 +86,7 @@ const Dashboard = () => {
             setFilteredProducts(filtered)
         }
         if (attribute === "price") {
-            const filtered = products.filter(product => product.price === value)
+            const filtered = products.filter(product => Number(product.price) === Number(value) )
             setFilteredProducts(filtered)
         }
         if (attribute === "stock") {
@@ -119,7 +131,10 @@ const Dashboard = () => {
                             <option value="price">Price</option>
                             <option value="stock">Quantity</option>
                         </select>
-                        <input className={style.tableInput} type="text" placeholder="Enter something" onKeyDown={()=>getfilteredProducts()}/>
+                        <input className={style.tableInput} id='input' type="text" placeholder="Enter something" 
+                        onKeyDown={(event)=>{if(event.key==='Enter'){getfilteredProducts()}}} 
+                        onchange={(e)=>checkInputValue(e.target.value)} />
+                        <span onClick={()=>{viewALl()}} className={style.viewProducts}>View All</span>
                     </div>
                 </div>
             </div>
