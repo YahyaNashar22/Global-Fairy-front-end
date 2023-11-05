@@ -98,7 +98,7 @@ const Dashboard = () => {
                         {products && products!==null?
                             products.map((product) => {
                                 const allSizes = product.details.map(detail => detail.sizes).flat()
-                                const uniqueSizes = [... new Set(allSizes)]
+                                const uniqueSizes = [...new Set(allSizes)]
                                 const colors = product.details.map(detail => detail.color)
                                 const quantity = product.details.reduce((acc, detail) => acc + detail.stock, 0)
 
