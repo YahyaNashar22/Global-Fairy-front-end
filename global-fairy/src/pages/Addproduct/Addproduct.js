@@ -69,28 +69,32 @@ const Addproduct = () => {
             </div>
             </div>
 <div className={style.labelInput}>
-        <label for="images">Images:</label><br/>
+        <label for="images">Images1:</label><br/>
         <input  className={style.allInputs} type="file" id="images" name="images" multiple accept="image/*"/><br/><br/>
-</div></div><br/><br/>
+</div>    
+
+<div className={style.labelInput}>
+        <label for="images">Images2:</label><br/>
+        <input  className={style.allInputs} type="file" id="images" name="images" multiple accept="image/*"/><br/><br/>
+</div><br/><br/>
+</div>
+
 <div className={style.row3}>
     <div className={style.labelInput}>
         <label for="quantity">Quantity:</label><br/>
         <input className={style.allInputs} type="number" id="quantity" name="quantity" required/><br/><br/>
 </div>
 <div className={style.labelInput}>
-        <label for="color">Color:</label><br/>
+        <label  className={style.fromLabel2}for="color">Color:</label><br/>
         <input  className={style.allInputs} type="text" id="color" name="color" required/><br/><br/>
         </div>
         <div className={style.labelInput}>
-        <label for="stock">stock:</label><br/>
-        <input className={style.allInputs} type="stock" id="stock" name="stock"/><br/><br/>
-        </div >
-        <div className={style.labelInput}></div>
         <label for="description">Description:</label><br/>
-        <input className={style.allInputs} type="text" id="description" name="description" /><br/><br/>
+        <input className={style.desrciptionInputs} type="text" id="description" name="description" /><br/><br/>
         </div>
         <div className={style.submit}><br/>
         <input  className={style.allInputs} type="submit" value="Add Product"/>
+        </div>
         </div>
         </form> 
 
