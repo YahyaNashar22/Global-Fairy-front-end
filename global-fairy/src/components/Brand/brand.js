@@ -10,16 +10,15 @@ import zara from '../../assets/images/zara.jpg';
 import nyx from '../../assets/images/nyx.jpg';
 import nike from '../../assets/images/nike.jpg';
 import nars from '../../assets/images/nars.jpg';
-import { Link } from "react-router-dom"
 import { useNavigate } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+
+// import { Link } from "react-router-dom"
+// import { useEffect, useState } from 'react';
 import axios from 'axios';
 const Brand = () => {
     const navigate = useNavigate()
     const sendBrand = async (brandName) => {
-        console.log("image clicked")
         try {
-            const requestedData = { "name": `${brandName}` }
             const response = await axios.get(`http://localhost:5000/brand/readByName/${brandName}`);
             const brandData = response.data
             if (brandData) {

@@ -21,13 +21,17 @@
 .CategoriesHeader .categoryName{
     padding: 0 3%;
     font-weight: normal;
-    color : var(--wenge)
+    color : var(--wenge);
+    cursor: pointer;
+    
 }
 
 .CategoriesHeader .selectedCategory{
     padding: 0 3%;
     font-weight: normal;
-    color:var(--magenta-dye-color)
+    color:var(--magenta-dye-color);
+    cursor: pointer;
+
 }
  @media (max-width:550px){
     .CategoriesHeader{
