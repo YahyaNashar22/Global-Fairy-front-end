@@ -1,0 +1,170 @@
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 5px;
+}
+
+h1 {
+    font-size: larger;
+    font-weight: bolder;
+    color: #D96093;
+    size: 50px;
+}
+
+table,
+th,
+td {
+    border-bottom: 1px solid black;
+}
+
+th,
+td {
+    padding: 5px;
+    /* height: 25px; */
+    text-align: center;
+    min-width: 120px;
+}
+
+th {
+    background-color: #D96093;
+    color: #FFF;
+}
+
+tr {
+    height: 55px;
+}
+
+input {
+    width: 100%;
+    height: 90%;
+}
+
+.tableInput {
+    border-radius: 5px;
+    height: 40px;
+}
+
+.iconCell {
+    text-align: center;
+}
+
+.icon {
+    font-size: 20px;
+    margin: 5px;
+}
+
+.hed {
+    background-color: #F9F1E8;
+    color: #374151;
+    font-family: lato;
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    size: 40%;
+    width: 100%;
+}
+
+.title {
+    display: flex;
+    text-align: center;
+}
+
+.submit {
+    text-align: center;
+    width: 20%;
+    padding-bottom: 5px;
+    min-width: 130px;
+}
+
+.submit input[type="submit"] {
+    background-color: #D96093;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 50%;
+    height: 50px;
+    align-items: left;
+    font-weight: bold;
+    font-size: large;
+}
+
+.searchTitle {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.searchTitle h1 {
+    font-size: 2em;
+    margin: 0.5em 0;
+    color: black;
+    width: 10%;
+}
+
+.container {
+    width: 100%;
+    margin: 1.5em auto;
+    padding: 10px;
+}
+
+.searchValue {
+    display: flex;
+    flex-direction: row;
+    width: 50%;
+    justify-content: flex-start;
+}
+
+.searchValue select {
+    width: 40%;
+}
+
+.searchValue input {
+    width: 45%;
+}
+
+.logoImage {
+    width: 20%;
+}
+
+p {
+    color: #374151;
+}
+
+@media (max-width:500px) {
+    .title {
+        flex-direction: column;
+        justify-content: start;
+        align-items: flex-start;
+    }
+
+    .hed {
+        size: 40%;
+        width: 100%;
+    }
+
+    .searchTitle h1 {
+        width: 44%;
+    }
+
+    .table1 thead {
+        overflow: hidden;
+        position: relative;
+    }
+
+    .container {
+        overflow: hidden;
+        position: relative;
+    }
+
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        margin: 5px;
+        overflow-y: scroll;
+        display: block;
+        max-height: 300px;
+    }
+}

@@ -1,10 +1,12 @@
 import './App.css';
-import AppRoutes from './Routes/AppRoutes';
+// import AppRoutes from './Routes/AppRoutes';
+import Dashboard from './pages/Dashboard/Dashboard';
 
 function App() {
   return (
     <div className="app">
-      <AppRoutes />
+      {/* <AppRoutes /> */}
+      <Dashboard/>
     </div>
   );
 }
