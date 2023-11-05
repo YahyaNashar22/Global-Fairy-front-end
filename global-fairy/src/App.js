@@ -1,12 +1,10 @@
 import './App.css';
-// import AppRoutes from './Routes/AppRoutes';
-import Dashboard from './pages/Dashboard/Dashboard';
+import AppRoutes from './Routes/AppRoutes';
 
 function App() {
   return (
     <div className="app">
-      {/* <AppRoutes /> */}
-      <Dashboard/>
+       <AppRoutes /> 
     </div>
   );
 }
