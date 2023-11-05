@@ -31,7 +31,7 @@ function AppRoutes() {
 
           {/* Routes without Header and Footer */}
           <Route path="/dashboard" element={<LayoutWithoutHeaderFooter> <Dashboard /> </LayoutWithoutHeaderFooter>} />
-          <Route path="/addproduct" element={<LayoutWithoutHeaderFooter> <Addproduct /> </LayoutWithoutHeaderFooter>} />
+          <Route path="/actions/:operation" element={<LayoutWithoutHeaderFooter> <Addproduct /> </LayoutWithoutHeaderFooter>} />
           <Route path="/*" element={<LayoutWithoutHeaderFooter> <NotFound /> </LayoutWithoutHeaderFooter>} />
         </Routes>
       </DataProvider>

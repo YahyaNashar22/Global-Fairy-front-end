@@ -5,6 +5,7 @@ import deleteicon from '../../assets/icons/delete 1.png';
 import viewicon from '../../assets/icons/show 1.png';
 import logo from '../../assets/images/logo.jpg';
 import axios from "axios"
+import { Link } from 'react-router-dom';
 const Dashboard = () => {
     const [products, setProducts] = useState([])
 
@@ -53,7 +54,8 @@ const Dashboard = () => {
                     <p>dashbord admin </p>
                 </div>
                 <div className={style.submit}><br />
-                    <input type="submit" value="Add " />
+                <Link to="/actions/Addproduct"> 
+                    <input type="submit" value="Add " /></Link>
                 </div>
             </div>
             <div className={style.searchTitle}>
