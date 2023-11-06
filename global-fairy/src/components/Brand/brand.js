@@ -18,12 +18,20 @@ import axios from 'axios';
 const Brand = () => {
     const navigate = useNavigate()
     const sendBrand = async (brandName) => {
+        // try {
+        //     const response = await axios.get(`http://localhost:5000/brand/readByName/${brandName}`);
+        //     const brandData = response.data
+        //     if (brandData) {
+        //         navigate(`Products/Brand/${brandData.name}/${brandData.categories[0].name}`)
+
+        //     }
+        // }
         try {
-            const response = await axios.get(`http://localhost:5000/brand/readByName/${brandName}`);
-            const brandData = response.data
-            if (brandData) {
-                navigate(`Products/Brand/${brandData.name}/${brandData.categories[0].name}`)
-            }
+            // const response = await axios.get(`http://localhost:5000/brand/readByName/${brandName}`);
+            // const brandData = response.data
+                navigate(`Products/Brand/${brandName}`)
+
+            
         }
         catch (error) {
             console.log(error.message);

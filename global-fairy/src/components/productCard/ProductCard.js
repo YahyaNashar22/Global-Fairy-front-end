@@ -4,7 +4,6 @@ import style from "./productCard.module.css"
 import Sold from '../soldOut/Sold'
 export default function ProductCard(props) {
   const isSold = props.productData.details.every(detail => detail.stock === 0);
-
   const blurClass = isSold ? style.blur : null;
   return (
     <div className={style.card}>

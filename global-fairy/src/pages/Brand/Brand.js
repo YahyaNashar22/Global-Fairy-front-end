@@ -13,15 +13,21 @@ import styles from "./Brand.module.css"
 
 
 const Brand = () => {
-    const { type, nameType, brandCategory } = useParams()
+    const { type, nameType } = useParams()
     const [brand, setBrand] = useState()
-    const [categories, setCategories] = useState()
+    const [categories, setCategories] = useState(null)
+    const [loading, setloading] = useState(false)
+    // const [filterValues, setFilterValues] = useState(null)
     const [shownCategory, setShownCategory] = useState()
     const [products, setProducts] = useState([])
     const [sortValue, setSortValue] = useState('low')
+    const [effectCompleted, setEffectCompleted] = useState(false)
 
     const handleChange = (sortValue) => {
         setSortValue(sortValue)
+    }
+    const handleCategory = (index) => {
+        setShownCategory(categories[index])
     }
 
     const sortProductsByPrice = () => {
@@ -34,6 +40,16 @@ const Brand = () => {
             setProducts(sortedProducts)
         }
     }
+
+    const handleFilter = (filterValue) => {
+        // setFilterValues(filterValue)
+        getFilteredProducts(filterValue)
+    }
+    const getFilteredProducts=(values)=>{
+
+    }
+
+    // console.log(shownCategory)
     // useEffect(() => {
     //     getCategory()
     //     const executeOrder = async () => {
@@ -95,6 +111,7 @@ const Brand = () => {
     //     }
 
     // }
+
     /******************************* */
     // GET THE BRAND
     const getBrand = async () => {
@@ -105,6 +122,9 @@ const Brand = () => {
             if (brandData) {
                 setBrand(brandData)
                 setCategories(brandData.categories)
+                setShownCategory(brandData.categories[0])
+                console.log(categories)
+                console.log(shownCategory)
             }
 
             if (!brandData) {
@@ -118,45 +138,45 @@ const Brand = () => {
 
 
     // GET CATEGORY 
-    const getCategory = async () => {
-        console.log("get category EXXXXXXX")
+    // const getCategory = async () => {
 
-        try {
-            if (type === "Categories") {
-                const response = await axios.get(`http://localhost:5000/category/readByName/${brandCategory}`);
-                if (response) {
-                    console.log("there is response")
-                    const categoryData = response.data
-                    // console.log(categoryData)
-                    if (categoryData) {
-                        setShownCategory(categoryData)
+    //     try {
 
-                    }
+    //         if (type === "Categories") {
+    //             const response = await axios.get(`http://localhost:5000/category/readByName/${brandCategory}`);
+    //             if (response) {
+    //                 console.log("there is response")
+    //                 const categoryData = response.data
+    //                 // console.log(categoryData)
+    //                 if (categoryData) {
+    //                     setShownCategory(categoryData)
 
-                }
-                else {
-                    console.log("Category NOT FOUND")
-                }
-            }
-            else if (type === "Brand") {
-                const response = await axios.get(`http://localhost:5000/category/readByName/${brandCategory}`);
-                if (response) {
-                    const categoryData = response.data
-                    if (categoryData) {
-                        setShownCategory(categoryData)
-                    }
-                }
-                else {
-                    console.log("Category NOT FOUND")
-                }
+    //                 }
 
-            }
+    //             }
+    //             else {
+    //                 console.log("Category NOT FOUND")
+    //             }
+    //         }
+    //         else if (type === "Brand") {
+    //             const response = await axios.get(`http://localhost:5000/category/readByName/${brandCategory}`);
+    //             if (response) {
+    //                 const categoryData = response.data
+    //                 if (categoryData) {
+    //                     setShownCategory(categoryData)
+    //                 }
+    //             }
+    //             else {
+    //                 console.log("Category NOT FOUND")
+    //             }
 
-        }
-        catch (error) {
-            console.log(error.message);
-        }
-    }
+    //         }
+
+    //     }
+    //     catch (error) {
+    //         console.log(error.message);
+    //     }
+    // }
 
     // // GET Products
     const getProducts = async () => {
@@ -183,19 +203,25 @@ const Brand = () => {
     // GET CATEGORIES
     const getCategories = async () => {
         console.log("get categoriess EXXXXXXX")
-
+        setloading(true)
         try {
             const response = await axios.get(`http://localhost:5000/category/read`);
+            // console.log(response.data)
             if (response) {
-                console.log("there is response for categories")
                 const categoriesData = response.data
-                // console.log(categoriesData)
-                if (categoriesData) {
-                    setCategories(categoriesData)
+                console.log("there is response for categories")
+                setCategories(categoriesData)
+                setShownCategory(response.data[0])
+                if (categories) {
+                    console.log(categories)
+
                 }
+
             }
+            setloading(false)
         }
         catch (error) {
+            setloading(false)
             console.log(error.message);
         }
     }
@@ -259,27 +285,57 @@ const Brand = () => {
     //     sortProductsByPrice()
     // }, [sortValue])
 
+    useEffect(() => {
+        if (type === "Brand") {
+            getBrand().then(() =>
+                setEffectCompleted(true))
+            // getProducts()
+        }
+        if (type === "Category") {
+            getCategories().then(() => {
+                setEffectCompleted(true)
+                console.log(effectCompleted)
+            })
+        }
+
+    }, [type])
+
 
     useEffect(() => {
-        getBrand()
-        getProducts()
-    }, [])
+        if (effectCompleted) {
+            if (type === "Brand") {
+                getProducts()
 
-    useEffect(() => {
-        getCategory()
-        getProducts()
-    }, [])
+            }
+            if (type === "Category") {
+                getProductsByCategory()
+
+            }
+        }
+    }, [effectCompleted, shownCategory])
+
 
     useEffect(() => {
         sortProductsByPrice()
     }, [sortValue])
+
+    const renderedCategories = () => {
+        if (loading) {
+            return <p>Loading....</p>
+        }
+        if (!loading && categories) {
+            return <CategoriesHeader typeView={type} categories={categories} changeCategory={handleCategory} shown={shownCategory} />
+        }
+        return null
+    }
 
 
     /**************************RETURN*********************** */
     return (
         <div className={styles.brandPage}>
             <div className={styles.headerBrand}>
-                {categories ? <CategoriesHeader typeView={type} categories={categories} /> : null}
+                {categories ? <CategoriesHeader typeView={type} categories={categories} changeCategory={handleCategory} shown={shownCategory} /> : null}
+                {/* {renderedCategories()} */}
                 {type === "Brand" && brand ? <BrandHeader name={brand.name} /> : null}
             </div>
 
@@ -297,7 +353,7 @@ const Brand = () => {
                     </div>
                     <div className={styles.mainProduct}>
                         <div className={styles.sideB}>
-                            <SideBar />
+                            <SideBar shown={shownCategory._id} showFiltered={handleFilter} />
                         </div>
                         <div className={styles.products}>
                             {

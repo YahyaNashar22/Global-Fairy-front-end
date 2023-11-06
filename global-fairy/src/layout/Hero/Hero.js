@@ -17,7 +17,7 @@ const navigate=useNavigate()
 
   const navigateTo=()=>{
     console.log("image clickedddd")
-navigate("/Products/Categories/Category/Clothes")
+navigate("/Products/Category")
   }
   useEffect(() => {
       const intervalId = setInterval(() => {
@@ -42,8 +42,8 @@ navigate("/Products/Categories/Category/Clothes")
               Browse through our diverse range of meticulously crafted garments,
               designed to bring out your individuality and cater to your sense of style.
             </p>
-            <Link to="Products/Categories/Category/Clothes" className={style.links}>
-              <button onClick={()=>navigateTo} className={style.callToAction}>Shop Now</button>
+            <Link to="Products/Category" className={style.links}>
+              <button className={style.callToAction}>Shop Now</button>
             </Link>
           </div>
           <div className={style.categories}>

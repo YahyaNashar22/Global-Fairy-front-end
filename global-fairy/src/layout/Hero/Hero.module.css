@@ -73,7 +73,9 @@
   margin-top: 10px;
 
 }
-
+.links{
+  z-index: 99;
+}
 .imgHolder{
   width: 50%;
   display: flex;
