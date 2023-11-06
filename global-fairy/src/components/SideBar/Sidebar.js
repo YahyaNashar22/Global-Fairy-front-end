@@ -1,45 +1,43 @@
 import { useState } from 'react';
 import style from './sidebar.module.css';
-const Sidebar = ({ shown, showFiltered }) => {
+const Sidebar = ({ shown, showFiltered ,brand}) => {
 
     const shownCategory = shown
-    const [filter, setFilter] = useState({})
-
-    let filtered = { "category": shownCategory, "brands": [], "subCategoy": [], "sizes": [], "priceRange": [], "colors": [] }
+    const brandId=brand
+    const [filter, setFilter] = useState({ "category": shownCategory, "brands": [brandId], "subCategoy": [], "sizes": [], "priceRange": [], "colors": [] })
     
     const onChange = (type, value) => {
         if (type === "Brands") {
-            filtered.brands.push(value)
+            filter.brands.push(value)
         }
         if (type === "subCategory") {
-            filtered.subCategoy.push(value)
+            filter.subCategoy.push(value)
         }
         if (type === "sizes") {
-            filtered.sizes.push(value)
+            filter.sizes.push(value)
         }
         if (type === "priceRange") {
-            filtered.priceRange.push(value)
+            filter.priceRange.push(value)
         }
         if (type === "colors") {
-            filtered.colors.push(value)
+            filter.colors.push(value)
         }
-        console.log(filtered)
+        console.log(filter)
     }
 
-    const filterBy = () => {
-        setFilter(filtered)
+    const filterBy = (filter) => {
         showFiltered(filter)
     }
 
     return (
         <div className={style.sidebar}>
-            <h2 onClick={() => { filterBy() }}>FILTERS</h2>
+            <h2 onClick={() => { filterBy(filter) }}>FILTERS</h2>
             <div className={style.check}>
                 <div className={style.price}>
                     <p>PRICE </p>
                     <ul className={style.checklist}>
                         <li >
-                            <input type="checkbox" id="0$-15$" onClick={() => onChange("priceRange", 1)} />
+                            <input type="checkbox" id="0$-15$" value={1} onClick={() => onChange("priceRange", 1)} />
                             <label for="0$-15$">0$-15$</label>
                         </li>
                         <li>
@@ -172,7 +170,7 @@ const Sidebar = ({ shown, showFiltered }) => {
                     <p>COLOR</p><br></br>
                     <ul className={style.checklist}>
                         <li>
-                            <input type="checkbox" id="Black" />
+                            <input type="checkbox" id="Black"  onClick={() => onChange("colors", "black")}/>
                             <label for="Black">Black</label>
                         </li>
                         <li>
