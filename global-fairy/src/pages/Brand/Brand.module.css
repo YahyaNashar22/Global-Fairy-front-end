@@ -25,12 +25,13 @@ margin: 0 auto;
 }
 
 .firstBox {
-    display: flex;
+    display: none;
     align-items: center;
     gap: 30px;
     justify-content: space-between;
     width: 100%;
 }
+
 .filterBtn {
     display: flex;
     align-items: center;
@@ -241,7 +242,7 @@ margin: 1.3em auto;
     position: absolute;
     width: 300px;
     margin: -100px 0 0 -50px;
-   
+  
     background: #ededed;
     list-style-type: none;
     -webkit-font-smoothing: antialiased;

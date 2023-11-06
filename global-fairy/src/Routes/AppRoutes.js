@@ -21,7 +21,7 @@ function AppRoutes() {
     
         {/* Routes with Header and Footer */}
         <Route index element={<LayoutWithHeaderFooter> <Home /> </LayoutWithHeaderFooter>} />
-        <Route path="/" element={<LayoutWithHeaderFooter> <Home /> </LayoutWithHeaderFooter>} />
+        <Route path="/home" element={<LayoutWithHeaderFooter> <Home /> </LayoutWithHeaderFooter>} />
         <Route path="/about" element={<LayoutWithHeaderFooter> <About /> </LayoutWithHeaderFooter>} />
         <Route path="/contact" element={<LayoutWithHeaderFooter> <Contact /> </LayoutWithHeaderFooter>} />
         <Route path="/Products/:type/:nameType/:brandCategory?" element={<LayoutWithHeaderFooter> <Brand /> </LayoutWithHeaderFooter>} />

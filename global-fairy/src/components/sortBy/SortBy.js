@@ -9,7 +9,6 @@ export default function SortBy({sortValue,onSort}) {
     // const [value, setValue] = useState('low');
     const handleChange = (event) => {
         const sortValue=event.target.value
-        // setValue(event.target.value);
         onSort(sortValue)
     };
 

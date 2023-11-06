@@ -141,13 +141,10 @@ const Brand = () => {
             else if (type === "Brand") {
                 const response = await axios.get(`http://localhost:5000/category/readByName/${brandCategory}`);
                 if (response) {
-                    // console.log("there is response")
                     const categoryData = response.data
-                    // console.log(categoryData)
                     if (categoryData) {
                         setShownCategory(categoryData)
                     }
-
                 }
                 else {
                     console.log("Category NOT FOUND")
@@ -249,18 +246,34 @@ const Brand = () => {
     // useEffect(()=>{
     //     fetchData()
     // },[nameType, brandCategory, type, shownCategory])
+    // useEffect(() => {
+    //     getBrand()
+    //     getProducts()
+    // }, [nameType])
+
+    // useEffect(() => {
+    //     getCategory()
+    //     getProducts()
+    // }, [brandCategory])
+    // useEffect(() => {
+    //     sortProductsByPrice()
+    // }, [sortValue])
+
+
     useEffect(() => {
         getBrand()
         getProducts()
-    }, [nameType])
+    }, [])
 
     useEffect(() => {
         getCategory()
         getProducts()
-    }, [brandCategory])
+    }, [])
+
     useEffect(() => {
         sortProductsByPrice()
     }, [sortValue])
+
 
     /**************************RETURN*********************** */
     return (
