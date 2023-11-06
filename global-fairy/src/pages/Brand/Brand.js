@@ -35,12 +35,12 @@ const Brand = () => {
         if (sortValue === 'low') {
             const sortedProducts = [...products].sort((a, b) => a.price - b.price)
             setProducts(sortedProducts)
-            setFilteredProduct(products)
+            // setFilteredProduct(products)
         }
         else if (sortValue === 'high') {
             const sortedProducts = [...products].sort((a, b) => b.price - a.price)
             setProducts(sortedProducts)
-            setFilteredProduct(products)
+            // setFilteredProduct(products)
         }
     }
 
@@ -55,214 +55,223 @@ const Brand = () => {
             console.log(values)
             const response = await axios.post('http://localhost:5000/product/filter', requestedData)
             if (response) {
-                setFilteredProduct(response.data)
-                console.log(response.data)
+                // setFilteredProduct(response.data)
+                // console.log(response.data)
+                let sortedProducts = []
+                if (sortValue === 'high') {
+                    sortedProducts = [...response.data].sort((a, b) => b.price - a.price)
+                }
+                else {
+                    sortedProducts = [...response.data].sort((a, b) => a.price - b.price)
+
+
+                }
+                setProducts(response.data)
             }
 
         }
-        catch(error){
+        catch (error) {
             console.log(error.message)
         }
-    
-
-        }
 
 
-
-
-// GET THE BRAND
-const getBrand = async () => {
-    console.log("get brand EXXXXXXX")
-    try {
-        const response = await axios.get(`http://localhost:5000/brand/readByName/${nameType}`);
-        const brandData = response.data
-        if (brandData) {
-            setBrand(brandData)
-            setCategories(brandData.categories)
-            setShownCategory(brandData.categories[0])
-            console.log(categories)
-            console.log(shownCategory)
-        }
-
-        if (!brandData) {
-            console.log("BRAND NOT FOUND")
-        }
     }
-    catch (error) {
-        console.log(error.message);
-    }
-}
 
 
 
 
-// // GET Products
-const getProducts = async () => {
-    console.log("get products by brand and category EXXXXXXX")
-
-    await axios.get(`http://localhost:5000/product/category-brand`, {
-        params: { brand: brand._id, category: shownCategory._id },
-        headers: {
-            "Content-Type": 'application/json'
-        },
-    })
-        .then((response) => {
-            const productsData = response.data
-            const sortedProducts = productsData.sort((a, b) => a.price - b.price)
-            setProducts(sortedProducts)
-            setFilteredProduct(products)
-
-        })
-        .catch((error) => {
-            console.log(error.message);
-        })
-}
-
-// GET CATEGORIES
-const getCategories = async () => {
-    console.log("get categoriess EXXXXXXX")
-    setloading(true)
-    try {
-        const response = await axios.get(`http://localhost:5000/category/read`);
-        // console.log(response.data)
-        if (response) {
-            const categoriesData = response.data
-            console.log("there is response for categories")
-            setCategories(categoriesData)
-            setShownCategory(response.data[0])
-            if (categories) {
+    // GET THE BRAND
+    const getBrand = async () => {
+        console.log("get brand EXXXXXXX")
+        try {
+            const response = await axios.get(`http://localhost:5000/brand/readByName/${nameType}`);
+            const brandData = response.data
+            if (brandData) {
+                setBrand(brandData)
+                setCategories(brandData.categories)
+                setShownCategory(brandData.categories[0])
                 console.log(categories)
-
+                console.log(shownCategory)
             }
 
+            if (!brandData) {
+                console.log("BRAND NOT FOUND")
+            }
         }
-        setloading(false)
-    }
-    catch (error) {
-        setloading(false)
-        console.log(error.message);
-    }
-}
-
-const getProductsByCategory = async () => {
-    console.log("get products by category EXXXXXXX")
-
-    try {
-        const response = await axios.get(`http://localhost:5000/product/category/${shownCategory._id}`);
-
-        if (response) {
-            const productsData = response.data
-            const sortedProducts = productsData.sort((a, b) => a.price - b.price)
-            setProducts(sortedProducts)
-            setFilteredProduct(products)
-
+        catch (error) {
+            console.log(error.message);
         }
     }
-    catch (error) {
-        console.log(error.message);
-    }
-}
 
-/*************USE EFFECT************** */
 
-useEffect(() => {
-    if (type === "Brand") {
-        getBrand().then(() =>
-            setEffectCompleted(true)
 
-        )
-    }
-    if (type === "Category") {
-        getCategories().then(() => {
-            setEffectCompleted(true);
+
+    // // GET Products
+    const getProducts = async () => {
+        console.log("get products by brand and category EXXXXXXX")
+
+        await axios.get(`http://localhost:5000/product/category-brand`, {
+            params: { brand: brand._id, category: shownCategory._id },
+            headers: {
+                "Content-Type": 'application/json'
+            },
         })
-    }
-
-}, [type])
-
-
-useEffect(() => {
-    if (effectCompleted) {
-        if (type === "Brand") {
-            getProducts().then(() => {
-                setloading(false)
+            .then((response) => {
+                const productsData = response.data
+                const sortedProducts = productsData.sort((a, b) => a.price - b.price)
+                setProducts(sortedProducts)
 
             })
+            .catch((error) => {
+                console.log(error.message);
+            })
+    }
+
+    // GET CATEGORIES
+    const getCategories = async () => {
+        console.log("get categoriess EXXXXXXX")
+        setloading(true)
+        try {
+            const response = await axios.get(`http://localhost:5000/category/read`);
+            // console.log(response.data)
+            if (response) {
+                const categoriesData = response.data
+                console.log("there is response for categories")
+                setCategories(categoriesData)
+                setShownCategory(response.data[0])
+                if (categories) {
+                    console.log(categories)
+
+                }
+
+            }
+            setloading(false)
+        }
+        catch (error) {
+            setloading(false)
+            console.log(error.message);
+        }
+    }
+
+    const getProductsByCategory = async () => {
+        console.log("get products by category EXXXXXXX")
+
+        try {
+            const response = await axios.get(`http://localhost:5000/product/category/${shownCategory._id}`);
+
+            if (response) {
+                const productsData = response.data
+                const sortedProducts = productsData.sort((a, b) => a.price - b.price)
+                setProducts(sortedProducts)
 
 
+            }
+        }
+        catch (error) {
+            console.log(error.message);
+        }
+    }
+
+    /*************USE EFFECT************** */
+
+    useEffect(() => {
+        if (type === "Brand") {
+            getBrand().then(() =>
+                setEffectCompleted(true)
+
+            )
         }
         if (type === "Category") {
-            getProductsByCategory().then(() => {
-                setloading(false)
-
+            getCategories().then(() => {
+                setEffectCompleted(true);
             })
-
-
         }
+
+    }, [type])
+
+
+    useEffect(() => {
+        if (effectCompleted) {
+            if (type === "Brand") {
+                getProducts().then(() => {
+                    setloading(false)
+
+                })
+
+
+            }
+            if (type === "Category") {
+                getProductsByCategory().then(() => {
+                    setloading(false)
+
+                })
+
+
+            }
+        }
+    }, [effectCompleted, shownCategory])
+
+
+    useEffect(() => {
+        sortProductsByPrice()
+    }, [sortValue])
+
+    const renderedCategories = () => {
+        if (loading) {
+            return <p>Loading....</p>
+        }
+        if (!loading && categories) {
+            return <CategoriesHeader typeView={type} categories={categories} changeCategory={handleCategory} shown={shownCategory} />
+        }
+        return null
     }
-}, [effectCompleted, shownCategory])
 
 
-useEffect(() => {
-    sortProductsByPrice()
-}, [sortValue])
-
-const renderedCategories = () => {
-    if (loading) {
-        return <p>Loading....</p>
-    }
-    if (!loading && categories) {
-        return <CategoriesHeader typeView={type} categories={categories} changeCategory={handleCategory} shown={shownCategory} />
-    }
-    return null
-}
-
-
-/**************************RETURN*********************** */
-return ( !loading? (
-    <div className={styles.brandPage}>
-        <div className={styles.headerBrand}>
-            {categories ? <CategoriesHeader typeView={type} categories={categories} changeCategory={handleCategory} shown={shownCategory} isloading={loading} /> : null}
-            {/* {renderedCategories()} */}
-            {type === "Brand" && brand ? <BrandHeader name={brand.name} /> : null}
-        </div>
-
-        <div className={styles.mainBrand}>
-            <div className={styles.addComp}>
-                <span className={styles.addedComp}><ProductNbs productsNb={products.length} /></span>
-                <span className={styles.addedComp}><SortBy sortValue={sortValue} onSort={handleChange} /></span>
+    /**************************RETURN*********************** */
+    return (!loading ? (
+        <div className={styles.brandPage}>
+            <div className={styles.headerBrand}>
+                {categories ? <CategoriesHeader typeView={type} categories={categories} changeCategory={handleCategory} shown={shownCategory} isloading={loading} /> : null}
+                {/* {renderedCategories()} */}
+                {type === "Brand" && brand ? <BrandHeader name={brand.name} /> : null}
             </div>
 
-            <div className={styles.content}>
-                <div className={styles.firstBox}>
-                    <div className={styles.filterBtn}>
-                        <img src={Filter} className={styles.filterIcon} alt="Filter Icon" />
+            <div className={styles.mainBrand}>
+                <div className={styles.addComp}>
+                    <span className={styles.addedComp}><ProductNbs productsNb={products.length} /></span>
+                    <span className={styles.addedComp}><SortBy sortValue={sortValue} onSort={handleChange} /></span>
+                </div>
+
+                <div className={styles.content}>
+                    <div className={styles.firstBox}>
+                        <div className={styles.filterBtn}>
+                            <img src={Filter} className={styles.filterIcon} alt="Filter Icon" />
+                        </div>
+                    </div>
+                    <div className={styles.mainProduct}>
+                        <div className={styles.sideB}>
+                            <SideBar shown={shownCategory} showFiltered={handleFilter} brand={brand._id} />
+                        </div>
+                        <div className={styles.products}>
+                            {/**products. */
+                                products.map((product, index) => (
+                                    <ProductCard key={index} productData={product} />
+
+                                ))
+                            }
+
+                        </div>
                     </div>
                 </div>
-                <div className={styles.mainProduct}>
-                    <div className={styles.sideB}>
-                        <SideBar shown={shownCategory._id} showFiltered={handleFilter} brand={brand._id} />
-                    </div>
-                    <div className={styles.products}>
-                        {/**products. */
-                            filteredProduct.map((product, index) => (
-                                <ProductCard key={index} productData={product} />
 
-                            ))
-                        }
-
-                    </div>
-                </div>
             </div>
 
         </div>
 
-    </div>
-
-) : (
-    <h1>Loading....</h1>
-)
-)
+    ) : (
+        <h1>Loading....</h1>
+    )
+    )
 
 }
 
