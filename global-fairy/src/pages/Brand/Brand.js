@@ -14,13 +14,12 @@ import styles from "./Brand.module.css"
 
 const Brand = () => {
     const { type, nameType } = useParams()
-    const [brand, setBrand] = useState()
+    const [brand, setBrand] = useState(null)
     const [categories, setCategories] = useState(null)
     const [loading, setloading] = useState(true)
-    // const [filterValues, setFilterValues] = useState(null)
     const [shownCategory, setShownCategory] = useState()
     const [products, setProducts] = useState([])
-    const [filteredProduct, setFilteredProduct] = useState(products)
+    // const [filteredProduct, setFilteredProduct] = useState(products)
     const [sortValue, setSortValue] = useState('low')
     const [effectCompleted, setEffectCompleted] = useState(false)
 
@@ -35,12 +34,10 @@ const Brand = () => {
         if (sortValue === 'low') {
             const sortedProducts = [...products].sort((a, b) => a.price - b.price)
             setProducts(sortedProducts)
-            // setFilteredProduct(products)
         }
         else if (sortValue === 'high') {
             const sortedProducts = [...products].sort((a, b) => b.price - a.price)
             setProducts(sortedProducts)
-            // setFilteredProduct(products)
         }
     }
 
@@ -55,26 +52,20 @@ const Brand = () => {
             console.log(values)
             const response = await axios.post('http://localhost:5000/product/filter', requestedData)
             if (response) {
-                // setFilteredProduct(response.data)
-                // console.log(response.data)
+
                 let sortedProducts = []
                 if (sortValue === 'high') {
                     sortedProducts = [...response.data].sort((a, b) => b.price - a.price)
                 }
                 else {
                     sortedProducts = [...response.data].sort((a, b) => a.price - b.price)
-
-
                 }
-                setProducts(response.data)
+                setProducts(sortedProducts)
             }
-
         }
         catch (error) {
             console.log(error.message)
         }
-
-
     }
 
 
@@ -105,7 +96,6 @@ const Brand = () => {
 
 
 
-
     // // GET Products
     const getProducts = async () => {
         console.log("get products by brand and category EXXXXXXX")
@@ -133,7 +123,6 @@ const Brand = () => {
         setloading(true)
         try {
             const response = await axios.get(`http://localhost:5000/category/read`);
-            // console.log(response.data)
             if (response) {
                 const categoriesData = response.data
                 console.log("there is response for categories")
@@ -163,8 +152,6 @@ const Brand = () => {
                 const productsData = response.data
                 const sortedProducts = productsData.sort((a, b) => a.price - b.price)
                 setProducts(sortedProducts)
-
-
             }
         }
         catch (error) {
@@ -182,6 +169,7 @@ const Brand = () => {
             )
         }
         if (type === "Category") {
+            console.log(type)
             getCategories().then(() => {
                 setEffectCompleted(true);
             })
@@ -197,7 +185,6 @@ const Brand = () => {
                     setloading(false)
 
                 })
-
 
             }
             if (type === "Category") {
@@ -216,23 +203,12 @@ const Brand = () => {
         sortProductsByPrice()
     }, [sortValue])
 
-    const renderedCategories = () => {
-        if (loading) {
-            return <p>Loading....</p>
-        }
-        if (!loading && categories) {
-            return <CategoriesHeader typeView={type} categories={categories} changeCategory={handleCategory} shown={shownCategory} />
-        }
-        return null
-    }
-
 
     /**************************RETURN*********************** */
     return (!loading ? (
         <div className={styles.brandPage}>
             <div className={styles.headerBrand}>
                 {categories ? <CategoriesHeader typeView={type} categories={categories} changeCategory={handleCategory} shown={shownCategory} isloading={loading} /> : null}
-                {/* {renderedCategories()} */}
                 {type === "Brand" && brand ? <BrandHeader name={brand.name} /> : null}
             </div>
 
@@ -250,10 +226,10 @@ const Brand = () => {
                     </div>
                     <div className={styles.mainProduct}>
                         <div className={styles.sideB}>
-                            <SideBar shown={shownCategory} showFiltered={handleFilter} brand={brand._id} />
+                            <SideBar shown={shownCategory} showFiltered={handleFilter} brand={brand} />
                         </div>
                         <div className={styles.products}>
-                            {/**products. */
+                            {
                                 products.map((product, index) => (
                                     <ProductCard key={index} productData={product} />
 
@@ -449,3 +425,4 @@ export default Brand;
 //         executeInOrder()
 //     }
 // }, [nameType, brandCategory, type, shownCategory])
+

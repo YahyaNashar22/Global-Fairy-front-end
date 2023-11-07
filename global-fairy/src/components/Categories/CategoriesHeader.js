@@ -12,15 +12,6 @@ changeCategory(index);
 }
 
 
-  // return (
-  //   <section className={styles.CategoriesHeader}>
-  //     {categoriesAll.map((elt,index) => (
-  //       <h3 onClick={()=>change(index)}  className={ elt.name === shownC.name ?  styles.selectedCategory: styles.categoryName  } key={index}>{elt.name}</h3>
-  //       )
-  //     )
-  //     }
-  //   </section>
-  // )
 return(
 
       
