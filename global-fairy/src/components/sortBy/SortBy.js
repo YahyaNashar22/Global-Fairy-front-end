@@ -21,7 +21,6 @@ export default function SortBy({sortValue,onSort}) {
                     ))}
                 </select>
             </label>
-
         </div>
     )
 }

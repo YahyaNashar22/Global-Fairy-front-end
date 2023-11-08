@@ -6,19 +6,14 @@
 
   export default function SimiliarSection({ similiarId }) {
     const [similiarProducts, setSimiliarProducts] = useState(null);
-    const [Loading, setLoading] = useState(true);
-    console.log(similiarId);
+
     const getSimiliar = async (similiar) => {
       try {
         const response = await axios.get(
           `http://localhost:5000/product/getFour/${similiar}`
         );
         if (response) {
-          console.log(response.data);
           setSimiliarProducts(response.data);
-          console.log("similiarrrrr");
-          console.log(similiarProducts);
-          //  setLoading(false)
         }
       } catch (error) {
         console.log(error.message);

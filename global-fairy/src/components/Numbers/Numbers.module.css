@@ -1,6 +1,4 @@
-@import '../../App.css';
-
- .numbersSection{
+.numbersSection{
     font-family: var(--main-font-family);
     width: 90%;
     margin: 0 auto;
@@ -10,7 +8,7 @@
     padding: 0;
     gap: 0;
     padding-bottom: 50px;
- } 
+} 
 
 .title {
     display: flex;
@@ -60,7 +58,6 @@
     width: 100%;
 }
 .imageSection1 {
-   
     justify-content: space-evenly; 
     margin: 0 auto;
 }
@@ -109,7 +106,7 @@
 }
 
 .imageA , .imageB , .imageC  {
-  width: 30%;
+    width: 30%;
 }
 .imageD , .imageE{
     width: 35%;
@@ -121,7 +118,6 @@
 
 .imageB {
     background-image: url("../../assets/images/client.jpg");
-  
 }
 
 .imageC {
@@ -135,7 +131,6 @@
 
 .imageE {
     background-image: url("../../assets/images/clt2.jpg");
-
 }
 
 @media (max-width:940px){
@@ -147,7 +142,6 @@
         width: 100%;
         margin: 0 auto;
     }
-    
     .imageSection2 {
         display: flex;
         flex-direction: row;
@@ -170,27 +164,24 @@
     }
     .imageSection1 {
         height: auto;
-flex-direction: column;
-justify-content: center;
-align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
-    
     .imageSection2 {
         height: auto;
-
-   flex-direction: column;
-   justify-content: center;
-align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
-
-.imageSection1 figcaption,
-.imageSection2 figcaption {
-    height: 10em;
-    width: 80%;
-    font-size: 1.5em;
-    justify-content: center;
-    align-items: center;
-}
+    .imageSection1 figcaption,
+    .imageSection2 figcaption {
+        height: 10em;
+        width: 80%;
+        font-size: 1.5em;
+        justify-content: center;
+        align-items: center;
+    }
 }
 @media (max-width:405px){
     .title{

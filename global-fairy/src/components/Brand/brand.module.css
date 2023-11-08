@@ -80,7 +80,7 @@ margin-bottom: 20px;
     .row, .twoBrands {
         gap: 8%;
     }
-    .twoBrands .brandImage , .twoBrands .brandImageLink{
+    .twoBrands .brandImage , .twoBrands .brandImageLink {
         width: 120px; 
         height: 120px;
     }

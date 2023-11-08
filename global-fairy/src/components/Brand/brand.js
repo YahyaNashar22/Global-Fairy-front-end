@@ -13,9 +13,8 @@ import nars from '../../assets/images/nars.jpg';
 import { useNavigate } from 'react-router-dom';
 
 const Brand = () => {
-    const navigate = useNavigate()
+    const navigate = useNavigate();
     const sendBrand = async (brandName) => {
-
         try {
                 navigate(`Products/Brand/${brandName}`)
             
@@ -27,40 +26,40 @@ const Brand = () => {
 
     return (
         <section className={style.brandSection}>
-            <h1 className={style.heading}>Shop by Brand </h1>
+            <h1 className={style.heading}>Shop by Brand</h1>
             <div className={style.imageContainer}>
                 <div className={style.row}>
                     <div className={style.twoBrands}>
                         <img src={shein} onClick={()=>sendBrand("Shein")}  className={style.brandImage} alt="Shein Logo" />
-                            <img src={addidas} onClick={()=>sendBrand("Adidas")} className={style.brandImage} alt="Adidas Logo" />
+                        <img src={addidas} onClick={()=>sendBrand("Adidas")} className={style.brandImage} alt="Adidas Logo" />
                     </div>
                     <div className={style.row}>
                         <div className={style.twoBrands}>
-                                <img src={handm} onClick={()=>sendBrand("H&M")} className={style.brandImage} alt="H and M Logo" />
-                                <img src={hudaBeauty} onClick={()=>sendBrand("HudaBeauty")} className={style.brandImage} alt="HudaBeauty Logo" />
+                            <img src={handm} onClick={()=>sendBrand("H&M")} className={style.brandImage} alt="H and M Logo" />
+                            <img src={hudaBeauty} onClick={()=>sendBrand("HudaBeauty")} className={style.brandImage} alt="HudaBeauty Logo" />
                         </div>
                     </div>
                 </div>
                 <div className={style.row}>
                     <div className={style.row}>
                         <div className={style.twoBrands}>
-                                <img src={mango} onClick={()=>sendBrand("Mango")} className={`${style.deleteImage} ${style.brandImage} `} alt="Mango Logo" />
-                                <img src={bershka} onClick={()=>sendBrand("Bershka")} className={style.brandImage} alt="Bershka Logo" />
-                                <img src={robyRose} onClick={()=>sendBrand("RobyRose")} className={style.brandImage} alt="RobyRose Logo" />
+                            <img src={mango} onClick={()=>sendBrand("Mango")} className={`${style.deleteImage} ${style.brandImage} `} alt="Mango Logo" />
+                            <img src={bershka} onClick={()=>sendBrand("Bershka")} className={style.brandImage} alt="Bershka Logo" />
+                            <img src={robyRose} onClick={()=>sendBrand("RobyRose")} className={style.brandImage} alt="RobyRose Logo" />
                         </div>
                     </div>
                 </div>
                 <div className={style.row}>
                     <div className={style.row}>
                         <div className={style.twoBrands}>
-                                <img src={zara} onClick={()=>sendBrand("Zara")} className={style.brandImage} alt="Zara Logo" />
-                                <img src={nyx} onClick={()=>sendBrand("NYX")} className={style.brandImage} alt="Nyx Logo" />
+                            <img src={zara} onClick={()=>sendBrand("Zara")} className={style.brandImage} alt="Zara Logo" />
+                            <img src={nyx} onClick={()=>sendBrand("NYX")} className={style.brandImage} alt="Nyx Logo" />
                         </div>
                     </div>
                     <div className={style.row}>
                         <div className={style.twoBrands}>
-                                <img src={nike} onClick={()=>sendBrand("Nike")} className={style.brandImage} alt="Nike logo" />
-                                <img src={nars} onClick={()=>sendBrand("Nars")} className={style.brandImage} alt="Nars Logo" />
+                            <img src={nike} onClick={()=>sendBrand("Nike")} className={style.brandImage} alt="Nike logo" />
+                            <img src={nars} onClick={()=>sendBrand("Nars")} className={style.brandImage} alt="Nars Logo" />
                         </div>
                     </div>
                 </div>
