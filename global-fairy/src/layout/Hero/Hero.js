@@ -2,7 +2,6 @@ import React from 'react';
 import { useState,useEffect } from 'react';
 import { useSharedData } from '../../context/DataContext';
 import style from './Hero.module.css';
-import clothesAnimation from '../../assets/images/clothesAnimation.png';
 import AnimationC from '../../assets/images/suits.png'
 import AnimationS from '../../assets/images/AnimationS2.png'
 import AnimationM from '../../assets/images/AnimationM2.png'
@@ -15,10 +14,6 @@ const navigate=useNavigate()
   const images = [AnimationC, AnimationM, AnimationS];
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const navigateTo=()=>{
-    console.log("image clickedddd")
-navigate("/Products/Category")
-  }
   useEffect(() => {
       const intervalId = setInterval(() => {
           if(currentIndex === images.length - 1) {
