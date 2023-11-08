@@ -12,11 +12,15 @@ const About = () => {
             <div className={style.container}>
                 <div className={style.text}>
                     <h2 className={style.aboutTitle}>OUR STORY</h2>
-                    <p>Launced in 2015, Exclusive is South Asia’s premier online shopping makterplace with an active presense in
+                    <p>
+                    Launched over 7 years ago in Lebanon, Exclusive has swiftly grown into a leading multi-vendor marketplace. Focused on women aged 18 and above, we offer a diverse range of fashion and makeup brands for a convenient shopping experience. Our goal is to save customers time and effort while providing extensive product options.                    </p>
+                    <p>
+                    Exclusive strives to be a trusted online shopping destination, fostering brand visibility and sales for vendors while cultivating a loyal customer base. With 7+ years of expertise, we continue to set new standards in Lebanon's bustling e-commerce landscape.                    </p>
+                    {/* <p>Launced in 2015, Exclusive is South Asia’s premier online shopping makterplace with an active presense in
                         Bangladesh. Supported by wide range of tailored marketing, data and service solutions, Exclusive has
                         10,500 sallers and 300 brands and serves 3 millions customers across the region.</p>
                     <p>  Exclusive has more than 1 Million products to offer, growing at a very fast. Exclusive offers a diverse
-                        assotment in categories ranging from consumer. </p>
+                        assotment in categories ranging from consumer. </p> */}
                 </div>
                 <div className={style.image}>
                     <img src={about} alt="About Us" />
@@ -33,7 +37,7 @@ const About = () => {
                         </div>
                         <div>
                             <div className={style.phrase}>
-                                <p style={{ fontWeight: 'bold' , fontSize:'1.3em' }}>HIGH QUALITY</p>
+                                <p style={{ fontWeight: 'bold', fontSize: '1.3em' }}>HIGH QUALITY</p>
                                 <p>Hight quality original brands </p>
                             </div>
                         </div>
@@ -46,7 +50,7 @@ const About = () => {
                         </div>
                         <div>
                             <div className={style.phrase}>
-                                <p style={{ fontWeight: 'bold', fontSize:'1.3em' }}>CUSTOMER SERVICE</p>
+                                <p style={{ fontWeight: 'bold', fontSize: '1.3em' }}>CUSTOMER SERVICE</p>
                                 <p>Friendly customer suppor</p>
                             </div>
                         </div>
@@ -59,7 +63,7 @@ const About = () => {
                         </div>
                         <div>
                             <div className={style.phrase}>
-                                <p style={{ fontWeight: 'bold', fontSize:'1.3em' }}>MONEY BACK GUARANTEE</p>
+                                <p style={{ fontWeight: 'bold', fontSize: '1.3em' }}>MONEY BACK GUARANTEE</p>
                                 <p>We reurn money within 30 days</p>
                             </div>
                         </div>
@@ -71,7 +75,7 @@ const About = () => {
                             </div>
                         </div>
                         <div className={style.phrase}>
-                            <p style={{ fontWeight: 'bold', fontSize:'1.3em' }}>FAST DELIVERY</p>
+                            <p style={{ fontWeight: 'bold', fontSize: '1.3em' }}>FAST DELIVERY</p>
                             <p>Fast delivery all over Lebanon</p>
                         </div>
                     </div>
