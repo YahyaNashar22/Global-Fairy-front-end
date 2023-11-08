@@ -45,6 +45,7 @@
   font-size: 16px;
   transition: .2s;
   cursor: pointer;
+  font-weight: bold;
 }
 .addToCard:hover {
   background: var(--Thulian-pink, #bd5580);
@@ -53,7 +54,6 @@
 .soldOut {
   width: 50%;
   height: 65px;
-  padding: 16px 54px;
   flex-shrink: 0;
   border-radius: 62px;
   background-color: #E51E1E;
@@ -61,12 +61,17 @@
   border: none;
   font-size: 16px;
   transition: .2s;
+  margin-top: 20px;
 }
 
 @media (max-width: 992px) {
   .purshaseButtons {
     justify-content: center;
     width: 100%;
+  }
+  .soldOut {
+    width: 40%;
+    height: 45px;
   }
 }
 

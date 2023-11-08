@@ -14,22 +14,11 @@
   gap: 16px;
 }
 .colorsArea .color {
-  border: 1px solid black;
   width: 37px;
   height: 37px;
   border-radius: 50%;
   cursor: pointer;
 }
-
-/* .colorsArea .color:first-child {
-  background-color: #E8E5DF;
-}
-.colorsArea .color:nth-child(2) {
-  background-color: #314F4A;
-}
-.colorsArea .color:last-child{
-  background-color: #31344F;
-} */
 
 @media (max-width: 992px) {
   .colorsArea {

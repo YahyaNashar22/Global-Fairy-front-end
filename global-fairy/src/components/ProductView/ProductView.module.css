@@ -26,13 +26,13 @@
   gap: 15px;
 }
 .threeImages img {
-  width: 150px;
+  /* width: 150px; */
   height: 200px;
   border-radius: 20px;
 }
 
 .mainImage img {
-  width: 430px;
+  /* width: 430px; */
   height: 630px;
   border-radius: 20px;
 }
@@ -74,89 +74,17 @@
   align-items: flex-start;
   gap: 12px;
 }
-.size button {
+.sizeButtons .sizeButton {
   padding: 12px;
   border-radius: 62px;
-  background: #F0F0F0;
-  color: rgba(0, 0, 0, 0.60);
   font-size: 16px;
   border: none;
   transition: .2s;
   cursor: pointer;
 }
-.size button:hover {
-  background: var(--Thulian-pink, #D96093);
+.size .sizeButtons .sizeButton:hover {
+  background-color: var(--Thulian-pink, #D96093);
   color: white;
-}
-.size .l {
-  background: var(--Thulian-pink, #D96093);
-  color: white;
-}
-
-.purshaseButtons {
-  padding-top: 20px;
-  display: flex;
-  gap: 20px;
-}
-.counter {
-  color: #000;
-  font-size: 16px;
-  display: flex;
-  width: 30%;
-  height: 65px;
-  padding: 16px 15px;
-  justify-content: space-between;
-  align-items: center;
-  border-radius: 62px;
-  background: #F0F0F0;
-  border: 1px solid #ccc;
-}
-.decrease {
-  padding: 10px;
-  font-size: 25px;  
-  cursor: pointer;
-}
-.count {
-  color: #000;
-  font-size: 16px;
-  flex-grow: 1;
-  text-align: center;
-}
-.increase {
-  padding: 10px;
-  font-size: 25px;
-  cursor: pointer;
-}
-.addToCard {
-  width: 40%;
-  height: 65px;
-  padding: 16px 54px;
-  flex-shrink: 0;
-  border-radius: 62px;
-  background: var(--Thulian-pink, #D96093);
-  color: white;
-  border: none;
-  font-size: 16px;
-  transition: .2s;
-  flex: 1;
-  cursor: pointer;
-}
-.addToCard:hover {
-  background: var(--Thulian-pink, #bd5580);
-}
-
-.soldout {
-  width: 60%;
-  height: 65px;
-  padding: 16px 54px;
-  flex-shrink: 0;
-  border-radius: 62px;
-  background-color: #E51E1E;
-  color: white;
-  border: none;
-  font-size: 16px;
-  transition: .2s;
-  cursor: pointer;
 }
 
 @media (max-width: 992px) {
@@ -206,10 +134,6 @@
   .sizeButtons {
     justify-content: center;
   }
-  .purshaseButtons {
-    margin-top: 20px;
-    width: 100%;
-  }
 }
 
 @media (max-width: 768px) {
@@ -244,10 +168,5 @@
   }
   .size .sizeButtons {  
     flex-wrap: wrap;
-  }
-  .purshaseButtons {
-    justify-content: space-evenly;
-    width: 100%;
-    gap: 10px
   }
 }
