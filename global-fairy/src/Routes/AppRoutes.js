@@ -26,7 +26,7 @@ function AppRoutes() {
         <Route path="/about" element={<LayoutWithHeaderFooter> <About /> </LayoutWithHeaderFooter>} />
         <Route path="/contact" element={<LayoutWithHeaderFooter> <Contact /> </LayoutWithHeaderFooter>} />
         <Route path="/Products/:type/:nameType?" element={<LayoutWithHeaderFooter> <Brand /> </LayoutWithHeaderFooter>} />
-        <Route path="/view/:id" element={<LayoutWithHeaderFooter> <ProductView /> </LayoutWithHeaderFooter>} />
+        <Route path="/view/:productId" element={<LayoutWithHeaderFooter> <ProductView /> </LayoutWithHeaderFooter>} />
 
           {/* Routes without Header and Footer */}
           <Route path="/dashboard" element={<LayoutWithoutHeaderFooter> <Dashboard /> </LayoutWithoutHeaderFooter>} />
