@@ -7,6 +7,7 @@ import axios from 'axios';
 
 const ProductView = () => {
     const {productId} = useParams();
+    const [addBackground, setAddBackground] = useState(null);
 
     // Fetching
     const [productData, setProductData] = useState(null);
@@ -38,6 +39,10 @@ const ProductView = () => {
         setSelectedColorIndex(index);
     };
 
+    const handleSizeButtonStyles = (index) => {
+        setAddBackground(index);
+      };
+
     return (
         
             !loading?(
@@ -65,7 +70,10 @@ const ProductView = () => {
                             <p className={style.title}>Choose Size</p>
                             <div className={style.sizeButtons}>
                                 {productData.details[selectedColorIndex].sizes.map((size, index) => (
-                                    <button key={index}>{size}</button>
+                                    <button key={index}
+                                    style={{backgroundColor: addBackground === index ? "#D96093" : "#F0F0F0"}}
+                                    onClick={() => handleSizeButtonStyles(index)}
+                                    >{size}</button>
                                 ))}
                             </div>
                         </div>
@@ -74,8 +82,6 @@ const ProductView = () => {
                 </div>
             </section>
             ):(<h1> Loading...</h1>)
-        
-       
     );
 }
 
