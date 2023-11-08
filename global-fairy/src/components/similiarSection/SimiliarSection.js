@@ -35,7 +35,7 @@
         </h1>
         <div className={style.productsHolder}>
           {similiarProducts.map((product) => (
-            <SimiliarProduct key={product.id} productDetails={product} />
+            <SimiliarProduct key={product.id} productDetails={product} className={style.similiarCard}/>
           ))}
         </div>
       </section>

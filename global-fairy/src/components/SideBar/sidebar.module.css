@@ -28,12 +28,10 @@
     flex-direction: row;
     justify-content: flex-start;
     align-items: flex-start;
-    border:1px solid red;
     gap: 35px;
 }
 
 .checklist{
-    border: 1px solid black;
     width: 100%;
     display: flex;
     justify-content: space-between;
