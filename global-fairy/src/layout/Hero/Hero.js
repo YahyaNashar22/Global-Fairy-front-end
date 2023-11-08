@@ -38,7 +38,7 @@ navigate("/Products/Category")
           <div className={style.content}>
             <h1 className={style.mainTitle}>Global Fairy</h1>
             <span className={style.subTitle}>FIND WHAT MATCHES YOUR STYLE</span>
-            <p>
+            <p className={style.heroP}>
               Browse through our diverse range of meticulously crafted garments,
               designed to bring out your individuality and cater to your sense of style.
             </p>
