@@ -42,37 +42,41 @@ const Dashboard = () => {
         }
     }
 
-const viewALl=()=>{
-    setFilteredProducts(products)
-}
+    const viewALl = () => {
+        setFilteredProducts(products)
+    }
 
     const getfilteredProducts = () => {
-        const attribute=document.querySelector('select option:checked').value
-        const value=document.querySelector('#input').value
+        const attribute = document.querySelector('select option:checked').value
+        const value = document.querySelector('#input').value
         console.log(attribute)
         console.log(value)
+        if (attribute === 'all') {
+            setFilteredProducts(products)
+        }
         if (attribute === 'id') {
             const filtered = products.filter(product => product._id === value)
             setFilteredProducts(filtered)
         }
         if (attribute === "name") {
-            const filtered = products.filter(product => product.name === value)
+            const filtered = products.filter(product => product.name.toLowerCase().includes(value.toLowerCase()) )
             setFilteredProducts(filtered)
         }
         if (attribute === "brand") {
-            const filtered = products.filter(product => product.brand.name === value)
+            const filtered = products.filter(product => product.brand.name.toLowerCase().includes(value.toLowerCase())
+                )
             setFilteredProducts(filtered)
         }
         if (attribute === "category") {
-            const filtered = products.filter(product => product.category.name === value)
+            const filtered = products.filter(product => product.category.name.toLowerCase().includes(value.toLowerCase()))
             setFilteredProducts(filtered)
         }
         if (attribute === "subCategory") {
-            const filtered = products.filter(product => product.subCategory.name === value)
+            const filtered = products.filter(product => product.subCategory.name.toLowerCase().includes(value.toLowerCase()))
             setFilteredProducts(filtered)
         }
         if (attribute === "color") {
-            const filtered = products.filter(product => product.details.some(detail => detail.color === value))
+            const filtered = products.filter(product => product.details.some(detail => detail.color.toLowerCase().includes(value.toLowerCase())))
             setFilteredProducts(filtered)
         }
         if (attribute === "size") {
@@ -80,17 +84,17 @@ const viewALl=()=>{
             setFilteredProducts(filtered)
         }
         if (attribute === "price") {
-            const filtered = products.filter(product => Number(product.price) === Number(value) )
+            const filtered = products.filter(product => Number(product.price) === Number(value))
             setFilteredProducts(filtered)
         }
         if (attribute === "stock") {
             const filtered = products.filter(product => {
                 const quantity = product.details.reduce((acc, detail) => acc + detail.stock, 0)
-               return quantity === value
-             } )
+                return Number(quantity) === Number(value)
+            })
             setFilteredProducts(filtered)
         }
-        
+
 
     }
 
@@ -106,8 +110,8 @@ const viewALl=()=>{
                     <img className={style.logoImage} src={logo} alt="logo" />
                     <p>dashbord admin </p>
                 </div>
-                <div className={style.submit}><br />
-                    <input type="submit" value="Add " />
+                <div className={style.submit}>
+                    <input type="submit" value="Add Product" />
                 </div>
             </div>
             <div className={style.searchTitle}>
@@ -115,6 +119,7 @@ const viewALl=()=>{
                 <div>
                     <div className={style.searchValue}>
                         <select className={style.tableInput} >
+                            <option value="all">View All</option>
                             <option value="id">ID</option>
                             <option value="name">Name</option>
                             <option value="brand">Brand</option>
@@ -125,9 +130,8 @@ const viewALl=()=>{
                             <option value="price">Price</option>
                             <option value="stock">Quantity</option>
                         </select>
-                        <input className={style.tableInput} id='input' type="text" placeholder="Enter something" 
-                        onKeyDown={(event)=>{if(event.key==='Enter'){getfilteredProducts()}}}  />
-                        <span onClick={()=>{viewALl()}} className={style.viewProducts}>View All</span>
+                        <input className={style.tableInput} id='input' type="text" placeholder="Enter something" />
+                        <span onClick={() => { getfilteredProducts() }} className={style.viewProducts}>filter</span>
                     </div>
                 </div>
             </div>
@@ -198,82 +202,6 @@ const viewALl=()=>{
                             </tr>
                         }
 
-
-
-                        {/* <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td className={style.iconCell}>
-                <img className={style.icon} src={pen } alt="Icon 1"/>
-                <img className={style.icon} src={viewicon} alt="Icon 2"/>
-                <img className={style.icon} src={deleteicon} alt="Icon 3"/>
-            </td>
-        </tr> */}
-
-
-                        {/* <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td className={style.iconCell}>
-                <img className={style.icon} src={pen } alt="Icon 1"/>
-                <img className={style.icon} src={viewicon} alt="Icon 2"/>
-                <img className={style.icon} src={deleteicon} alt="Icon 3"/>
-            </td>
-        </tr> */}
-
-
-                        {/* <tr>
-            <td> </td>
-            <td> </td>
-            <td> </td>
-            <td> </td>
-            <td> </td>
-            <td> </td>
-            <td> </td>
-            <td> </td>
-            <td> </td>
-            <td></td>
-            <td className={style.iconCell}>
-                <img className={style.icon} src={pen } alt="Icon 1"/>
-                <img className={style.icon} src={viewicon} alt="Icon 2"/>
-                <img className={style.icon} src={deleteicon} alt="Icon 3"/>
-            </td>
-        </tr> */}
-
-
-                        {/* <tr>
-            <td> </td>
-            <td> </td>
-            <td> </td>
-            <td> </td>
-            <td> </td>
-            <td> </td>
-            <td> </td>
-            <td> </td>
-            <td> </td>
-            <td></td>
-            <td className={style.iconCell}>
-                <img className={style.icon} src={pen } alt="Icon 1"/>
-                <img className={style.icon} src={viewicon} alt="Icon 2"/>
-                <img className={style.icon} src={deleteicon} alt="Icon 3"/>
-            </td>
-        </tr> */}
                     </tbody>
                 </table>
             </div>
