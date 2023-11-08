@@ -10,6 +10,8 @@ import Filter from '../../assets/icons/filter.png'
 import { useParams } from 'react-router-dom';
 import axios from "axios"
 import styles from "./Brand.module.css"
+import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 
 const Brand = () => {
@@ -19,10 +21,11 @@ const Brand = () => {
     const [loading, setloading] = useState(true)
     const [shownCategory, setShownCategory] = useState()
     const [products, setProducts] = useState([])
-    // const [filteredProduct, setFilteredProduct] = useState(products)
     const [sortValue, setSortValue] = useState('low')
     const [effectCompleted, setEffectCompleted] = useState(false)
-
+    const[filetredProducts,setFilteredProducts]=useState([])
+    const[filterOption,setFilterOption]=useState()
+    const navigate = useNavigate()
     const handleChange = (sortValue) => {
         setSortValue(sortValue)
     }
@@ -45,6 +48,11 @@ const Brand = () => {
         getFilteredProducts(filterValue)
     }
 
+const resetOption=()=>{
+    console.log(filterOption)
+    setFilterOption(false)
+}
+
     const getFilteredProducts = async (values) => {
         try {
             console.log("filetreedddd fct")
@@ -60,15 +68,14 @@ const Brand = () => {
                 else {
                     sortedProducts = [...response.data].sort((a, b) => a.price - b.price)
                 }
-                setProducts(sortedProducts)
+                setFilteredProducts(sortedProducts)
+                setFilterOption(true)
             }
         }
         catch (error) {
             console.log(error.message)
         }
     }
-
-
 
 
     // GET THE BRAND
@@ -99,7 +106,8 @@ const Brand = () => {
     // // GET Products
     const getProducts = async () => {
         console.log("get products by brand and category EXXXXXXX")
-
+        console.log(brand)
+        console.log(shownCategory)
         await axios.get(`http://localhost:5000/product/category-brand`, {
             params: { brand: brand._id, category: shownCategory._id },
             headers: {
@@ -226,14 +234,21 @@ const Brand = () => {
                     </div>
                     <div className={styles.mainProduct}>
                         <div className={styles.sideB}>
-                            <SideBar shown={shownCategory} showFiltered={handleFilter} brand={brand} />
+                            <SideBar shown={shownCategory} showFiltered={handleFilter} brand={brand} reset={resetOption} />
                         </div>
                         <div className={styles.products}>
-                            {
-                                products.map((product, index) => (
-                                    <ProductCard key={index} productData={product} />
-
-                                ))
+                            {!filterOption?(  products.map((product, index) => (
+                                    <Link to={`/view/${product._id}`} key={index} className={styles.productCards}>
+                                    <ProductCard  productData={product} />
+                                    </Link>
+                                ))):(
+                                    filetredProducts.map((product, index) => (
+                                        <Link to={`/view/${product._id}`} key={index} className={styles.productCards}>
+                                        <ProductCard  productData={product} />
+                                        </Link>
+                                    ))
+                                )
+                              
                             }
 
                         </div>

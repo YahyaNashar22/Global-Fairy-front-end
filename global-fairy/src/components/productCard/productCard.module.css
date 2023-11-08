@@ -15,6 +15,7 @@ justify-content: space-around;
     height: 33em;
     border: 1px solid #E5E7EB;
     color: var(--wenge);
+    cursor: pointer;
     /* margin: 0 auto; */
 }
 
