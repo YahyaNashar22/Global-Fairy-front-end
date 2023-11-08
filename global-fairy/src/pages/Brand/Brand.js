@@ -22,8 +22,8 @@ const Brand = () => {
     const [products, setProducts] = useState([])
     const [sortValue, setSortValue] = useState('low')
     const [effectCompleted, setEffectCompleted] = useState(false)
-    const[filetredProducts,setFilteredProducts]=useState([])
-    const[filterOption,setFilterOption]=useState()
+    const [filetredProducts, setFilteredProducts] = useState([])
+    const [filterOption, setFilterOption] = useState()
     const handleChange = (sortValue) => {
         setSortValue(sortValue)
     }
@@ -46,16 +46,13 @@ const Brand = () => {
         getFilteredProducts(filterValue)
     }
 
-const resetOption=()=>{
-    console.log(filterOption)
-    setFilterOption(false)
-}
+    const resetOption = () => {
+        setFilterOption(false)
+    }
 
     const getFilteredProducts = async (values) => {
         try {
-            console.log("filetreedddd fct")
             const requestedData = values
-            console.log(values)
             const response = await axios.post('http://localhost:5000/product/filter', requestedData)
             if (response) {
 
@@ -78,7 +75,6 @@ const resetOption=()=>{
 
     // GET THE BRAND
     const getBrand = async () => {
-        console.log("get brand EXXXXXXX")
         try {
             const response = await axios.get(`http://localhost:5000/brand/readByName/${nameType}`);
             const brandData = response.data
@@ -86,8 +82,6 @@ const resetOption=()=>{
                 setBrand(brandData)
                 setCategories(brandData.categories)
                 setShownCategory(brandData.categories[0])
-                console.log(categories)
-                console.log(shownCategory)
             }
 
             if (!brandData) {
@@ -103,9 +97,6 @@ const resetOption=()=>{
 
     // // GET Products
     const getProducts = async () => {
-        console.log("get products by brand and category EXXXXXXX")
-        console.log(brand)
-        console.log(shownCategory)
         await axios.get(`http://localhost:5000/product/category-brand`, {
             params: { brand: brand._id, category: shownCategory._id },
             headers: {
@@ -125,19 +116,13 @@ const resetOption=()=>{
 
     // GET CATEGORIES
     const getCategories = async () => {
-        console.log("get categoriess EXXXXXXX")
         setloading(true)
         try {
             const response = await axios.get(`http://localhost:5000/category/read`);
             if (response) {
                 const categoriesData = response.data
-                console.log("there is response for categories")
                 setCategories(categoriesData)
                 setShownCategory(response.data[0])
-                if (categories) {
-                    console.log(categories)
-
-                }
 
             }
             setloading(false)
@@ -149,7 +134,6 @@ const resetOption=()=>{
     }
 
     const getProductsByCategory = async () => {
-        console.log("get products by category EXXXXXXX")
 
         try {
             const response = await axios.get(`http://localhost:5000/product/category/${shownCategory._id}`);
@@ -175,7 +159,6 @@ const resetOption=()=>{
             )
         }
         if (type === "Category") {
-            console.log(type)
             getCategories().then(() => {
                 setEffectCompleted(true);
             })
@@ -199,7 +182,6 @@ const resetOption=()=>{
 
                 })
 
-
             }
         }
     }, [effectCompleted, shownCategory])
@@ -220,9 +202,10 @@ const resetOption=()=>{
 
             <div className={styles.mainBrand}>
                 <div className={styles.addComp}>
-                    {!filterOption?(                    <span className={styles.addedComp}><ProductNbs productsNb={products.length} /></span>
-):(                    <span className={styles.addedComp}><ProductNbs productsNb={filetredProducts.length} /></span>
-)}
+                    {!filterOption ? (
+                        <span className={styles.addedComp}><ProductNbs productsNb={products.length} /></span>
+                    ) : (<span className={styles.addedComp}><ProductNbs productsNb={filetredProducts.length} /></span>
+                    )}
                     <span className={styles.addedComp}><SortBy sortValue={sortValue} onSort={handleChange} /></span>
                 </div>
 
@@ -237,18 +220,18 @@ const resetOption=()=>{
                             <SideBar shown={shownCategory} showFiltered={handleFilter} brand={brand} reset={resetOption} />
                         </div>
                         <div className={styles.products}>
-                            {!filterOption?(  products.map((product, index) => (
+                            {!filterOption ? (products.map((product, index) => (
+                                <Link to={`/view/${product._id}`} key={index} className={styles.productCards}>
+                                    <ProductCard productData={product} />
+                                </Link>
+                            ))) : (
+                                filetredProducts.map((product, index) => (
                                     <Link to={`/view/${product._id}`} key={index} className={styles.productCards}>
-                                    <ProductCard  productData={product} />
+                                        <ProductCard productData={product} />
                                     </Link>
-                                ))):(
-                                    filetredProducts.map((product, index) => (
-                                        <Link to={`/view/${product._id}`} key={index} className={styles.productCards}>
-                                        <ProductCard  productData={product} />
-                                        </Link>
-                                    ))
-                                )
-                              
+                                ))
+                            )
+
                             }
 
                         </div>

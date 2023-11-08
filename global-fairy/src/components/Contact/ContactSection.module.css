@@ -6,17 +6,18 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: auto;
+    height: 70vh;
 }
 
 .contactContainer {
     margin: 2em auto;
-    width: 85%;
+    width: 80%;
     display: flex;
     flex-direction: row;
     gap: 2%;
     height: 100%;
     padding: auto;
+
 
 }
 
@@ -162,6 +163,7 @@
     padding: 0.5em 0 0em 0.7em;
     border-style: none;
     margin-right: 10px;
+    min-height: 40px;
 }
 
 .inputs::placeholder,
@@ -206,6 +208,10 @@
 
 /**************************************************/
 @media (max-width:750px) {
+    .contactPage {
+      
+        height:auto;
+    }
     .contactTitle {
         font-size: 2em;
         flex-shrink: 0;
@@ -222,7 +228,8 @@
         display: flex;
         flex-direction: column;
         height: 100%;
-        padding: auto;
+        gap: 1.2em;
+        
     }
 
     .contactNb {

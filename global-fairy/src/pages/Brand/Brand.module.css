@@ -124,7 +124,7 @@ margin: 1.3em auto;
   user-select: none;
 }
 
-.menuToggle a
+/* .menuToggle a
 {
   text-decoration: none;
   color: #232323;
@@ -135,10 +135,10 @@ margin: 1.3em auto;
 .menuToggle a:hover
 {
   color: tomato;
-}
+} */
 
 
-.menuToggle input
+/* .menuToggle input
 {
   display: block;
   width: 40px;
@@ -149,16 +149,16 @@ margin: 1.3em auto;
   
   cursor: pointer;
   
-  opacity: 0; /* hide this */
-  z-index: 2; /* and place it over the hamburger */
+  opacity: 0; 
+  z-index: 2; 
   
   -webkit-touch-callout: none;
-}
+} */
 
 /*
  * Just a quick hamburger
  */
-.menuToggle span
+/* .menuToggle span
 {
   display: block;
   width: 33px;
@@ -186,35 +186,35 @@ margin: 1.3em auto;
 .menuToggle span:nth-last-child(2)
 {
   transform-origin: 0% 100%;
-}
+} */
 
 /* 
  * Transform all the slices of hamburger
  * into a crossmark.
  */
-.menuToggle input:checked ~ span
+/* .menuToggle input:checked ~ span
 {
   opacity: 1;
   transform: rotate(45deg) translate(-2px, -1px);
   background: #232323;
-}
+} */
 
 /*
  * But let's hide the middle one.
  */
-.menuToggle input:checked ~ span:nth-last-child(3)
+/* .menuToggle input:checked ~ span:nth-last-child(3)
 {
   opacity: 0;
   transform: rotate(0deg) scale(0.2, 0.2);
-}
+} */
 
 /*
  * Ohyeah and the last one should go the other direction
  */
-.menuToggle input:checked ~ span:nth-last-child(2)
+/* .menuToggle input:checked ~ span:nth-last-child(2)
 {
   transform: rotate(-45deg) translate(0, -1px);
-}
+} */
 
 /*
  * Make this absolute positioned
@@ -234,17 +234,17 @@ margin: 1.3em auto;
     transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
 }
 
-.menu li
+/* .menu li
 {
   padding: 10px 0;
   font-size: 20px;
-}
+} */
 
 /*
  * And let's slide it in from the left
  */
-.menuToggle input:checked ~ ul
+/* .menuToggle input:checked ~ ul
 {
   transform: none;
 
-}
+} */
