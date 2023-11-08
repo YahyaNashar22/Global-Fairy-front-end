@@ -12,7 +12,7 @@ const About = () => {
             <div className={style.container}>
                 <div className={style.text}>
                     <h2 className={style.aboutTitle}>OUR STORY</h2>
-                    <p>
+                    <p className={style.phrase1}>
                     Launched over 7 years ago in Lebanon, Exclusive has swiftly grown into a leading multi-vendor marketplace. Focused on women aged 18 and above, we offer a diverse range of fashion and makeup brands for a convenient shopping experience. Our goal is to save customers time and effort while providing extensive product options.                    </p>
                     <p>
                     Exclusive strives to be a trusted online shopping destination, fostering brand visibility and sales for vendors while cultivating a loyal customer base. With 7+ years of expertise, we continue to set new standards in Lebanon's bustling e-commerce landscape.                    </p>
@@ -23,7 +23,7 @@ const About = () => {
                         assotment in categories ranging from consumer. </p> */}
                 </div>
                 <div className={style.image}>
-                    <img src={about} alt="About Us" />
+                    <img className={style.img1} src={about} alt="About Us" />
                 </div>
             </div>
             <div className={style.whyus}>
@@ -37,7 +37,7 @@ const About = () => {
                         </div>
                         <div>
                             <div className={style.phrase}>
-                                <p style={{ fontWeight: 'bold', fontSize: '1.3em' }}>HIGH QUALITY</p>
+                                <p className={style.phrase2} >HIGH QUALITY</p>
                                 <p>Hight quality original brands </p>
                             </div>
                         </div>
@@ -45,12 +45,12 @@ const About = () => {
                     <div className={style.icon}>
                         <div className={`${style.frame} ${style.grayFrame}`}>
                             <div className={style.blackFrame}>
-                                <img src={customer} alt="Customer service" />
+                                <img className={style.img2} src={customer} alt="Customer service" />
                             </div>
                         </div>
                         <div>
                             <div className={style.phrase}>
-                                <p style={{ fontWeight: 'bold', fontSize: '1.3em' }}>CUSTOMER SERVICE</p>
+                                <p className={style.phrase2} >CUSTOMER SERVICE</p>
                                 <p>Friendly customer suppor</p>
                             </div>
                         </div>
@@ -58,12 +58,12 @@ const About = () => {
                     <div className={style.icon}>
                         <div className={style.frame + ' ' + style.grayFrame}>
                             <div className={style.blackFrame}>
-                                <img src={shield} alt="shield-tick" />
+                                <img className={style.img2} src={shield} alt="shield-tick" />
                             </div>
                         </div>
                         <div>
                             <div className={style.phrase}>
-                                <p style={{ fontWeight: 'bold', fontSize: '1.3em' }}>MONEY BACK GUARANTEE</p>
+                                <p  className={style.phrase2} >MONEY BACK GUARANTEE</p>
                                 <p>We reurn money within 30 days</p>
                             </div>
                         </div>
@@ -71,11 +71,11 @@ const About = () => {
                     <div className={style.icon}>
                         <div className={style.frame + ' ' + style.grayFrame}>
                             <div className={style.blackFrame}>
-                                <img src={delivery} alt="delivery" />
+                                <img className={style.img2} src={delivery} alt="delivery" />
                             </div>
                         </div>
                         <div className={style.phrase}>
-                            <p style={{ fontWeight: 'bold', fontSize: '1.3em' }}>FAST DELIVERY</p>
+                            <p className={style.phrase2} >FAST DELIVERY</p>
                             <p>Fast delivery all over Lebanon</p>
                         </div>
                     </div>
