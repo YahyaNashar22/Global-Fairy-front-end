@@ -8,6 +8,7 @@ import axios from "axios";
 
 const ProductView = ({getCategoryId}) => {
     const { productId } = useParams();
+    const [addBackground, setAddBackground] = useState(null)
 
     // Fetching
     const [productData, setProductData] = useState(null);
