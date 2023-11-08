@@ -51,7 +51,7 @@ const Dashboard = () => {
             <div className={style.hed}>
                 <div className={style.title}>
                     <img className={style.logoImage} src={logo} alt="logo" />
-                    <p>dashbord admin </p>
+                    <p className='admin'>dashbord admin </p>
                 </div>
                 <div className={style.submit}><br />
                 <Link to="/actions/Addproduct"> 
@@ -59,7 +59,7 @@ const Dashboard = () => {
                 </div>
             </div>
             <div className={style.searchTitle}>
-                <h1>PRODUCT</h1>
+                <h1 className='title'>PRODUCT</h1>
                 <div>
                     <div className={style.searchValue}>
                         <select className={style.tableInput}>

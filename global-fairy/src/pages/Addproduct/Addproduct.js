@@ -5,7 +5,7 @@ const Addproduct = () => {
             <div className={style.hed}>
                 <div className={style.title}>
                     <h1>Global Fairy</h1>
-                    <p>dashbord admin </p>
+                    <p className='adminTitle'>dashbord admin </p>
                 </div>
                 <div>
                     <p className={style.P1}>ADD Product</p>

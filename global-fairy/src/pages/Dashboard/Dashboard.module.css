@@ -4,7 +4,7 @@ table {
     margin: 5px;
 }
 
-h1 {
+.title {
     font-size: larger;
     font-weight: bolder;
     color: #D96093;
@@ -97,7 +97,7 @@ input {
     justify-content: space-around;
 }
 
-.searchTitle h1 {
+.searchTitle .title {
     font-size: 2em;
     margin: 0.5em 0;
     color: black;
@@ -129,7 +129,7 @@ input {
     width: 20%;
 }
 
-p {
+.admin {
     color: #374151;
 }
 
@@ -145,7 +145,7 @@ p {
         width: 100%;
     }
 
-    .searchTitle h1 {
+    .searchTitle .title {
         width: 44%;
     }
 
