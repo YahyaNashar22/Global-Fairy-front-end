@@ -16,7 +16,6 @@ const Dashboard = () => {
             if (response) {
                 setProducts(response.data)
                 setFilteredProducts(response.data)
-                products ? console.log(products) : console.log("nulllllll")
 
             }
             else {
@@ -47,8 +46,6 @@ const Dashboard = () => {
     const getfilteredProducts = () => {
         const attribute = document.querySelector('select option:checked').value
         const value = document.querySelector('#input').value
-        console.log(attribute)
-        console.log(value)
         if (attribute === 'all') {
             setFilteredProducts(products)
         }
@@ -61,8 +58,7 @@ const Dashboard = () => {
             setFilteredProducts(filtered)
         }
         if (attribute === "brand") {
-            const filtered = products.filter(product => product.brand.name.toLowerCase().includes(value.toLowerCase())
-                )
+            const filtered = products.filter(product => product.brand.name.toLowerCase().includes(value.toLowerCase()))
             setFilteredProducts(filtered)
         }
         if (attribute === "category") {
@@ -116,7 +112,7 @@ const Dashboard = () => {
                 <h1 className='title'>PRODUCT</h1>
                 <div>
                     <div className={style.searchValue}>
-                        <select className={style.tableInput} >
+                        <select className={`${style.tableInput} ${style.selectInput}`} >
                             <option value="all">View All</option>
                             <option value="id">ID</option>
                             <option value="name">Name</option>
@@ -128,7 +124,7 @@ const Dashboard = () => {
                             <option value="price">Price</option>
                             <option value="stock">Quantity</option>
                         </select>
-                        <input className={style.tableInput} id='input' type="text" placeholder="Enter something" />
+                        <input className={`${style.tableInput} ${style.searchInput}`} id='input' type="text" placeholder="Enter something" />
                         <span onClick={() => { getfilteredProducts() }} className={style.viewProducts}>filter</span>
                     </div>
                 </div>

@@ -1,7 +1,5 @@
-import { useEffect, useState } from 'react';
 import style from './Addproduct.module.css';
-import { Navigate, json, useNavigate } from 'react-router-dom';
-import axios from 'axios';
+
 const Addproduct = () => {
     return (
         <div>

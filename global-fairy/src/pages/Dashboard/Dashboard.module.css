@@ -137,11 +137,12 @@ height: 27px;
     align-items: center;
 }
 
-.searchValue select {
+.searchValue .selectInput {
     width: 40%;
 }
-.searchValue input {
+.searchValue .searchInput {
     width: 45%;
+
 }
 
 .logoImage {

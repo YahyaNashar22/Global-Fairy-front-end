@@ -19,7 +19,6 @@ const ProductDetails = () => {
                 setProduct(product);
             })
             .catch((error) => {
-
                 console.error("Error fetching product:", error);
             });
     }, [productID]);
@@ -29,7 +28,6 @@ return (
     <>
 
 {product ? <p>{product.name}</p> : <p>Loading...</p>}
-
 
     </>
 
