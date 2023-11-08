@@ -8,12 +8,14 @@ import axios from "axios"
 import { Link } from 'react-router-dom';
 const Dashboard = () => {
     const [products, setProducts] = useState([])
+    const [filteredProducts, setFilteredProducts] = useState([])
 
     const getProducts = async () => {
         try {
             const response = await axios.get('http://localhost:5000/product/get')
             if (response) {
                 setProducts(response.data)
+                setFilteredProducts(response.data)
                 products ? console.log(products) : console.log("nulllllll")
 
             }
@@ -26,19 +28,75 @@ const Dashboard = () => {
         }
     }
 
-    const deleteProduct= async(id)=>{
+    const deleteProduct = async (id) => {
         const confirm = window.confirm(`Are you sure you want to delete this products ?`)
-        if (confirm){
-            try{
-             await axios.delete(`http://localhost:5000/product/delete?id=${id}`)
-             getProducts()
+        if (confirm) {
+            try {
+                await axios.delete(`http://localhost:5000/product/delete?id=${id}`)
+                getProducts()
 
             }
-            catch(error){
+            catch (error) {
                 console.log(error.message)
             }
 
         }
+    }
+
+    const viewALl = () => {
+        setFilteredProducts(products)
+    }
+
+    const getfilteredProducts = () => {
+        const attribute = document.querySelector('select option:checked').value
+        const value = document.querySelector('#input').value
+        console.log(attribute)
+        console.log(value)
+        if (attribute === 'all') {
+            setFilteredProducts(products)
+        }
+        if (attribute === 'id') {
+            const filtered = products.filter(product => product._id === value)
+            setFilteredProducts(filtered)
+        }
+        if (attribute === "name") {
+            const filtered = products.filter(product => product.name.toLowerCase().includes(value.toLowerCase()) )
+            setFilteredProducts(filtered)
+        }
+        if (attribute === "brand") {
+            const filtered = products.filter(product => product.brand.name.toLowerCase().includes(value.toLowerCase())
+                )
+            setFilteredProducts(filtered)
+        }
+        if (attribute === "category") {
+            const filtered = products.filter(product => product.category.name.toLowerCase().includes(value.toLowerCase()))
+            setFilteredProducts(filtered)
+        }
+        if (attribute === "subCategory") {
+            const filtered = products.filter(product => product.subCategory.name.toLowerCase().includes(value.toLowerCase()))
+            setFilteredProducts(filtered)
+        }
+        if (attribute === "color") {
+            const filtered = products.filter(product => product.details.some(detail => detail.color.toLowerCase().includes(value.toLowerCase())))
+            setFilteredProducts(filtered)
+        }
+        if (attribute === "size") {
+            const filtered = products.filter(product => product.details.some(detail => detail.sizes.includes(value)))
+            setFilteredProducts(filtered)
+        }
+        if (attribute === "price") {
+            const filtered = products.filter(product => Number(product.price) === Number(value))
+            setFilteredProducts(filtered)
+        }
+        if (attribute === "stock") {
+            const filtered = products.filter(product => {
+                const quantity = product.details.reduce((acc, detail) => acc + detail.stock, 0)
+                return Number(quantity) === Number(value)
+            })
+            setFilteredProducts(filtered)
+        }
+
+
     }
 
     useEffect(() => {
@@ -54,26 +112,27 @@ const Dashboard = () => {
                     <p className='admin'>dashbord admin </p>
                 </div>
                 <div className={style.submit}><br />
-                <Link to="/actions/Addproduct"> 
-                    <input type="submit" value="Add " /></Link>
+                    <input type="submit" value="Add " />
                 </div>
             </div>
             <div className={style.searchTitle}>
                 <h1 className='title'>PRODUCT</h1>
                 <div>
                     <div className={style.searchValue}>
-                        <select className={style.tableInput}>
+                        <select className={style.tableInput} >
+                            <option value="all">View All</option>
                             <option value="id">ID</option>
                             <option value="name">Name</option>
                             <option value="brand">Brand</option>
                             <option value="category">Category</option>
+                            <option value="subCategory">SubCategory</option>
                             <option value="color">Color</option>
-                            <option value="">Brand</option>
                             <option value="size">Size</option>
                             <option value="price">Price</option>
-                            <option value="quantity">quantity</option>
+                            <option value="stock">Quantity</option>
                         </select>
-                        <input className={style.tableInput} type="text" placeholder="Enter something" />
+                        <input className={style.tableInput} id='input' type="text" placeholder="Enter something" />
+                        <span onClick={() => { getfilteredProducts() }} className={style.viewProducts}>filter</span>
                     </div>
                 </div>
             </div>
@@ -95,14 +154,12 @@ const Dashboard = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {products && products!==null?
-                            products.map((product) => {
+                        {products && products !== null ?
+                            filteredProducts.map((product) => {
                                 const allSizes = product.details.map(detail => detail.sizes).flat()
-                                const uniqueSizes = [...new Set(allSizes)]
+                                const uniqueSizes = [... new Set(allSizes)]
                                 const colors = product.details.map(detail => detail.color)
                                 const quantity = product.details.reduce((acc, detail) => acc + detail.stock, 0)
-
-
 
                                 return (
                                     <tr>
@@ -119,109 +176,33 @@ const Dashboard = () => {
                                         <td className={style.iconCell}>
                                             <img className={style.icon} src={pen} alt="Icon 1" />
                                             <img className={style.icon} src={viewicon} alt="Icon 2" />
-                                            <img className={style.icon} src={deleteicon} alt="Icon 3" onClick={()=>deleteProduct(product._id)} />
+                                            <img className={style.icon} src={deleteicon} alt="Icon 3" onClick={() => deleteProduct(product._id)} />
                                         </td>
                                     </tr>
                                 )
 
                             }
 
-                            ) : 
-                                              <tr>
-            <td> </td>
-            <td> </td>
-            <td> </td>
-            <td> </td>
-            <td> </td>
-            <td> </td>
-            <td> </td>
-            <td> </td>
-            <td> </td>
-            <td></td>
-            <td className={style.iconCell}>
-                <img className={style.icon} src={pen } alt="Icon 1"/>
-                <img className={style.icon} src={viewicon} alt="Icon 2"/>
-                <img className={style.icon} src={deleteicon} alt="Icon 3"/>
-            </td>
-        </tr> 
+                            ) :
+                            <tr>
+                                <td> </td>
+                                <td> </td>
+                                <td> </td>
+                                <td> </td>
+                                <td> </td>
+                                <td> </td>
+                                <td> </td>
+                                <td> </td>
+                                <td> </td>
+                                <td></td>
+                                <td className={style.iconCell}>
+                                    <img className={style.icon} src={pen} alt="Icon 1" />
+                                    <img className={style.icon} src={viewicon} alt="Icon 2" />
+                                    <img className={style.icon} src={deleteicon} alt="Icon 3" />
+                                </td>
+                            </tr>
                         }
 
-
-
-                        {/* <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td className={style.iconCell}>
-                <img className={style.icon} src={pen } alt="Icon 1"/>
-                <img className={style.icon} src={viewicon} alt="Icon 2"/>
-                <img className={style.icon} src={deleteicon} alt="Icon 3"/>
-            </td>
-        </tr> */}
-
-
-                        {/* <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td className={style.iconCell}>
-                <img className={style.icon} src={pen } alt="Icon 1"/>
-                <img className={style.icon} src={viewicon} alt="Icon 2"/>
-                <img className={style.icon} src={deleteicon} alt="Icon 3"/>
-            </td>
-        </tr> */}
-
-
-                        {/* <tr>
-            <td> </td>
-            <td> </td>
-            <td> </td>
-            <td> </td>
-            <td> </td>
-            <td> </td>
-            <td> </td>
-            <td> </td>
-            <td> </td>
-            <td></td>
-            <td className={style.iconCell}>
-                <img className={style.icon} src={pen } alt="Icon 1"/>
-                <img className={style.icon} src={viewicon} alt="Icon 2"/>
-                <img className={style.icon} src={deleteicon} alt="Icon 3"/>
-            </td>
-        </tr> */}
-
-
-                        {/* <tr>
-            <td> </td>
-            <td> </td>
-            <td> </td>
-            <td> </td>
-            <td> </td>
-            <td> </td>
-            <td> </td>
-            <td> </td>
-            <td> </td>
-            <td></td>
-            <td className={style.iconCell}>
-                <img className={style.icon} src={pen } alt="Icon 1"/>
-                <img className={style.icon} src={viewicon} alt="Icon 2"/>
-                <img className={style.icon} src={deleteicon} alt="Icon 3"/>
-            </td>
-        </tr> */}
                     </tbody>
                 </table>
             </div>
