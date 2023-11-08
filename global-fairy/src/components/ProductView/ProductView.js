@@ -13,6 +13,7 @@ const ProductView = ({getCategoryId}) => {
     // Fetching
     const [productData, setProductData] = useState(null);
     const [loading, setLoading] = useState(true);
+
     const getProduct = async () =>{
         await axios.get(`http://localhost:5000/product/getId/${productId}`)   
         .then((res) => {
@@ -32,7 +33,7 @@ const ProductView = ({getCategoryId}) => {
     }, [productId]);
 
 
-//   Similar product stuff going on
+//   Padding the id from the Product View component into Similair Product component
     useEffect(()=>{
         if(!loading){
             getCategoryId(productData.category._id)
@@ -53,41 +54,45 @@ const ProductView = ({getCategoryId}) => {
     return (
         !loading?(
             <section className={style.productView}>
-
-            <div className={style.container}>
-                <div className={style.imageContainer}>
-                    <div className={style.threeImages}>
-                        <img src={`http://localhost:5000/${productData.images[1]}`} alt="Product" />
-                        <img src={`http://localhost:5000/${productData.images[2]}`} alt="Product" />
-                        <img src={`http://localhost:5000/${productData.images[3]}`} alt="Product" />
-                    </div>
-                    <div className={style.mainImage}>
-                        <img src={`http://localhost:5000/${productData.images[0]}`} alt="Product" />
-                    </div>
-                </div>
-                <div className={style.details}>
-                    <div className={style.content}>
-                        <h1 className={style.mainTitle}>{productData.name} -  {productData.brand.name}</h1>
-                        <div className={style.price}>${productData.price}</div> 
-                        <div className={style.description}>{productData.description}</div>
-                    </div>
-                    <Colors details={productData.details} onColorClick={handleColorClick}/>
-                    <div className={style.size}>
-                        <p className={style.title}>Choose Size</p>
-                        <div className={style.sizeButtons}>
-                            {productData.details[selectedColorIndex].sizes.map((size, index) => (
-                                <button key={index}
-                                className={style.sizeButton}
-                                style={{backgroundColor: addBackground === index ? "#D96093" : "#F0F0F0", color: addBackground === index ? "white" : "rgba(0, 0, 0, 0.80)"}}
-                                onClick={() => handleSizeButtonStyles(index)}
-                                >{size}</button>
-                            ))}
+                <div className={style.container}>
+                    <div className={style.imageContainer}>
+                        <div className={style.threeImages}>
+                            <img src={`http://localhost:5000/${productData.images[1]}`} alt="Product" />
+                            <img src={`http://localhost:5000/${productData.images[2]}`} alt="Product" />
+                            <img src={`http://localhost:5000/${productData.images[3]}`} alt="Product" />
+                        </div>
+                        <div className={style.mainImage}>
+                            <img src={`http://localhost:5000/${productData.images[0]}`} alt="Product" />
                         </div>
                     </div>
-                    <PurshaseButtons index={selectedColorIndex} stock={productData.details[selectedColorIndex].stock} productId={productId} fetchProductData={getProduct}/>
+                    <div className={style.details}>
+                        <div className={style.content}>
+                            <h1 className={style.mainTitle}>{productData.name} -  {productData.brand.name}</h1>
+                            <div className={style.price}>${productData.price}</div> 
+                            <div className={style.description}>{productData.description}</div>
+                        </div>
+                        <Colors details={productData.details} onColorClick={handleColorClick}/>
+                        <div className={style.size}>
+                            <p className={style.title}>Choose Size</p>
+                            <div className={style.sizeButtons}>
+                                {productData.details[selectedColorIndex].sizes.map((size, index) => (
+                                    <button key={index}
+                                    className={style.sizeButton}
+                                    style={{backgroundColor: addBackground === index ? "#D96093" : "#F0F0F0", color: addBackground === index ? "white" : "rgba(0, 0, 0, 0.80)"}}
+                                    onClick={() => handleSizeButtonStyles(index)}
+                                    >{size}</button>
+                                ))}
+                            </div>
+                        </div>
+                        <PurshaseButtons 
+                        index={selectedColorIndex} 
+                        stock={productData.details[selectedColorIndex].stock} 
+                        productId={productId} 
+                        fetchProductData={getProduct}
+                        />
+                    </div>
                 </div>
-            </div>
-        </section>
+            </section>
         ):(<h1> Loading...</h1>)
 );
 }

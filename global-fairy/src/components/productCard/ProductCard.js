@@ -1,9 +1,11 @@
 import React from 'react'
 import style from "./productCard.module.css"
 import Sold from '../soldOut/Sold'
+
 export default function ProductCard(props) {
   const isSold = props.productData.details.every(detail => detail.stock === 0);
   const blurClass = isSold ? style.blur : null;
+  
   return (
     <div className={style.card}>
       <div className={`${style.imageSec} ${blurClass}`}><img src={`http://localhost:5000/${props.productData.images[0]}`} alt="Product" /></div>

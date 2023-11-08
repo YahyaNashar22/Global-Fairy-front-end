@@ -19,11 +19,10 @@ const PurchaseButtons = ({ index, stock, productId, fetchProductData }) => {
     }
   };
 
-  const updateStock=async()=>{
+  const updateStock = async()=>{
     try{
         const response=await axios.put(`http://localhost:5000/product/updateStock/${productId}/${index}/${count}`)
       if(response){
-        console.log(response.data);
         fetchProductData();
         setAddedToCart(true);
         setCount(1);

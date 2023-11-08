@@ -1,19 +1,18 @@
-@import '../../App.css';
-
 .nbContainer{
     display: inline;
     font-size: 1.1em;
 }
+
 .showNb{
 color:#1F2937;
 }
+
 .productNb{
 color:var(--wenge)
 }
+
 @media  (max-width:900px){
     .nbContainer {
         font-size: 1em;
-    
     }
-    
 }

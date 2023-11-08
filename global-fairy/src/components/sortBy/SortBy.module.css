@@ -1,11 +1,8 @@
-@import '../../App.css';
-
 .SortByContainer {
     display: flex;
     font-size: 1.1em;
-justify-content: space-evenly;
-width: 14em ;
-
+    justify-content: space-evenly;
+    width: 14em ;
 }
 
 .sortBy {
@@ -14,10 +11,10 @@ width: 14em ;
 
 .sortDropDown {
     color: var(--black-60);
-height: 100%;
-border: none;
-display: inline-flex;
-width: 55%;
+    height: 100%;
+    border: none;
+    display: inline-flex;
+    width: 55%;
 }
 
 .sortDropDown select{
@@ -27,19 +24,17 @@ width: 55%;
 
 }
 .sortDropDown select:focus{
-outline: none;
+    outline: none;
 }
 .sortDropDown select:focus  option:hover{
     border: none;
     background-color: var(--input-color-background);
 }
 
-@media  (max-width:900px){
+@media (max-width:900px){
     .SortByContainer {
-        font-size: 1em;
-width: 14em ;
-    
+    font-size: 1em;
+    width: 14em ;
     }
-    
 }
 
