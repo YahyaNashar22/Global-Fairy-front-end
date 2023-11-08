@@ -20,7 +20,6 @@ td {
 th,
 td {
     padding: 5px;
-    /* height: 25px; */
     text-align: center;
     min-width: 120px;
 }
@@ -49,6 +48,9 @@ height: auto;
 font-size: 1.2em;
    
 }
+.viewProducts:hover{
+    color: var(--magenta-dye-color);
+}
 .tableInput {
     border-radius: 5px;
     height: 40px;
@@ -56,13 +58,22 @@ font-size: 1.2em;
 
 .iconCell {
     text-align: center;
+    justify-content: space-between;
+
 }
 
 .icon {
-    font-size: 20px;
     margin: 5px;
+    width: 23px;
+    height: 23px;
+    transition:  all 0.3s;
 }
 
+.icon:hover{
+width: 27px;
+height: 27px;
+
+}
 .hed {
     background-color: #F9F1E8;
     color: #374151;

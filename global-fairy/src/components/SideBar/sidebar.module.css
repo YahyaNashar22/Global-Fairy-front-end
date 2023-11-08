@@ -9,12 +9,13 @@
     flex-direction: column;
     justify-content: flex-start;
     min-width: 180px;
-
 }
+
 .sidebar .headTitle {
     text-align: center;
     margin-top: 10px;
 }
+
 .sidebar .sideBtn {
     display: flex;
     justify-content: space-around;
@@ -27,9 +28,19 @@
     flex-direction: row;
     justify-content: flex-start;
     align-items: flex-start;
+    gap: 35px;
 }
 
-.checklist li {
+.checklist{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    gap: 7px;
+    font-size: 1em;
+
+}
+.checklist .listItems {
     list-style: none;
     margin-bottom: 10px;
     display: flex;
@@ -43,7 +54,7 @@
     height: 1.1em;
 }
 
-.checklist label {
+.checklist .labels {
     flex: 1;
 }
 
@@ -51,7 +62,6 @@
     font-size: inherit;
     font-weight: normal;
     font-style: normal;
-
 }
 
 .check {
@@ -71,18 +81,25 @@
     color: white;
     transition: .5s;
 }
+
 .filterBtn:hover {
     background-color: #85255B;
 }
+
 .reset{
     font-size: 25px;
     height: 34px;
     transition: .5s;
     cursor: pointer;
 }
+
 .reset:hover {
     color: #85255B;
 }
+
 .price p {
     margin-top: 0;
+}
+.p{
+    margin-bottom: 1em;
 }

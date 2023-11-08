@@ -154,6 +154,7 @@ const Dashboard = () => {
                             filteredProducts.map((product) => {
                                 const allSizes = product.details.map(detail => detail.sizes).flat()
                                 const uniqueSizes = [...new Set(allSizes)]
+                                console.log(uniqueSizes)
                                 const colors = product.details.map(detail => detail.color)
                                 const quantity = product.details.reduce((acc, detail) => acc + detail.stock, 0)
 
@@ -166,7 +167,7 @@ const Dashboard = () => {
                                         <td>{product.subCategory.name}</td>
                                         <td>{uniqueSizes.join(',')}</td>
                                         <td>${product.price}</td>
-                                        <td>{colors}</td>
+                                        <td>{colors.join(",")}</td>
                                         <td>{product.images.length} Images</td>
                                         <td>{quantity}</td>
                                         <td className={style.iconCell}>
