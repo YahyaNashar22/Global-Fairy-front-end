@@ -14,7 +14,7 @@ header {
 .logo img {
     width: 160px;
     flex-shrink: 0;
-    margin: 10px 0;
+    margin-top: 10px;
 }
 
 .content {
@@ -45,7 +45,7 @@ header {
 
 @media (max-width: 768px) {
     .container .logo img {
-        width: 130px;
+        width: 110px;
     }
     .container .content {
         gap: 20px;

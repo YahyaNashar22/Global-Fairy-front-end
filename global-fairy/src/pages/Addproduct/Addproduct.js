@@ -80,22 +80,20 @@ const Addproduct = () => {
                                 <input type="checkbox" id="small" name="size" value="small" className={style.checkboxes} />
                                 <label for="small">Small</label>
                             </div>
-
-                            <div className={style.inputS}>
-                                <input type="checkbox" id="medium" name="size" value="medium" className={style.checkboxes} />
-                                <label for="medium">Medium</label>
-                            </div>
-                            <div className={style.inputS}>
-                                <input type="checkbox" id="large" name="size" value="large" className={style.checkboxes} />
-                                <label for="large">Large</label>
-                            </div>
-                            <div className={style.inputS}>
-                                <input type="checkbox" id="xlarge" name="size" value="xlarge" className={style.checkboxes} />
-                                <label for="xlarge">X-Large</label>
-                            </div>
-                        </div>
-                    </div>
-
+                             <div className={style.inputS}>
+                                 <input type="checkbox" id="medium" name="size" value="medium" className={style.checkboxes} />
+                                 <label for="medium">Medium</label>
+                             </div>
+                             <div className={style.inputS}>
+                                 <input type="checkbox" id="large" name="size" value="large" className={style.checkboxes} />
+                                 <label for="large">Large</label>
+                             </div>
+                             <div className={style.inputS}>
+                                 <input type="checkbox" id="xlarge" name="size" value="xlarge" className={style.checkboxes} />
+                                 <label for="xlarge">X-Large</label>
+                             </div>
+                         </div>
+                     </div>
                 </fieldset>
                 <fieldset>
                     <legend className={style.labelForm} > Color 2 :</legend>
@@ -115,32 +113,32 @@ const Addproduct = () => {
                                 <label for="small">Small</label>
                             </div>
 
-                            <div className={style.inputS}>
-                                <input type="checkbox" id="medium" name="size" value="medium" className={style.checkboxes} />
-                                <label for="medium">Medium</label>
-                            </div>
-                            <div className={style.inputS}>
-                                <input type="checkbox" id="large" name="size" value="large" className={style.checkboxes} />
-                                <label for="large">Large</label>
-                            </div>
-                            <div className={style.inputS}>
-                                <input type="checkbox" id="xlarge" name="size" value="xlarge" className={style.checkboxes} />
-                                <label for="xlarge">X-Large</label>
-                            </div>
-                        </div>
-                    </div>
+                             <div className={style.inputS}>
+                                 <input type="checkbox" id="medium" name="size" value="medium" className={style.checkboxes} />
+                                 <label for="medium">Medium</label>
+                             </div>
+                             <div className={style.inputS}>
+                                 <input type="checkbox" id="large" name="size" value="large" className={style.checkboxes} />
+                                 <label for="large">Large</label>
+                             </div>
+                             <div className={style.inputS}>
+                                 <input type="checkbox" id="xlarge" name="size" value="xlarge" className={style.checkboxes} />
+                                 <label for="xlarge">X-Large</label>
+                             </div>
+                         </div>
+                     </div>
 
-                </fieldset>
+                 </fieldset>
 
 
 
-                <div className={style.submit}><br />
-                    <input className={style.allInputs} type="submit" value="Add Product" />
-                </div>
-            </div>
-        </form>
+                 <div className={style.submit}><br />
+                     <input className={style.allInputs} type="submit" value="Add Product" />
+                 </div>
+             </div>
+         </form>
 
-    </div>
-)
-}
-export default Addproduct;
+     </div>
+ )
+ }
+ export default Addproduct;
