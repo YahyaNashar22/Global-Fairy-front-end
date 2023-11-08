@@ -3,6 +3,7 @@ import { useSharedData } from '../../context/DataContext';
 import style from './Header.module.css';
 import logo from '../../assets/images/logo.jpg';
 import NavBar from "../NavBar/NavBar";
+import { Link } from "react-router-dom";
 
 const Header = () => {
 
@@ -30,9 +31,9 @@ const Header = () => {
     return (
         <header className={`${style.header} ${isNavOpen ? style.SectionOpacity : ``}`}>
             <div className={style.container}>
-                <a href="/home" className={style.logo}>
+                <Link to="/" className={style.logo}>
                     <img src={logo} alt="Logo" />
-                </a>
+                </Link>
                 <div className={style.content}>
                     {isNavOpen && <NavBar />}
                     <div className={style.burger} onClick={toggleNav} >
