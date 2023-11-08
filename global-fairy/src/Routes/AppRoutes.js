@@ -11,6 +11,7 @@ import ProductView from '../pages/ProductView/ProductView';
 import NotFound from '../pages/NotFound/NotFound';
 import LayoutWithHeaderFooter from './LayoutWithHeaderFooter';
 import LayoutWithoutHeaderFooter from './LayoutWithoutHeaderFooter';
+import ProductDetails from '../pages/ProductDetails/ProductDetails';
 
 function AppRoutes() {
   return (
@@ -32,6 +33,7 @@ function AppRoutes() {
           <Route path="/dashboard" element={<LayoutWithoutHeaderFooter> <Dashboard /> </LayoutWithoutHeaderFooter>} />
           <Route path="/actions/:operation" element={<LayoutWithoutHeaderFooter> <Addproduct /> </LayoutWithoutHeaderFooter>} />
           <Route path="/*" element={<LayoutWithoutHeaderFooter> <NotFound /> </LayoutWithoutHeaderFooter>} />
+          <Route path="products/:productID" element={<LayoutWithoutHeaderFooter> <ProductDetails/> </LayoutWithoutHeaderFooter>} />
         </Routes>
       </DataProvider>
       </BrowserRouter>
