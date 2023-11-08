@@ -10,7 +10,6 @@ import Filter from '../../assets/icons/filter.png'
 import { useParams } from 'react-router-dom';
 import axios from "axios"
 import styles from "./Brand.module.css"
-import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
 
@@ -25,7 +24,6 @@ const Brand = () => {
     const [effectCompleted, setEffectCompleted] = useState(false)
     const[filetredProducts,setFilteredProducts]=useState([])
     const[filterOption,setFilterOption]=useState()
-    const navigate = useNavigate()
     const handleChange = (sortValue) => {
         setSortValue(sortValue)
     }
@@ -222,7 +220,9 @@ const resetOption=()=>{
 
             <div className={styles.mainBrand}>
                 <div className={styles.addComp}>
-                    <span className={styles.addedComp}><ProductNbs productsNb={products.length} /></span>
+                    {!filterOption?(                    <span className={styles.addedComp}><ProductNbs productsNb={products.length} /></span>
+):(                    <span className={styles.addedComp}><ProductNbs productsNb={filetredProducts.length} /></span>
+)}
                     <span className={styles.addedComp}><SortBy sortValue={sortValue} onSort={handleChange} /></span>
                 </div>
 
