@@ -3,13 +3,14 @@ import style from './sidebar.module.css';
 const Sidebar = ({ shown, showFiltered, brand, reset }) => {
     console.log(shown)
     const shownCategory = shown
-    const [filter, setFilter] = useState({ "category": shownCategory._id, "brands": [], "subCategoy": [], "sizes": [], "priceRange": [], "colors": [] })
+    const [filter, setFilter] = useState({ "category": shownCategory._id, "brands": [], "subCategories": [], "sizes": [], "priceRange": [], "colors": [] })
 
     const clearFilter = (filter) => {
-        setFilter({ "category": shownCategory._id, "brands": [], "subCategoy": [], "sizes": [], "priceRange": [], "colors": [] })
+        setFilter({ "category": shownCategory._id, "brands": [], "subCategories": [], "sizes": [], "priceRange": [], "colors": [] })
         filterBYY(filter)
     }
     const filterBy = (filter) => {
+        console.log(filter)
         showFiltered(filter)
     }
 
@@ -27,7 +28,7 @@ const Sidebar = ({ shown, showFiltered, brand, reset }) => {
                     filter.priceRange.push(checkboxes[i].value)
                 }
                 if (checkboxes[i].classList.contains("subCategory")) {
-                    filter.subCategoy.push(checkboxes[i].value)
+                    filter.subCategories.push(checkboxes[i].value)
                 }
                 if (checkboxes[i].classList.contains("sizes")) {
                     filter.sizes.push(checkboxes[i].value)
@@ -53,12 +54,15 @@ const Sidebar = ({ shown, showFiltered, brand, reset }) => {
     }, [])
     return (
         <div className={style.sidebar}>
-            <h2 onClick={() => {clearFilter() }}>FILTERS <span className={style.reset} onClick={() => { resetFilterOption() }}>x</span></h2>
-
+            <h2 className={style.headTitle}>FILTERS</h2>
+            <div className={style.sideBtn}>
+                <button className={style.filterBtn} onClick={() => {clearFilter() }}>Filter</button>
+                <div className={style.reset} onClick={() => { resetFilterOption() }}>x</div>
+            </div>
             <div className={style.check}>
 
                 <div className={style.price}>
-                    <p>PRICE </p>
+                    <p>PRICE </p><br></br>
                     <ul className={style.checklist}>
                         <li >{/**onClick={() => onChange("priceRange", 1)} */}
                             <input type="checkbox" id="0$-15$" class="priceRange" value="1" />
@@ -149,27 +153,27 @@ const Sidebar = ({ shown, showFiltered, brand, reset }) => {
                         <p>CATEGORIES</p><br></br>
                         <ul className={style.checklist}>
                             <li>
-                                <input type="checkbox" id="Pants" class="subCategory" value="Pants" />
+                                <input type="checkbox" id="Pants" class="subCategory" value="6536b5d1d19c4e07741f013c" />
                                 <label for="Pants">Pants</label>
                             </li>
                             <li>
-                                <input type="checkbox" id="Shirts" class="subCategory" value="Shirts" />
+                                <input type="checkbox" id="Shirts" class="subCategory" value="65462ef922ccec63476062fe" />
                                 <label for="Shirts">Shirts</label>
                             </li>
                             <li>
-                                <input type="checkbox" id="Dresses" class="subCategory" value="Dresses" />
+                                <input type="checkbox" id="Dresses" class="subCategory" value="654a35beb4b575f5fb295b6d" />
                                 <label for="Dresses">Dresses</label>
                             </li>
                             <li>
-                                <input type="checkbox" id="Jackets" class="subCategory" value="Jackets" />
+                                <input type="checkbox" id="Jackets" class="subCategory" value="654a35c5b4b575f5fb295b6f" />
                                 <label for="Jackets">Jackets</label>
                             </li>
                             <li>
-                                <input type="checkbox" id="Skirts" class="subCategory" value="Skirts" />
+                                <input type="checkbox" id="Skirts" class="subCategory" value="654a35cdb4b575f5fb295b71" />
                                 <label for="Skirts">Skirts</label>
                             </li>
                             <li>
-                                <input type="checkbox" id="Suits" class="subCategory" value="Suits" />
+                                <input type="checkbox" id="Suits" class="subCategory" value="654a35d4b4b575f5fb295b73" />
                                 <label for="Suits">Suits</label>
                             </li>
 
@@ -180,15 +184,15 @@ const Sidebar = ({ shown, showFiltered, brand, reset }) => {
                         <p>CATEGORIES</p><br></br>
                         <ul className={style.checklist}>
                             <li>
-                                <input type="checkbox" id="boots" class="subCategory" value="Boots" />
+                                <input type="checkbox" id="boots" class="subCategory" value="654a3607b4b575f5fb295b75" />
                                 <label for="boots">Boots</label>
                             </li>
                             <li>
-                                <input type="checkbox" id="Heels" class="subCategory" value="Heels" />
+                                <input type="checkbox" id="Heels" class="subCategory" value="654a360db4b575f5fb295b77" />
                                 <label for="Heels">Heels</label>
                             </li>
                             <li>
-                                <input type="checkbox" id="Sport" class="subCategory" value="Sport" />
+                                <input type="checkbox" id="Sport" class="subCategory" value="654a3613b4b575f5fb295b79" />
                                 <label for="Sport">Sport</label>
                             </li>
 
@@ -200,15 +204,15 @@ const Sidebar = ({ shown, showFiltered, brand, reset }) => {
                         <p>CATEGORIES</p><br></br>
                         <ul className={style.checklist}>
                             <li>
-                                <input type="checkbox" id="Eye" class="subCategory" value="Eye" />
+                                <input type="checkbox" id="Eye" class="subCategory" value="6536ab4a76fd45eda0f625d2" />
                                 <label for="Eye">Eye</label>
                             </li>
                             <li>
-                                <input type="checkbox" id="Face" class="subCategory" value="Face" />
+                                <input type="checkbox" id="Face" class="subCategory" value="6536ab5976fd45eda0f625d4" />
                                 <label for="Face">Face</label>
                             </li>
                             <li>
-                                <input type="checkbox" id="Lips" class="subCategory" value="Lips" />
+                                <input type="checkbox" id="Lips" class="subCategory" value="6536ab5f76fd45eda0f625d6" />
                                 <label for="Lips">Lips</label>
                             </li>
 
