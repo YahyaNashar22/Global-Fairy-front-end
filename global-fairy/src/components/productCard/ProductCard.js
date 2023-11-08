@@ -1,6 +1,5 @@
 import React from 'react'
 import style from "./productCard.module.css"
-// import productImg from "../../assets/images/product.png"
 import Sold from '../soldOut/Sold'
 export default function ProductCard(props) {
   const isSold = props.productData.details.every(detail => detail.stock === 0);

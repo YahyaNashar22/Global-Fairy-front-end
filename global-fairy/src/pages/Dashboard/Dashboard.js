@@ -5,7 +5,6 @@ import deleteicon from '../../assets/icons/delete 1.png';
 import viewicon from '../../assets/icons/show 1.png';
 import logo from '../../assets/images/logo.jpg';
 import axios from "axios"
-import { Link } from 'react-router-dom';
 const Dashboard = () => {
     const [products, setProducts] = useState([])
     const [filteredProducts, setFilteredProducts] = useState([])
@@ -43,9 +42,6 @@ const Dashboard = () => {
         }
     }
 
-    const viewALl = () => {
-        setFilteredProducts(products)
-    }
 
     const getfilteredProducts = () => {
         const attribute = document.querySelector('select option:checked').value
@@ -101,7 +97,7 @@ const Dashboard = () => {
 
     useEffect(() => {
         getProducts()
-    }, [])
+    },[])
 
     return (
         <div>
@@ -157,7 +153,7 @@ const Dashboard = () => {
                         {products && products !== null ?
                             filteredProducts.map((product) => {
                                 const allSizes = product.details.map(detail => detail.sizes).flat()
-                                const uniqueSizes = [... new Set(allSizes)]
+                                const uniqueSizes = [...new Set(allSizes)]
                                 const colors = product.details.map(detail => detail.color)
                                 const quantity = product.details.reduce((acc, detail) => acc + detail.stock, 0)
 

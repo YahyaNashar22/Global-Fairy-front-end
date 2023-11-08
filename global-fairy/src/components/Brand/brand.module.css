@@ -16,7 +16,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    /* margin: 10px; */
     margin: 10px 0;
     gap: 16%;
 }
@@ -27,14 +26,6 @@
     gap: 16%;
     margin: 0;
 }
-
-/* .twoBrands img {
-    width: 160px; 
-    height: 160px;
-    border-radius: 50%; 
-    margin: 10px; 
-    border: 2px solid #555;
-} */
 
 .twoBrands  .brandImage {
     width: 160px; 
@@ -76,7 +67,7 @@ margin-bottom: 20px;
     bottom  : 0;
     max-width: 7%;
     height  : 1px;
-    width   : 50%;  /* or 100px */
+    width   : 50%;  
     border-bottom: 3px solid #000;
     margin:0 auto;
     padding:0px 0px;
@@ -105,10 +96,7 @@ margin-bottom: 20px;
     .twoBrands {
         gap: 5%;
     }
-    /* .twoBrands img {
-        width: 105px; 
-        height: 105px;
-    } */
+
     .twoBrands .brandImage  , .twoBrands .brandImageLink {
         width: 115px; 
         height: 115px;

@@ -9,7 +9,6 @@ export default function SimiliarProduct({productDetails}) {
   return (
     <div className={style.card}>
       <div className={style.imageSec}>
-        {/* <img src={productImg} alt="Product" /> */}
         <img src={`http://localhost:5000/${productDetails.images[0]}`} alt="Product" />
 
       </div>

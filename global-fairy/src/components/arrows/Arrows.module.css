@@ -6,11 +6,9 @@
     width: auto;
     justify-content: center;
     align-items: center;
-    /* border: 1px solid red; */
 }
 
 .arrowsContainer .nbSpan {
-    /* display: inline-flex; */
     width: 2em;
     color: black;
     font-size: 1.2em;

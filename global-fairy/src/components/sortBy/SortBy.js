@@ -6,7 +6,6 @@ export default function SortBy({sortValue,onSort}) {
         { label: 'Low To High', value: 'low' },
         { label: 'High To Low', value: 'high' },
     ];
-    // const [value, setValue] = useState('low');
     const handleChange = (event) => {
         const sortValue=event.target.value
         onSort(sortValue)

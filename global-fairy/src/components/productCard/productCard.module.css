@@ -1,12 +1,5 @@
 @import '../../App.css';
 
-/* 
-.holder{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-justify-content: space-around;
-} */
 
 .card {
     display: flex;
@@ -16,7 +9,6 @@ justify-content: space-around;
     border: 1px solid #E5E7EB;
     color: var(--wenge);
     cursor: pointer;
-    /* margin: 0 auto; */
 }
 
 .imageSec {
@@ -41,8 +33,6 @@ justify-content: space-around;
     align-items: flex-start;
     padding: 4px;
     font-size: 1.1em;
-    /* padding: 2em auto; */
-
 }
 
 .soldPan {
@@ -61,48 +51,15 @@ justify-content: space-around;
 
 /*****************************/
  
-/* @media (max-width:1530px){
-    .card {
-        width: 17.5em;
-        height: 25.5em;
-    }
-    .details{
-        font-size: 0.9em;
-    }
-    
-} */
-/* @media (max-width:1497px){
-    .card {
-        width: 17em;
-        height: 25em;
-    }
-    .details{
-        font-size: 0.8em;
-    }
-    
-} */
-
 @media (max-width:979px){
     .card {
         width: 16em;
         height: 28em;
     }
-    /* .details{
-        font-size: 0.9em;
-    } */
     
 }
 
-/* @media (max-width:650px){
-    .card {
-        width: 15em;
-        height: 21em;
-    }
-    .details{
-        font-size: 0.8em;
-    }
-    
-} */
+
 
 @media (max-width:450px){
     .card {
