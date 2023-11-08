@@ -64,6 +64,8 @@ body {
     cursor: pointer;
     width: 80%;
     height: 50px;
+    font-weight: bolder;
+    font-size: larger;
 
 }
 
@@ -75,12 +77,6 @@ body {
     flex-direction: column;
     width: 100%;
     gap: 1.2em;
-
-}
-
-select {
-    width: 200px;
-    border-radius: 20px;
 
 }
 
@@ -118,6 +114,7 @@ select {
     width: 80%;
     height: 50px;
     border: 1px solid #D96093;
+    border-radius: 20px;
 }
 
 .formContainer {
@@ -126,15 +123,15 @@ select {
 
 }
 
-fieldset {
+.fieldsetForm {
     border-radius: 20px;
     border: 1px solid var(--wenge);
     width: 80%;
 
 }
 
-fieldset .labelInput input,
-fieldset .labelInput .check {
+.fieldsetForm .labelInput input,
+.fieldsetForm .labelInput .check {
     /*, fieldset .labelInput .check*/
     width: 100%;
 

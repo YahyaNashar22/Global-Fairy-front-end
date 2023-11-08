@@ -5,6 +5,7 @@ import deleteicon from '../../assets/icons/delete 1.png';
 import viewicon from '../../assets/icons/show 1.png';
 import logo from '../../assets/images/logo.jpg';
 import axios from "axios"
+import { Link } from 'react-router-dom';
 const Dashboard = () => {
     const [products, setProducts] = useState([])
     const [filteredProducts, setFilteredProducts] = useState([])
@@ -108,7 +109,7 @@ const Dashboard = () => {
                     <p className='admin'>dashbord admin </p>
                 </div>
                 <div className={style.submit}><br />
-                    <input type="submit" value="Add " />
+                     <Link to ={'/actions/:operation'}> <input type="submit" value="Add Product " /> </Link>
                 </div>
             </div>
             <div className={style.searchTitle}>

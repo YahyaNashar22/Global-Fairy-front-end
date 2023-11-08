@@ -63,7 +63,7 @@ const Addproduct = () => {
             </div>
 
             <div className={style.row3}>
-                <fieldset>
+                <fieldset className={style.fieldsetForm}>
                     <legend className={style.labelForm} > Color 1 :</legend>
                     <div className={style.labelInput}>
                         <label className={style.labelForm} for="color">Color:</label><br />
@@ -95,7 +95,7 @@ const Addproduct = () => {
                          </div>
                      </div>
                 </fieldset>
-                <fieldset>
+                <fieldset className={style.fieldsetForm}>
                     <legend className={style.labelForm} > Color 2 :</legend>
                     <div className={style.labelInput}>
                         <label className={style.labelForm} for="color">Color:</label><br />
