@@ -10,72 +10,57 @@ import zara from '../../assets/images/zara.jpg';
 import nyx from '../../assets/images/nyx.jpg';
 import nike from '../../assets/images/nike.jpg';
 import nars from '../../assets/images/nars.jpg';
-import { Link } from "react-router-dom"
+import { useNavigate } from 'react-router-dom';
+
 const Brand = () => {
-    // const scrollToTop=()=>{
-    //     setTimeout(()=>{
-    //         window.scrollTo(0,0)
-    //     },1)
-       
-    // }
+    const navigate = useNavigate()
+    const sendBrand = async (brandName) => {
+
+        try {
+                navigate(`Products/Brand/${brandName}`)
+            
+        }
+        catch (error) {
+            console.log(error.message);
+        }
+    }
+
     return (
         <section className={style.brandSection}>
             <h1 className={style.heading}>Shop by Brand </h1>
             <div className={style.imageContainer}>
                 <div className={style.row}>
                     <div className={style.twoBrands}>
-                        <Link to="Products/Brand/Shein"  style={{'textDecoration':'none', "color":'inherit'}} className={style.brandImageLink} >
-                        <img src={shein} className={style.brandImage} alt="Shein Logo" />
-                        </Link>
-                        <Link to="Products/Brand/Adidas"  style={{'textDecoration':'none', "color":'inherit'}} className={style.brandImageLink}>
-                        <img src={addidas} className={style.brandImage} alt="Adidas Logo" />
-                        </Link>
+                        <img src={shein} onClick={()=>sendBrand("Shein")}  className={style.brandImage} alt="Shein Logo" />
+                            <img src={addidas} onClick={()=>sendBrand("Adidas")} className={style.brandImage} alt="Adidas Logo" />
                     </div>
                     <div className={style.row}>
                         <div className={style.twoBrands}>
-                            <Link to="Products/Brand/HM"  style={{'textDecoration':'none', "color":'inherit'}}className={style.brandImageLink}>
-                            <img src={handm}   className={style.brandImage} alt="H and M Logo" />
-                            </Link>
-                            <Link to="Products/Brand/HudaBeauty"  style={{'textDecoration':'none', "color":'inherit'}} className={style.brandImageLink}>
-                            <img src={hudaBeauty} className={style.brandImage} alt="HudaBeauty Logo" />
-                            </Link>
+                                <img src={handm} onClick={()=>sendBrand("H&M")} className={style.brandImage} alt="H and M Logo" />
+                                <img src={hudaBeauty} onClick={()=>sendBrand("HudaBeauty")} className={style.brandImage} alt="HudaBeauty Logo" />
                         </div>
                     </div>
                 </div>
                 <div className={style.row}>
                     <div className={style.row}>
                         <div className={style.twoBrands}>
-                            <Link to="Products/Brand/Mango" style={{'textDecoration':'none', "color":'inherit'}} className={`${style.brandImageLink} ${style.deleteImage}`}>
-                            <img src={mango} className={`${style.deleteImage} ${style.brandImage} `} alt="Mango Logo" />
-                            </Link>
-                            <Link to="Products/Brand/Bershka"  style={{'textDecoration':'none', "color":'inherit'}} className={style.brandImageLink}>
-                            <img src={bershka} className={style.brandImage} alt="Bershka Logo" />
-                            </Link>
-                            <Link to="Products/Brand/RobyRose"  style={{'textDecoration':'none', "color":'inherit'}} className={style.brandImageLink}>
-                            <img src={robyRose} className={style.brandImage} alt="RobyRose Logo" />
-                            </Link>
+                                <img src={mango} onClick={()=>sendBrand("Mango")} className={`${style.deleteImage} ${style.brandImage} `} alt="Mango Logo" />
+                                <img src={bershka} onClick={()=>sendBrand("Bershka")} className={style.brandImage} alt="Bershka Logo" />
+                                <img src={robyRose} onClick={()=>sendBrand("RobyRose")} className={style.brandImage} alt="RobyRose Logo" />
                         </div>
                     </div>
                 </div>
                 <div className={style.row}>
                     <div className={style.row}>
                         <div className={style.twoBrands}>
-                            <Link to="Products/Brand/Zara"    style={{'textDecoration':'none', "color":'inherit'}} className={style.brandImageLink}>
-                            <img src={zara} className={style.brandImage} alt="Zara Logo" />
-                            </Link>
-                            <Link to="Products/Brand/Nyx"     style={{'textDecoration':'none', "color":'inherit'}} className={style.brandImageLink}>
-                            <img src={nyx} className={style.brandImage} alt="Nyx Logo" />
-                            </Link>
+                                <img src={zara} onClick={()=>sendBrand("Zara")} className={style.brandImage} alt="Zara Logo" />
+                                <img src={nyx} onClick={()=>sendBrand("NYX")} className={style.brandImage} alt="Nyx Logo" />
                         </div>
                     </div>
                     <div className={style.row}>
                         <div className={style.twoBrands}>
-                            <Link to="Products/Brand/Nike"    style={{'textDecoration':'none', "color":'inherit'}} className={style.brandImageLink}>
-                            <img src={nike} className={style.brandImage} alt="Nike logo" />
-                            </Link>
-                            <Link to="Products/Brand/Nars" style={{'textDecoration':'none', "color":'inherit'}} className={style.brandImageLink}>
-                            <img src={nars} className={style.brandImage} alt="Nars Logo" />
-                            </Link>
+                                <img src={nike} onClick={()=>sendBrand("Nike")} className={style.brandImage} alt="Nike logo" />
+                                <img src={nars} onClick={()=>sendBrand("Nars")} className={style.brandImage} alt="Nars Logo" />
                         </div>
                     </div>
                 </div>

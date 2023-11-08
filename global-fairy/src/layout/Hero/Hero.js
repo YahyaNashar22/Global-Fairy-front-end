@@ -4,17 +4,21 @@ import { useSharedData } from '../../context/DataContext';
 import style from './Hero.module.css';
 import clothesAnimation from '../../assets/images/clothesAnimation.png';
 import AnimationC from '../../assets/images/suits.png'
-// import AnimationC from '../../assets/images/clothes2.png'
 import AnimationS from '../../assets/images/AnimationS2.png'
 import AnimationM from '../../assets/images/AnimationM2.png'
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 function Hero() {
   const { isNavOpen } = useSharedData();
-
+const navigate=useNavigate()
   const images = [AnimationC, AnimationM, AnimationS];
   const [currentIndex, setCurrentIndex] = useState(0);
 
+  const navigateTo=()=>{
+    console.log("image clickedddd")
+navigate("/Products/Category")
+  }
   useEffect(() => {
       const intervalId = setInterval(() => {
           if(currentIndex === images.length - 1) {
@@ -38,14 +42,11 @@ function Hero() {
               Browse through our diverse range of meticulously crafted garments,
               designed to bring out your individuality and cater to your sense of style.
             </p>
-            <Link to="Products/Category/Clothes">
+            <Link to="Products/Category" className={style.links}>
               <button className={style.callToAction}>Shop Now</button>
             </Link>
           </div>
           <div className={style.categories}>
-            {/* <a href="Category/Clothes" className={`${style.category} ${style.clothes}`}>clothes</a>
-            <a href="Category/Shoes" className={`${style.category} ${style.shoes}`}>shoes</a>
-            <a href="#" className={`${style.category} ${style.makeup}`}>makeup</a> */}
             <span className={`${style.category} ${style.clothes}`}>clothes</span>
             <span className={`${style.category} ${style.shoes}`}>shoes</span>
             <span className={`${style.category} ${style.makeup}`}>makeup</span>

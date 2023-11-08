@@ -73,7 +73,10 @@
   margin-top: 10px;
 
 }
-
+.links{
+  z-index: 99;
+  width:50%;
+}
 .imgHolder{
   width: 50%;
   display: flex;
@@ -119,6 +122,9 @@
 }
 
 @media (max-width: 768px) {
+  .links {
+    text-align: center;
+  }
   .container {
     padding: 30px 30px 50px;
   }
