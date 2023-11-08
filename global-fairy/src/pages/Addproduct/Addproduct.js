@@ -17,11 +17,11 @@ const Addproduct = () => {
             <form method="post" enctype="multipart/form-data" className={style.formContainer}>
                 <div className={style.row1}>
                     <div className={style.labelInput}>
-                        <label for="name">Product Name:</label><br />
+                        <label className={style.labelForm} for="name">Product Name:</label><br />
                         <input className={style.allInputs} type="text" id="name" name="name" required />
                     </div>
                     <div className={style.labelInput}>
-                        <label for="brand">Brand:</label><br />
+                        <label className={style.labelForm} for="brand">Brand:</label><br />
                         <select className={style.dro} id="brand" name="brand" required>
                             <option value="Brand 1">shein</option>
                             <option value="Brand 2">zara</option>
@@ -29,7 +29,7 @@ const Addproduct = () => {
                         </select>
                     </div>
                     <div className={style.labelInput}>
-                        <label for="category">Category:</label><br />
+                        <label className={style.labelForm} for="category">Category:</label><br />
                         <select className={style.dro} id="category" name="category" required>
                             <option value="Category 1">cloth</option>
                             <option value="Category 2">shoes</option>
@@ -38,8 +38,8 @@ const Addproduct = () => {
                     </div>
 
                 <div className={style.labelInput}>
-                    <label for="subcategory">Sub-Category:</label><br />
-                    <select className={style.dro} id="subcategory" name="subcategory" required onChange={inputsHandler}>
+                    <label  className={style.labelForm} for="subcategory">Sub-Category:</label><br />
+                    <select className={style.dro} id="subcategory" name="subcategory" required >
                         <option value="Subcategory 1">face</option>
                         <option value="Subcategory 2">Tshirt</option>
                         <option value="Subcategory 3">lips</option>
@@ -48,33 +48,33 @@ const Addproduct = () => {
             </div>
             <div className={style.row2}>
                 <div className={style.labelInput}>
-                    <label for="price">Price:</label><br />
-                    <input className={style.allInputs} type="number" id="price" name="price" required onChange={inputsHandler} />
+                    <label className={style.labelForm} for="price">Price:</label><br />
+                    <input className={style.allInputs} type="number" id="price" name="price" required  />
                 </div>
 
                 <div className={style.labelInput}>
-                    <label for="images">Images:</label><br />
-                    <input className={style.allInputs} type="file" id="images" name="images" multiple accept="image/*" onChange={inputsHandler} />
+                    <label className={style.labelForm} for="images">Images:</label><br />
+                    <input className={style.allInputs} type="file" id="images" name="images" multiple accept="image/*" />
                 </div>
             </div>
             <div className={style.labelInput}>
-                <label for="description">Description:</label><br />
-                <input className={style.desrciptionInputs} type="text" id="description" name="description" onChange={inputsHandler} />
+                <label  className={style.labelForm} for="description">Description:</label><br />
+                <input className={style.desrciptionInputs} type="text" id="description" name="description" />
             </div>
 
             <div className={style.row3}>
                 <fieldset>
-                    <legend className={style.fromLabel2} > Color 1 :</legend>
+                    <legend className={style.labelForm} > Color 1 :</legend>
                     <div className={style.labelInput}>
-                        <label className={style.fromLabel2} for="color">Color:</label><br />
-                        <input className={style.allInputs} type="text" id="color" name="color" required  onChange={inputsHandler}/>
+                        <label className={style.labelForm} for="color">Color:</label><br />
+                        <input className={style.allInputs} type="text" id="color" name="color" required />
                     </div>
                     <div className={style.labelInput}>
-                        <label for="quantity">Quantity:</label><br />
-                        <input className={style.allInputs} type="number" id="quantity" name="quantity" required onChange={inputsHandler}/>
+                        <label className={style.labelForm} for="quantity">Quantity:</label><br />
+                        <input className={style.allInputs} type="number" id="quantity" name="quantity" required />
                     </div>
                     <div className={style.labelInput}>
-                        <label>Size:</label><br />
+                        <label className={style.labelForm} >Size:</label><br />
                         <div className={style.check}>
                             <div className={style.inputS}>
                                 <input type="checkbox" id="small" name="size" value="small" className={style.checkboxes} />
@@ -98,17 +98,17 @@ const Addproduct = () => {
 
                 </fieldset>
                 <fieldset>
-                    <legend className={style.fromLabel2} > Color 2 :</legend>
+                    <legend className={style.labelForm} > Color 2 :</legend>
                     <div className={style.labelInput}>
-                        <label className={style.fromLabel2} for="color">Color:</label><br />
+                        <label className={style.labelForm} for="color">Color:</label><br />
                         <input className={style.allInputs} type="text" id="color" name="color" required />
                     </div>
                     <div className={style.labelInput}>
-                        <label for="quantity">Quantity:</label><br />
+                        <label  className={style.labelForm} for="quantity">Quantity:</label><br />
                         <input className={style.allInputs} type="number" id="quantity" name="quantity" required />
                     </div>
                     <div className={style.labelInput}>
-                        <label>Size:</label><br />
+                        <label className={style.labelForm}>Size:</label><br />
                         <div className={style.check}>
                             <div className={style.inputS}>
                                 <input type="checkbox" id="small" name="size" value="small" className={style.checkboxes} />

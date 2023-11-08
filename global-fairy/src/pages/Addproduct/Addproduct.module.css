@@ -33,10 +33,14 @@ body {
     padding-bottom: 20px;
     font-weight: bolder;
 }
-
-label {
+.labelForm{
     color: black;
     font-weight: bolder;
+}
+
+.inputS label{
+    color: black;
+    font-weight:400;
 }
 
 .allInputs {
