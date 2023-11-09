@@ -5,10 +5,15 @@ table {
 }
 
 .title {
+    display: flex;
+    text-align: center;
+    align-items: center;
     font-size: larger;
     font-weight: bolder;
     color: #D96093;
-    size: 50px;
+    gap: 20px;
+    text-transform: capitalize;
+    
 }
 
 table,
@@ -80,17 +85,13 @@ height: 27px;
     size: 40%;
     width: 100%;
     margin-bottom: 1em;
-}
-
-.title {
-    display: flex;
-    text-align: center;
+    padding: 20px
 }
 
 .submit {
     text-align: center;
-    width: 20%;
     min-width: 130px;
+    display: flex;
 }
 
 .submit input[type="submit"] {
@@ -100,7 +101,6 @@ height: 27px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    width: 50%;
     height: 50px;
     align-items: left;
     font-weight: bold;
@@ -151,6 +151,7 @@ height: 27px;
 
 .admin {
     color: #374151;
+    text-transform: capitalize;
 }
 
 @media (max-width:1000px){
@@ -203,4 +204,11 @@ height: 27px;
         display: block;
         max-height: 300px;
     }
+}
+@media (max-width: 767px) {
+    .submit input[type="submit"] {
+        padding: 0px 12px;
+        height: 40px;
+        font-size: 16px;
+}
 }
