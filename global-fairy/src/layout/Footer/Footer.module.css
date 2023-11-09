@@ -32,7 +32,7 @@
   font-weight: 400;
 }
 
-.company, .support {
+.company, .contact {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -117,6 +117,7 @@
   border: none;
   transition: .2s;
   cursor: pointer;
+  padding: 13px 20px 13px 20px;
 }
 .inputBox .submit:hover {
   background: #bb537e ;
@@ -144,10 +145,10 @@
   .logo-description {
       align-items: flex-start;
   }
-  .company, .support, .social {
+  .company, .contact, .social {
     align-items: center;
   }
-  .support .links {
+  .company .links, .contact .links {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -167,7 +168,7 @@
       width: 100%;
       align-items: center;
   }
-  .company, .support {
+  .company, .contact {
       gap: 15px;
   }
   .social .title {

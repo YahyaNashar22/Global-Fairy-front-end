@@ -13,7 +13,9 @@ const Footer = () => {
     <footer className={style.footer}>
         <div className={style.container}>
             <div className={style.logoDescription}>
-                <img src={logo} alt="Global Fairy logo" />
+                <Link to="/">
+                    <img src={logo} alt="Global Fairy logo" />
+                </Link>
                 <p>Become your trusted multi-brand shopping destination, offering a diverse range of products and brand visibility.</p>
             </div>
             <div className={style.company}>
@@ -22,16 +24,16 @@ const Footer = () => {
                     <li><Link to="/">Home</Link></li>
                     <li><Link to="/about">About</Link></li>
                     <li><Link to="Products/Category">Shop</Link></li>
-                    <li><Link to="/contact">Contact</Link></li>
+                    <li><Link>Pivacy Policy</Link></li>
                 </ul>
             </div>
-            <div className={style.support}>
+            <div className={style.contact}>
                 <h3 className={style.title}>Contact</h3>
                 <ul className={style.links}>
-                    <li>Lebanon</li>
                     <li>info@globalfairylb.com</li>
                     <li>71087446</li>
-                    <li>Pivacy Policy</li>
+                    <li>Lebanon</li>
+                    <li><Link to="/contact">Contact</Link></li>
                 </ul>
             </div>
             <div className={style.social}>
