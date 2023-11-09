@@ -50,6 +50,7 @@ const Brand = () => {
         setFilterOption(false)
     }
 
+    
     const getFilteredProducts = async (values) => {
         try {
             const requestedData = values
@@ -190,7 +191,10 @@ const Brand = () => {
     useEffect(() => {
         sortProductsByPrice()
     }, [sortValue])
-
+    
+// useEffect(()=>{
+// setFilterOption(filterOption)
+// },[shownCategory])
 
     /**************************RETURN*********************** */
     return (!loading ? (

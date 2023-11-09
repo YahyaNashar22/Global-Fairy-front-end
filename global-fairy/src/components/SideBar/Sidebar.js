@@ -14,6 +14,7 @@ const Sidebar = ({ shown, showFiltered, brand, reset }) => {
         showFiltered(filter)
     }
 
+    
     const filterBYY = () => {
         const checkboxes = document.querySelectorAll(`input[type="checkbox"]`)
         for (let i = 0; i < checkboxes.length; i++) {
@@ -51,7 +52,8 @@ const Sidebar = ({ shown, showFiltered, brand, reset }) => {
     }
 
     useEffect(() => {
-    }, [])
+        clearFilter()
+    }, [shownCategory])
     return (
         <div className={style.sidebar}>
             <h2 className={style.headTitle}>FILTERS</h2>
