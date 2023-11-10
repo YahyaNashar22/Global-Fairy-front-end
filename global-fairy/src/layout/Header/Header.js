@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useSharedData } from '../../context/DataContext';
 import style from './Header.module.css';
 import logo from '../../assets/images/logo.jpg';

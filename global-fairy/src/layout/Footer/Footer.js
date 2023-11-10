@@ -39,7 +39,7 @@ const Footer = () => {
             <div className={style.social}>
                 <h3 className={style.title}>Social</h3>
                 <ul className={style.socialLinks}>
-                    <li><a href="https://www.instagram.com/globalfairy.lb/" target="_blank"><img src={instagram} alt="Instagram Icon" /></a></li>
+                    <li><a href="https://www.instagram.com/globalfairy.lb/" ><img src={instagram} alt="Instagram Icon" /></a></li>
                     <li><a href="#https://www.tiktok.com/@globalfairy.lb?_t=8hCEUAD1ahG&_r=1" ><img src={tiktok} alt="TikTok Icon" /></a></li>
                     <li><a href="#"><img src={facebook} alt="Facebook Icon" /></a></li>
                     <li><a href="#"><img src={twitter} alt="Twitter Icon" /></a></li>

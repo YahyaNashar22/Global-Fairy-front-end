@@ -10,7 +10,6 @@ import { useNavigate } from 'react-router-dom';
 
 function Hero() {
   const { isNavOpen } = useSharedData();
-const navigate=useNavigate()
   const images = [AnimationC, AnimationM, AnimationS];
   const [currentIndex, setCurrentIndex] = useState(0);
 

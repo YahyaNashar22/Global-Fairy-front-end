@@ -1,7 +1,6 @@
 import React from 'react'
 import style from "./Similiar.module.css"
-import productImg from "../../assets/images/product.png"
-import axios from 'axios'
+
 
 export default function SimiliarProduct({productDetails}) {
   const product=productDetails
