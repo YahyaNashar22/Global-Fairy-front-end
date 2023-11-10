@@ -12,7 +12,7 @@ const Dashboard = () => {
 
     const getProducts = async () => {
         try {
-            const response = await axios.get('http://localhost:5000/product/get')
+            const response = await axios.get(`${process.env.REACT_APP_PATH}/product/get`)
             if (response) {
                 setProducts(response.data)
                 setFilteredProducts(response.data)
@@ -31,7 +31,7 @@ const Dashboard = () => {
         const confirm = window.confirm(`Are you sure you want to delete this products ?`)
         if (confirm) {
             try {
-                await axios.delete(`http://localhost:5000/product/delete?id=${id}`)
+                await axios.delete(`${process.env.REACT_APP_PATH}/product/delete?id=${id}`)
                 getProducts()
 
             }

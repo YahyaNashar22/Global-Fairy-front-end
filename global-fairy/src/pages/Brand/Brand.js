@@ -54,7 +54,7 @@ const Brand = () => {
     const getFilteredProducts = async (values) => {
         try {
             const requestedData = values
-            const response = await axios.post('http://localhost:5000/product/filter', requestedData)
+            const response = await axios.post(`${process.env.REACT_APP_PATH}/product/filter`, requestedData)
             if (response) {
 
                 let sortedProducts = []
@@ -77,7 +77,7 @@ const Brand = () => {
     // GET THE BRAND
     const getBrand = async () => {
         try {
-            const response = await axios.get(`http://localhost:5000/brand/readByName/${nameType}`);
+            const response = await axios.get(`${process.env.REACT_APP_PATH}/brand/readByName/${nameType}`);
             const brandData = response.data
             if (brandData) {
                 setBrand(brandData)
@@ -98,7 +98,7 @@ const Brand = () => {
 
     // // GET Products
     const getProducts = async () => {
-        await axios.get(`http://localhost:5000/product/category-brand`, {
+        await axios.get(`${process.env.REACT_APP_PATH}/product/category-brand`, {
             params: { brand: brand._id, category: shownCategory._id },
             headers: {
                 "Content-Type": 'application/json'
@@ -119,7 +119,7 @@ const Brand = () => {
     const getCategories = async () => {
         setloading(true)
         try {
-            const response = await axios.get(`http://localhost:5000/category/read`);
+            const response = await axios.get(`${process.env.REACT_APP_PATH}/category/read`);
             if (response) {
                 const categoriesData = response.data
                 setCategories(categoriesData)
@@ -137,7 +137,7 @@ const Brand = () => {
     const getProductsByCategory = async () => {
 
         try {
-            const response = await axios.get(`http://localhost:5000/product/category/${shownCategory._id}`);
+            const response = await axios.get(`${process.env.REACT_APP_PATH}/product/category/${shownCategory._id}`);
 
             if (response) {
                 const productsData = response.data

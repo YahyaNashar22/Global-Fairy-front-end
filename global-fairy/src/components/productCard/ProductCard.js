@@ -8,7 +8,7 @@ export default function ProductCard(props) {
   
   return (
     <div className={style.card}>
-      <div className={`${style.imageSec} ${blurClass}`}><img src={`http://localhost:5000/${props.productData.images[0]}`} alt="Product" /></div>
+      <div className={`${style.imageSec} ${blurClass}`}><img src={`${process.env.REACT_APP_PATH}/${props.productData.images[0]}`} alt="Product" /></div>
       <div className={style.details}>
         <span className={`${blurClass} ${style.title}`}>
           {props.productData.name}

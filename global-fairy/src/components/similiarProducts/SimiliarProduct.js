@@ -8,7 +8,7 @@ export default function SimiliarProduct({productDetails}) {
   return (
     <div className={style.card}>
       <div className={style.imageSec}>
-        <img src={`http://localhost:5000/${productDetails.images[0]}`} alt="Product" />
+        <img src={`${process.env.REACT_APP_PATH}/${productDetails.images[0]}`} alt="Product" />
       </div>
       <div className={style.details}>
         <span className={style.title}>{productDetails.name}</span>

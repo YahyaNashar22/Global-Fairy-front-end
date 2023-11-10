@@ -10,7 +10,7 @@
     const getSimiliar = async (similiar) => {
       try {
         const response = await axios.get(
-          `http://localhost:5000/product/getFour/${similiar}`
+          `${process.env.REACT_APP_PATH}/product/getFour/${similiar}`
         );
         if (response) {
           setSimiliarProducts(response.data);

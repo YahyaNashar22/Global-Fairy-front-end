@@ -21,7 +21,7 @@ const PurchaseButtons = ({ index, stock, productId, fetchProductData }) => {
 
   const updateStock = async()=>{
     try{
-        const response=await axios.put(`http://localhost:5000/product/updateStock/${productId}/${index}/${count}`)
+        const response=await axios.put(`${process.env.REACT_APP_PATH}/product/updateStock/${productId}/${index}/${count}`)
       if(response){
         fetchProductData();
         setAddedToCart(true);

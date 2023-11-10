@@ -8,7 +8,7 @@ const ProductDetails = () => {
 
 
     useEffect(() => {
-        axios.get(`http://localhost:5000/product/getId?productID=${productID}`)
+        axios.get(`${process.env.REACT_APP_PATH}/product/getId?productID=${productID}`)
             .then((res) => {
                 if (!res.ok) {
                     throw new Error("Network response was not ok");

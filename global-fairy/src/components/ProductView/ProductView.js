@@ -15,7 +15,7 @@ const ProductView = ({getCategoryId}) => {
     const [loading, setLoading] = useState(true);
 
     const getProduct = async () =>{
-        await axios.get(`http://localhost:5000/product/getId/${productId}`)   
+        await axios.get(`${process.env.REACT_APP_PATH}/product/getId/${productId}`)   
         .then((res) => {
             const data = res.data;
             setProductData(data);
