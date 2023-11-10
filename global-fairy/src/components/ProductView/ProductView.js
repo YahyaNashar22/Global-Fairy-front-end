@@ -57,12 +57,12 @@ const ProductView = ({getCategoryId}) => {
                 <div className={style.container}>
                     <div className={style.imageContainer}>
                         <div className={style.threeImages}>
-                            <img src={`http://localhost:5000/${productData.images[1]}`} alt="Product" />
-                            <img src={`http://localhost:5000/${productData.images[2]}`} alt="Product" />
-                            <img src={`http://localhost:5000/${productData.images[3]}`} alt="Product" />
+                            <img src={`${process.env.REACT_APP_PATH}/${productData.images[1]}`} alt="Product" />
+                            <img src={`${process.env.REACT_APP_PATH}/${productData.images[2]}`} alt="Product" />
+                            <img src={`${process.env.REACT_APP_PATH}/${productData.images[3]}`} alt="Product" />
                         </div>
                         <div className={style.mainImage}>
-                            <img src={`http://localhost:5000/${productData.images[0]}`} alt="Product" />
+                            <img src={`${process.env.REACT_APP_PATH}/${productData.images[0]}`} alt="Product" />
                         </div>
                     </div>
                     <div className={style.details}>
