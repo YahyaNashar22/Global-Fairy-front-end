@@ -12,7 +12,6 @@ import axios from "axios"
 import styles from "./Brand.module.css"
 import { Link } from 'react-router-dom';
 
-
 const Brand = () => {
     const { type, nameType } = useParams()
     const [brand, setBrand] = useState(null)
