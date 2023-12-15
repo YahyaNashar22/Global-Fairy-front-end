@@ -11,6 +11,7 @@ const Header = () => {
     /* THIS IS TO SHOW AND HIDE THE DROP MENU */
     const { isNavOpen, setIsNavOpen } = useSharedData();
     const [includeCart, setIncludeCart] = useState(false)
+    const [showBag, setShowBag] = useState(false);
 
     const toggleNav = () => {
         setIsNavOpen(!isNavOpen);
@@ -19,8 +20,10 @@ const Header = () => {
         const handleResize = () => {
             if (window.innerWidth > 992) {
                 setIsNavOpen(true);
+                setShowBag(false);
             } else {
                 setIsNavOpen(false);
+                setShowBag(true);
             }
         };
         window.addEventListener('resize', handleResize);
@@ -37,8 +40,12 @@ const Header = () => {
                     <img src={logo} alt="Logo" />
                 </Link>
                 <div className={style.content}>
-                    {isNavOpen && <NavBar />}
+                    {isNavOpen && <NavBar showBag={showBag}/>}
+                    {showBag ? 
                     <div className={style.cart}><Link className={style.cartLink}><Cart size={35}/></Link></div>
+                    :
+                    ""
+                    }
                     <div className={style.burger} onClick={toggleNav} >
                         <div className={`${style.bar} ${isNavOpen ? style.open : ''}`}></div>
                         <div className={`${style.bar} ${isNavOpen ? style.open : ''}`}></div>

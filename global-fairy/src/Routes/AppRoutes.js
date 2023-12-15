@@ -11,6 +11,7 @@ import NotFound from '../pages/NotFound/NotFound';
 import LayoutWithHeaderFooter from './LayoutWithHeaderFooter';
 import LayoutWithoutHeaderFooter from './LayoutWithoutHeaderFooter';
 import ProductDetails from '../pages/ProductDetails/ProductDetails';
+import Inventory from '../pages/ShoppingCart/Inventory';
 
 function AppRoutes() {
   return (
@@ -26,6 +27,7 @@ function AppRoutes() {
         <Route path="/contact" element={<LayoutWithHeaderFooter> <Contact /> </LayoutWithHeaderFooter>} />
         <Route path="/Products/:type/:nameType?" element={<LayoutWithHeaderFooter> <Brand /> </LayoutWithHeaderFooter>} />
         <Route path="/view/:productId" element={<LayoutWithHeaderFooter> <ProductView /> </LayoutWithHeaderFooter>} />
+        <Route path="/cart" element={<LayoutWithHeaderFooter> <Inventory /> </LayoutWithHeaderFooter>} />
 
           {/* Routes without Header and Footer */}
           <Route path="/dashboard" element={<LayoutWithoutHeaderFooter> <Dashboard /> </LayoutWithoutHeaderFooter>} />
