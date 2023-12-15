@@ -37,6 +37,18 @@ header {
     transition: 0.4s;
 }
 
+.cart{
+    margin-right: 10px;
+}
+
+.cartLink{
+    color: black;
+}
+
+.cartLink :hover{
+    color: #D81A84;
+}
+
 @media (max-width: 1200px) {
     .content {
         gap: 30px;

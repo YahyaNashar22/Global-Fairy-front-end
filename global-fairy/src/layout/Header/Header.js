@@ -1,14 +1,16 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useSharedData } from '../../context/DataContext';
 import style from './Header.module.css';
 import logo from '../../assets/images/logo.jpg';
 import NavBar from "../NavBar/NavBar";
 import { Link } from "react-router-dom";
+import Cart from "../../components/svgIcons/Cart";
 
 const Header = () => {
 
     /* THIS IS TO SHOW AND HIDE THE DROP MENU */
     const { isNavOpen, setIsNavOpen } = useSharedData();
+    const [includeCart, setIncludeCart] = useState(false)
 
     const toggleNav = () => {
         setIsNavOpen(!isNavOpen);
@@ -36,6 +38,7 @@ const Header = () => {
                 </Link>
                 <div className={style.content}>
                     {isNavOpen && <NavBar />}
+                    <div className={style.cart}><Link className={style.cartLink}><Cart size={35}/></Link></div>
                     <div className={style.burger} onClick={toggleNav} >
                         <div className={`${style.bar} ${isNavOpen ? style.open : ''}`}></div>
                         <div className={`${style.bar} ${isNavOpen ? style.open : ''}`}></div>
