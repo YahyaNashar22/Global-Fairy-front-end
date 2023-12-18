@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import axios from "axios";
 const ProductDetails = () => {
     const [product, setProduct] = useState([]);
@@ -26,6 +27,14 @@ const ProductDetails = () => {
 
 return (
     <>
+    <Helmet>
+        <title>Products Details</title>
+        <meta
+          name="description"
+          content="Product details"
+        ></meta>
+        <link rel="canonical" href="/add product" />
+      </Helmet>
 
 {product ? <p>{product.name}</p> : <p>Loading...</p>}
 
