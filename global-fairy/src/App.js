@@ -2,8 +2,8 @@ import "./App.css";
 import AppRoutes from "./Routes/AppRoutes";
 import { ToastContainer } from "react-toastify";
 import axios from "axios";
-axios.defaults.withCredentials = true;
 import { CartProvider } from "./context/ShoppingContext.js";
+axios.defaults.withCredentials = true;
 
 function App() {
   return (
