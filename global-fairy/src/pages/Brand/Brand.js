@@ -11,6 +11,8 @@ import { useParams } from 'react-router-dom';
 import axios from "axios"
 import styles from "./Brand.module.css"
 import { Link } from 'react-router-dom';
+import image from '../../assets/icons/refresh.png'
+
 
 const Brand = () => {
     const { type, nameType } = useParams()
@@ -246,7 +248,11 @@ const Brand = () => {
         </div>
 
     ) : (
-        <h1>Loading....</h1>
+        <div className={styles.loading}>
+            <img className={styles.imageLoading} src={image} alt='loading'/>
+            <h1 className={styles.titleLoading}>Loading...</h1>
+
+        </div>
     )
     )
 
