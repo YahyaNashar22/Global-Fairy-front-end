@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import style from "./Signin.module.css";
 import { Link, useNavigate } from "react-router-dom";
 import { TextField, Grid, Typography, FormControl } from "@mui/material";
@@ -7,9 +7,11 @@ import hide from "../../assets/icons/hide.svg";
 import axios from "axios";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
+import { UserContext } from "../../context/UserContext.js";
 function Signin() {
   const navigate = useNavigate();
+  const { user, setUser } = useContext(UserContext);
+
   // FORM DATA HANDLING
   const [email, setEmail] = useState("");
   const handleEmail = (e) => {
@@ -54,10 +56,15 @@ function Signin() {
       .then((res) => {
         setIsPending(false);
         notify();
-        navigate("/");
+        if (res) {
+          setUser(res.data.token.data);
+        } else {
+          setUser("no user found");
+        }
       });
+    navigate("/");
+    console.log(user);
   };
-
   return (
     <>
       <div className={style.wrapper}>

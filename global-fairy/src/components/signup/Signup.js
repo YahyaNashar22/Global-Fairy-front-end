@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import style from "./Signup.module.css";
 import { Link, useNavigate } from "react-router-dom";
 import { TextField, Grid, Typography, Input, FormControl } from "@mui/material";
@@ -8,9 +8,11 @@ import google from "../../assets/icons/Icon-Google.png";
 import axios from "axios";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { UserContext } from "../../context/UserContext.js";
 
 function Signup() {
   const navigate = useNavigate();
+  const { setUser } = useContext(UserContext);
   // FORM DATA HANDLING
   const [name, setName] = useState("");
   const handleName = (e) => {
@@ -75,6 +77,11 @@ function Signup() {
       .then((res) => {
         setIsPending(false);
         notify();
+        if (res) {
+          setUser(res.data.token.data);
+        } else {
+          setUser("no user found");
+        }
         navigate("/");
       });
   };

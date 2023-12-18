@@ -3,6 +3,7 @@ import AppRoutes from "./Routes/AppRoutes";
 import { ToastContainer } from "react-toastify";
 import axios from "axios";
 import { CartProvider } from "./context/ShoppingContext.js";
+import { UserProvider } from "./context/UserContext.js";
 axios.defaults.withCredentials = true;
 
 function App() {
@@ -20,10 +21,11 @@ function App() {
         pauseOnHover
         theme="dark"
       />
-
-      <CartProvider>
-        <AppRoutes />
-      </CartProvider>
+      <UserProvider>
+        <CartProvider>
+          <AppRoutes />
+        </CartProvider>
+      </UserProvider>
     </div>
   );
 }
