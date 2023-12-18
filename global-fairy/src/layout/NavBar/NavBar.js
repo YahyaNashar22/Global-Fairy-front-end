@@ -13,6 +13,7 @@ const NavBar = ({ showBag }) => {
   useEffect(() => {
     setProfilePic(`${process.env.REACT_APP_PATH}/images/${user.Picture}`);
   }, [user]);
+
   console.log(user);
   return (
     <nav className={style.nav}>
