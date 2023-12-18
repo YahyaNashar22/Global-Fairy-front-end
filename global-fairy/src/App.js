@@ -1,7 +1,8 @@
 import "./App.css";
 import AppRoutes from "./Routes/AppRoutes";
 import { ToastContainer } from "react-toastify";
-
+import axios from "axios";
+axios.defaults.withCredentials = true;
 function App() {
   return (
     <div className="app">
