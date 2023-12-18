@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import style from "./Signup.module.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { TextField, Grid, Typography, Input, FormControl } from "@mui/material";
 import show from "../../assets/icons/show 1.png";
 import hide from "../../assets/icons/hide.svg";
@@ -10,6 +10,7 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 function Signup() {
+  const navigate = useNavigate();
   // FORM DATA HANDLING
   const [name, setName] = useState("");
   const handleName = (e) => {
@@ -74,6 +75,7 @@ function Signup() {
       .then((res) => {
         setIsPending(false);
         notify();
+        navigate("/");
       });
   };
 

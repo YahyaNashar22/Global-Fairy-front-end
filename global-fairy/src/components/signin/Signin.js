@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import style from "./Signin.module.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { TextField, Grid, Typography, FormControl } from "@mui/material";
 import show from "../../assets/icons/show 1.png";
 import hide from "../../assets/icons/hide.svg";
@@ -9,6 +9,7 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 function Signin() {
+  const navigate = useNavigate();
   // FORM DATA HANDLING
   const [email, setEmail] = useState("");
   const handleEmail = (e) => {
@@ -53,6 +54,7 @@ function Signin() {
       .then((res) => {
         setIsPending(false);
         notify();
+        navigate("/");
       });
   };
 
