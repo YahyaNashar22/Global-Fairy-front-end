@@ -45,6 +45,10 @@ header {
     color: black;
 }
 
+.hasItem{
+    border-bottom: 4px solid #D81A84;
+  }
+
 .cartLink :hover{
     color: #D81A84;
 }

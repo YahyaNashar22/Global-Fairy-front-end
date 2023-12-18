@@ -1,0 +1,88 @@
+.productContainer{
+    display: grid;
+    grid-template-columns: 200px auto 200px;
+    width: 65vw;
+    column-gap: 30px;
+    margin: 30px 30px;
+    border-bottom: 1px solid #a7a7a7;
+    padding-bottom: 50px;
+}
+
+.productImage{
+    /* border: 1px solid #D96093; */
+    border-radius: 5px;
+}
+
+.productInfo :first-child{
+    white-space: nowrap;
+    color: #D96093;
+}
+
+.productInfo{
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-bottom: 30px;
+}
+
+.productQuantity{
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+
+.productInfo h3, .listColor{
+    margin-top: -30px;
+}
+
+
+.inputContainer{
+    position: relative;
+    margin-top: 20px;
+}
+
+.quantityInput{
+    width: 150px;
+    height: 50px;
+    border-radius: 5px;
+    padding-left: 10px;
+    font-size: 1em;
+}
+
+.quantityInput::-webkit-outer-spin-button,
+.quantityInput::-webkit-inner-spin-button{
+    -webkit-appearance: none;
+}
+
+.inputContainer p{
+    position: absolute;
+    top: -10px;
+    left: 10px;
+    background-color: white;
+    padding: 0 5px;
+}
+
+.price{
+    font-size: 1.5em;
+}
+
+.removeItem{
+    display: flex;
+    align-items: center;
+    color: white;
+    padding: 3px 10px;
+    border-radius: 5px;
+    border: 1px solid #a7a7a7;
+    background-color: #D96093;
+    cursor: pointer;
+    gap: 5px;
+
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}

@@ -5,6 +5,7 @@ import logo from '../../assets/images/logo.jpg';
 import NavBar from "../NavBar/NavBar";
 import { Link } from "react-router-dom";
 import Cart from "../../components/svgIcons/Cart";
+import { useShoppingContext } from "../../context/ShoppingContext";
 
 const Header = () => {
 
@@ -12,6 +13,7 @@ const Header = () => {
     const { isNavOpen, setIsNavOpen } = useSharedData();
     const [includeCart, setIncludeCart] = useState(false)
     const [showBag, setShowBag] = useState(false);
+    const {inventory} = useShoppingContext();
 
     const toggleNav = () => {
         setIsNavOpen(!isNavOpen);
@@ -42,7 +44,7 @@ const Header = () => {
                 <div className={style.content}>
                     {isNavOpen && <NavBar showBag={showBag}/>}
                     {showBag ? 
-                    <div className={style.cart}><Link className={style.cartLink}><Cart size={35}/></Link></div>
+                    <div className={style.cart}><Link to="/cart" className={`${style.cartLink} ${inventory.length? style.hasItem : ""}`}><Cart size={35}/></Link></div>
                     :
                     ""
                     }

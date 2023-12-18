@@ -11,6 +11,10 @@
   color: var(--Magenta-dye, #D81A84);
 }
 
+.hasItem{
+  border-bottom: 4px solid #D81A84;
+}
+
 @media (max-width: 992px) {
   .nav {
     position: absolute;
