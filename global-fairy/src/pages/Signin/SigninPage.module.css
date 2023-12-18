@@ -14,7 +14,7 @@
     height: 100vh;
 }
 @media(max-width:550px){
-    .right{
+    .left{
         display: none;
     }
 }

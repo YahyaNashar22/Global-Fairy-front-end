@@ -1,7 +1,7 @@
 .wrapper{
     width: 48vw;
 }
-.wrapper, .signupform{
+.wrapper, .signinform{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -16,6 +16,8 @@ font-weight: 500;
 line-height: 30px;
 letter-spacing: 1.44px;
 align-self: flex-start;
+margin-bottom: 40px;
+line-height: 60px;
 }
 .subText{
 align-self: flex-start;
@@ -26,60 +28,52 @@ font-style: normal;
 font-weight: 400;
 line-height: 24px; 
 }
-.signupform{
-    margin: 20px auto;
-    width: 100%;
+.signinform{
+    margin: 40px auto;
+    width: 30vw;
 }
-.submit, .OAuth{
+.signinInp, .passInp{
+    margin-bottom: 40px;
+}
+.submit, .signup{
     margin : 10px 0;
     cursor: pointer;
-    border: none;
 }
 .submit{
-display: flex;
-width: 100%;
-padding: 16px 122px;
-justify-content: center;
-align-items: center;
-gap: 10px;
-border-radius: 4px;
+    display: flex;
+    padding: 10px 20px;
+    border: none;
+    width: 8rem;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
 background: var(--Thulian-pink, #D96093);
 color: var(--Text, #FAFAFA);
 font-family: Lato;
-font-size: 16px;
+font-size: 18px;
 font-style: normal;
 font-weight: 500;
-line-height: 24px;
 }
-.OAuth{
-display: flex;
-padding: 16px 86px;
-width: 100%;
-align-items: center;
-justify-content: center;
-gap: 10px;
-border-radius: 4px;
-border: 1px solid rgba(0, 0, 0, 0.40);
-color: var(--Text2, #000);
+.signup{
+    display: flex;
+    border: none;
+    width: 8rem;
+    align-items: center;
+    justify-content: center;
+    padding:10px 20px;
+    color: var(--Thulian-pink, #D96093);
 font-family: Lato;
-font-size: 16px;
+font-size: 18px;
 font-style: normal;
 font-weight: 400;
-line-height: 24px; 
+background-color: whitesmoke;
 }
-.login{
-    color: var(--Text2, #000);
-font-family: Lato;
-font-size: 16px;
-font-style: normal;
-font-weight: 400;
-line-height: 24px; 
-opacity: 0.7;
-}
-.loginbtn{
-    text-decoration: none;
-    color: #000;
-    font-weight: 500px;
+.buttons{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
 }
 .passContainer{
     position: relative;
@@ -103,7 +97,10 @@ right: 1rem;
     100% {color: green;}
 }
 @media (max-width:550px) {
-    .OAuth,.submit{
-        padding: 10px;
-    }
+  .wrapper{
+    width: 100%;
+  }
+  .signinform{
+    width: 100%;
+  }
 }

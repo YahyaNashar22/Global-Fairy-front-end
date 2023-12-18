@@ -12,6 +12,7 @@ import LayoutWithHeaderFooter from "./LayoutWithHeaderFooter";
 import LayoutWithoutHeaderFooter from "./LayoutWithoutHeaderFooter";
 import ProductDetails from "../pages/ProductDetails/ProductDetails";
 import SignupPage from "../pages/Signup/SignupPage";
+import SigninPage from "../pages/Signin/SigninPage";
 
 function AppRoutes() {
   return (
@@ -43,6 +44,14 @@ function AppRoutes() {
               element={
                 <LayoutWithoutHeaderFooter>
                   <SignupPage />
+                </LayoutWithoutHeaderFooter>
+              }
+            />
+            <Route
+              path="/login"
+              element={
+                <LayoutWithoutHeaderFooter>
+                  <SigninPage />
                 </LayoutWithoutHeaderFooter>
               }
             />

@@ -1,22 +1,22 @@
 import React from "react";
-import Signup from "../../components/signup/Signup.js";
-import style from "./SignupPage.module.css";
+import Signin from "../../components/signin/Signin";
+import style from "./SigninPage.module.css";
 import banner from "../../assets/images/product.png";
-function SignupPage() {
+function SigninPage() {
   return (
     <div className={style.wrapper}>
       <div className={style.centered}>
-        <Signup />
         <img
           src={banner}
-          className={style.right}
+          className={style.left}
           alt="banner"
           width="80%"
           height="700px"
         />
+        <Signin />
       </div>
     </div>
   );
 }
 
-export default SignupPage;
+export default SigninPage;
