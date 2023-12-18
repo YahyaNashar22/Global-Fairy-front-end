@@ -1,20 +1,15 @@
 import React, { useState } from "react";
-import style from "./Signup.module.css";
+import style from "./Signin.module.css";
 import { Link } from "react-router-dom";
-import { TextField, Grid, Typography, Input, FormControl } from "@mui/material";
+import { TextField, Grid, Typography, FormControl } from "@mui/material";
 import show from "../../assets/icons/show 1.png";
 import hide from "../../assets/icons/hide.svg";
-import google from "../../assets/icons/Icon-Google.png";
 import axios from "axios";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-function Signup() {
+function Signin() {
   // FORM DATA HANDLING
-  const [name, setName] = useState("");
-  const handleName = (e) => {
-    setName(e.target.value);
-  };
   const [email, setEmail] = useState("");
   const handleEmail = (e) => {
     setEmail(e.target.value);
@@ -22,11 +17,6 @@ function Signup() {
   const [password, setPassword] = useState("");
   const handlePassword = (e) => {
     setPassword(e.target.value);
-  };
-  const [picture, setPicture] = useState(null);
-  const handlePictureChange = (e) => {
-    console.log(e.target.files[0]);
-    setPicture(e.target.files[0]);
   };
 
   // PASSWORD SHOW/HIDE
@@ -49,28 +39,17 @@ function Signup() {
   const [isPending, setIsPending] = useState(false);
   //TOAST NOTIFICATIONS
 
-  const notify = () => toast("Account created successfully !");
+  const notify = () => toast("Logged in successfully !");
 
   //POST WITH AXIOS
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsPending(true);
     axios
-      .post(
-        `${process.env.REACT_APP_PATH}/user/signup`,
-        {
-          name: name,
-          email: email,
-          password: password,
-          picture: picture,
-          role: "user",
-        },
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        }
-      )
+      .post(`${process.env.REACT_APP_PATH}/user/login`, {
+        email: email,
+        password: password,
+      })
       .then((res) => {
         setIsPending(false);
         notify();
@@ -86,7 +65,7 @@ function Signup() {
           sx={{ fontSize: "32px" }}
           className={style.header}
         >
-          Create an account
+          Log in to Exclusive
         </Typography>
         <Typography
           variant="p"
@@ -97,32 +76,11 @@ function Signup() {
           Enter your details below
         </Typography>
         <form
-          className={style.signupform}
+          className={style.signinform}
           method="post"
           onSubmit={handleSubmit}
         >
           <Grid container spacing={2}>
-            <Grid item xs={12}>
-              <TextField
-                sx={{
-                  "& input::placeholder": { color: "var(--grey-color)" },
-                  "& label": { color: "var(--grey-color)" },
-                  "& .MuiInputBase-input": {
-                    color: "var(--main-background-color)",
-                  },
-                  "& fieldset": { borderColor: "var(--grey-color)" },
-                }}
-                label="Name"
-                onChange={handleName}
-                value={name}
-                placeholder="Enter your Name"
-                variant="outlined"
-                type="text"
-                required
-                fullWidth
-                className={style.signupInp}
-              />
-            </Grid>
             <Grid item xs={12}>
               <TextField
                 sx={{
@@ -141,7 +99,7 @@ function Signup() {
                 type="email"
                 required
                 fullWidth
-                className={style.signupInp}
+                className={style.signinInp}
               />
             </Grid>
             <Grid item xs={12} className={style.passContainer}>
@@ -175,56 +133,22 @@ function Signup() {
                 </span>
               </FormControl>
             </Grid>
-            <Grid item xs={12}>
-              <Typography variant="p" component="p" className={style.imgTxt}>
-                Kindly Upload Your Image
-              </Typography>
-              <Input
-                label="Upload Your Image"
-                name="picture"
-                type="file"
-                onChange={handlePictureChange}
-                sx={{
-                  width: "100%",
-                  padding: "10px",
-                  margin: "10px 0",
-                  border: "1px solid #ccc",
-                  borderRadius: "5px",
-                  fontSize: "16px",
-                  "&:focus": {
-                    outline: "none",
-                    borderColor: "var(--main-background-color)",
-                  },
-                }}
-              />
-            </Grid>
           </Grid>
-          <button className={style.submit} type="submit">
-            Create Account
-          </button>
-          <button className={style.OAuth}>
-            <span>
-              <img src={google} alt="google logo" />
-            </span>
-            Sign up with Google
-          </button>
-          <p className={style.login}>
-            Already have an account ?{" "}
-            <span className={style.loginbtn}>
-              <Link to="/login" className={style.loginbtn}>
-                Log in
-              </Link>
-            </span>
-          </p>
+          <div className={style.buttons}>
+            <button className={style.submit} type="submit">
+              Log In
+            </button>
+            <Link to="/signup" className={style.signup}>
+              Sign Up
+            </Link>
+          </div>
         </form>
         {isPending && (
-          <p className={style.pending}>
-            Adding your account to the database, please wait . . .
-          </p>
+          <p className={style.pending}>Logging you in, please wait . . .</p>
         )}
       </div>
     </>
   );
 }
 
-export default Signup;
+export default Signin;
