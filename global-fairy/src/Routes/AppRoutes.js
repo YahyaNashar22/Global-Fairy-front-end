@@ -11,8 +11,6 @@ import NotFound from '../pages/NotFound/NotFound';
 import LayoutWithHeaderFooter from './LayoutWithHeaderFooter';
 import LayoutWithoutHeaderFooter from './LayoutWithoutHeaderFooter';
 import ProductDetails from '../pages/ProductDetails/ProductDetails';
-// import NotAuthorization from '../pages/NotAuthorization/NotAuthorization'
-import NetworkError from '../pages/NetworkError/NetworkError'
 
 function AppRoutes() {
   return (
@@ -34,7 +32,6 @@ function AppRoutes() {
           <Route path="/actions/:operation" element={<LayoutWithoutHeaderFooter> <Addproduct /> </LayoutWithoutHeaderFooter>} />
           <Route path="/*" element={<LayoutWithoutHeaderFooter> <NotFound /> </LayoutWithoutHeaderFooter>} />
           <Route path="products/:productID" element={<LayoutWithoutHeaderFooter> <ProductDetails/> </LayoutWithoutHeaderFooter>} />
-          <Route path="/b" element={<LayoutWithoutHeaderFooter><NetworkError/></LayoutWithoutHeaderFooter>}/>
         </Routes>
       </DataProvider>
       </BrowserRouter>

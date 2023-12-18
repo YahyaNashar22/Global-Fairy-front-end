@@ -187,7 +187,7 @@ const Brand = () => {
     <div className={styles.brandPage}>
       <Helmet>
         <title>Brand</title>
-        <meta name="description" content="Types of Brand"></meta>
+        <meta name="description" content="Types and Brands"></meta>
         <link rel="canonical" href="/Brand" />
       </Helmet>
       <div className={styles.headerBrand}>
