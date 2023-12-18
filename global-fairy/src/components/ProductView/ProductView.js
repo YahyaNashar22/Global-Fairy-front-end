@@ -4,28 +4,35 @@ import style from "./ProductView.module.css";
 import Colors from "../../components/Colors/Colors";
 import PurshaseButtons from "../PurshaseButtons/PurshaseButtons";
 import axios from "axios";
+import { useShoppingContext } from "../../context/ShoppingContext";
 
 
 const ProductView = ({getCategoryId}) => {
     const { productId } = useParams();
     const [addBackground, setAddBackground] = useState(null)
+    const {inventory, addToCart} = useShoppingContext();
 
     // Fetching
     const [productData, setProductData] = useState(null);
     const [loading, setLoading] = useState(true);
 
     const getProduct = async () =>{
+        let data;
         await axios.get(`${process.env.REACT_APP_PATH}/product/getId/${productId}`)   
         .then((res) => {
-            const data = res.data;
+             data = res.data;
+            
             setProductData(data);
-            console.log(productData)
+            console.log("fetched product: ",productData)
+            
             setLoading(false)
             
         })
         .catch((error) => {
             console.error("Error fetching product details:", error);
         });
+
+        return data
     };
 
     useEffect(() => {

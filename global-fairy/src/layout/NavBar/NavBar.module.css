@@ -11,6 +11,10 @@
   color: var(--Magenta-dye, #D81A84);
 }
 
+.hasItem{
+  border-bottom: 4px solid #D81A84;
+}
+
 @media (max-width: 992px) {
   .nav {
     position: absolute;
@@ -20,7 +24,7 @@
     border-top: 1px solid var(--Magenta-dye, #D81A84);
     animation: rotateMenu 400ms ease-in-out forwards;
     transform-origin: top center;
-    width: 50%;
+    width: 100%;
     z-index: 3;
   }
   @keyframes rotateMenu {
@@ -46,6 +50,7 @@
       padding: 25px;
       width: 100%;
       gap: 0;
+      text-align: center;
     }
     .nav .link {
       font-size: 18px;

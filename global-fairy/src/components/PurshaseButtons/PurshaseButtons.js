@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import style from "./PurshaseButtons.module.css";
 import axios from "axios";
+import { useShoppingContext } from "../../context/ShoppingContext";
 
 const PurchaseButtons = ({ index, stock, productId, fetchProductData }) => {
   // This for the count button
   const [count, setCount] = useState(1);
-  const [addedToCart, setAddedToCart] = useState(false);  
+  const [addedToCart, setAddedToCart] = useState(false); 
+  const {inventory, addToCart} = useShoppingContext(); 
 
   const decreaseOne = () => {
     if (count > 1) {
@@ -20,17 +22,22 @@ const PurchaseButtons = ({ index, stock, productId, fetchProductData }) => {
   };
 
   const updateStock = async()=>{
-    try{
-        const response=await axios.put(`${process.env.REACT_APP_PATH}/product/updateStock/${productId}/${index}/${count}`)
-      if(response){
-        fetchProductData();
-        setAddedToCart(true);
-        setCount(1);
-      }
-    }
-    catch(error){
-        console.log(error.message)
-    }
+    const product = await fetchProductData();
+    console.log("my productt: ", product)
+    addToCart(product)
+        console.log(inventory)
+    // try{
+    //     const response=await axios.put(`${process.env.REACT_APP_PATH}/product/updateStock/${productId}/${index}/${count}`)
+    //   if(response){
+    //     fetchProductData();
+    //     setAddedToCart(true);
+    //     setCount(1);
+        
+    //   }
+    // }
+    // catch(error){
+    //     console.log(error.message)
+    // }
 
 } 
 

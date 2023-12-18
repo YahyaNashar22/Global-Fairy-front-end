@@ -17,57 +17,17 @@ function AppRoutes() {
   return (
     <div>
       <BrowserRouter>
-        <DataProvider>
-          <Routes>
-            {/* Routes with Header and Footer */}
-            <Route
-              index
-              element={
-                <LayoutWithHeaderFooter>
-                  <Home />
-                </LayoutWithHeaderFooter>
-              }
-            />
-            <Route
-              path="/"
-              element={
-                <LayoutWithHeaderFooter>
-                  <Home />
-                </LayoutWithHeaderFooter>
-              }
-            />
-            <Route
-              path="/about"
-              element={
-                <LayoutWithHeaderFooter>
-                  <About />
-                </LayoutWithHeaderFooter>
-              }
-            />
-            <Route
-              path="/contact"
-              element={
-                <LayoutWithHeaderFooter>
-                  <Contact />
-                </LayoutWithHeaderFooter>
-              }
-            />
-            <Route
-              path="/Products/:type/:nameType?"
-              element={
-                <LayoutWithHeaderFooter>
-                  <Brand />
-                </LayoutWithHeaderFooter>
-              }
-            />
-            <Route
-              path="/view/:productId"
-              element={
-                <LayoutWithHeaderFooter>
-                  <ProductView />
-                </LayoutWithHeaderFooter>
-              }
-            />
+      <DataProvider>
+        <Routes>
+    
+        {/* Routes with Header and Footer */}
+        <Route index element={<LayoutWithHeaderFooter> <Home /> </LayoutWithHeaderFooter>} />
+        <Route path="/" element={<LayoutWithHeaderFooter> <Home /> </LayoutWithHeaderFooter>} />
+        <Route path="/about" element={<LayoutWithHeaderFooter> <About /> </LayoutWithHeaderFooter>} />
+        <Route path="/contact" element={<LayoutWithHeaderFooter> <Contact /> </LayoutWithHeaderFooter>} />
+        <Route path="/Products/:type/:nameType?" element={<LayoutWithHeaderFooter> <Brand /> </LayoutWithHeaderFooter>} />
+        <Route path="/view/:productId" element={<LayoutWithHeaderFooter> <ProductView /> </LayoutWithHeaderFooter>} />
+        <Route path="/cart" element={<LayoutWithHeaderFooter> <Inventory /> </LayoutWithHeaderFooter>} />
 
             {/* Routes without Header and Footer */}
             <Route
