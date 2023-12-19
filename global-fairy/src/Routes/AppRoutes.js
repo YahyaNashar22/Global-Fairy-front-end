@@ -17,6 +17,7 @@ import Inventory from "../pages/ShoppingCart/Inventory.js";
 import NotAuthorizatio from "../pages/NotAuthorization/NotAuthorization.js";
 import { useContext, useEffect, useState } from "react";
 import { UserContext } from "../context/UserContext.js";
+import AdminChat from "../pages/AdminChat/AdminChat";
 
 function AppRoutes() {
   const { user } = useContext(UserContext);
@@ -28,6 +29,8 @@ function AppRoutes() {
       setAuthed(<NotAuthorizatio />);
     }
   }, [user]);
+
+  console.log("authed???: ", authed.key)
 
   return (
     <div>
@@ -107,6 +110,16 @@ function AppRoutes() {
                 </LayoutWithoutHeaderFooter>
               }
             />
+
+            <Route
+            path="/dashboard/chat"
+            element={
+              <LayoutWithoutHeaderFooter>
+                {user ? <AdminChat/> : <NotAuthorizatio/>}
+                </LayoutWithoutHeaderFooter>
+              }
+            />
+
             <Route
               path="/login"
               element={

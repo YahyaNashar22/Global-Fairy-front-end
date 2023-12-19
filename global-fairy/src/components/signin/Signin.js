@@ -63,6 +63,7 @@ function Signin() {
         }
       });
     navigate("/");
+    
     console.log(user);
   };
   return (
