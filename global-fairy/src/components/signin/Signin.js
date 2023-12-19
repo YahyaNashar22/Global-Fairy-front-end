@@ -151,6 +151,9 @@ function Signin() {
               Sign Up
             </Link>
           </div>
+          <Link to="/" className={style.noLogin}>
+            Continue without Logging in
+          </Link>
         </form>
         {isPending && (
           <p className={style.pending}>Logging you in, please wait . . .</p>

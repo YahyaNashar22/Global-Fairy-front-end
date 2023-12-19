@@ -1,19 +1,48 @@
 import React, { useState, useContext, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import style from "./NavBar.module.css";
 import Search from "../../components/Search/Search";
 import Cart from "../../components/svgIcons/Cart.js";
 import { useShoppingContext } from "../../context/ShoppingContext";
 import { UserContext } from "../../context/UserContext.js";
+import Swal from "sweetalert2";
+import axios from "axios";
 
 const NavBar = ({ showBag }) => {
+  const navigate = useNavigate();
   const { inventory } = useShoppingContext();
-  const { user } = useContext(UserContext);
+  const { user, setUser } = useContext(UserContext);
   const [profilePic, setProfilePic] = useState(null);
   useEffect(() => {
     setProfilePic(`${process.env.REACT_APP_PATH}/images/${user.Picture}`);
   }, [user]);
-
+  const popup = () => {
+    Swal.fire({
+      title: "Log out?",
+      text: "Are you sure you want to log out ?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#D81A84;",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire(
+          {
+            title: "logged out successfully!",
+            text: "See you next time !",
+            icon: "success",
+          },
+          handleLogout()
+        );
+      }
+    });
+  };
+  const handleLogout = () => {
+    axios.get(`${process.env.REACT_APP_PATH}/user/logout`);
+    navigate("/login");
+    setUser({});
+  };
   console.log(user);
   return (
     <nav className={style.nav}>
@@ -55,15 +84,28 @@ const NavBar = ({ showBag }) => {
         <li>
           <Search />
         </li>
-        <li>
-          <img
-            src={profilePic}
-            alt="profile"
-            height="50px"
-            width="50px"
-            style={{ borderRadius: "36px" }}
-          />
-        </li>
+        {Object.keys(user).length > 1 && (
+          <li>
+            <img
+              src={profilePic}
+              alt="profile"
+              height="50px"
+              width="50px"
+              style={{ borderRadius: "36px", cursor: "pointer" }}
+              onClick={popup}
+            />
+          </li>
+        )}
+        {Object.keys(user).length < 1 && (
+          <li className={style.signBTNS}>
+            <Link to="/login" className={style.signIN}>
+              Sign in
+            </Link>
+            <Link to="/signup" className={style.signUP}>
+              Sign up
+            </Link>
+          </li>
+        )}
       </ul>
     </nav>
   );

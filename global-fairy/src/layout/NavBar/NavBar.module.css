@@ -14,7 +14,39 @@
 .hasItem{
   border-bottom: 4px solid #D81A84;
 }
-
+.signIN{
+  padding: 10px 20px;
+  background-color: #D81A84;
+  color: #f8f8f8;
+  text-decoration: none;
+  border-radius: 16px;
+  cursor: pointer;
+  border: solid 1px #D81A84;
+  transition: 0.6s;
+}
+.signIN:hover{
+  background-color: #f8f8f8;
+  color: #D81A84;
+}
+.signUP:hover{
+  color: #f8f8f8;
+  background-color: #D81A84;
+}
+.signUP{
+  padding: 10px 20px;
+  background-color: whitesmoke;
+  color: #D81A84;
+  text-decoration: none;
+  border: solid 1px #D81A84;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: 0.6s;
+}
+.signBTNS{
+  display: flex;
+  justify-content: space-between;
+  column-gap: 10px;
+}
 @media (max-width: 992px) {
   .nav {
     position: absolute;
