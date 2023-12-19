@@ -48,11 +48,11 @@ line-height: 24px;
     align-items: center;
     border-radius: 4px;
 background: var(--Thulian-pink, #D96093);
-color: var(--Text, #FAFAFA);
+color: var(--Text, white);
 font-family: Lato;
 font-size: 18px;
 font-style: normal;
-font-weight: 500;
+font-weight: 700;
 }
 .signup{
     display: flex;
@@ -66,7 +66,7 @@ font-weight: 500;
 font-family: Lato;
 font-size: 18px;
 font-style: normal;
-font-weight: 400;
+font-weight: 700;
 background-color: whitesmoke;
 }
 .buttons{
@@ -96,14 +96,14 @@ right: 1rem;
     align-items: center;
     justify-content: center;
     background-color: #D96093;
-    color: #f8f8f8;
+    color: white;
     padding:10px;
     width: 100%;
     font-family: Lato;
     border-radius: 4px;
 font-size: 18px;
 font-style: normal;
-font-weight: 400;
+font-weight: 700;
 }
 @keyframes gradient{
     0%   {color: red;}

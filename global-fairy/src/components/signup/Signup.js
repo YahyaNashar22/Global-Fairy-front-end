@@ -1,14 +1,34 @@
 import React, { useState, useContext } from "react";
 import style from "./Signup.module.css";
 import { Link, useNavigate } from "react-router-dom";
-import { TextField, Grid, Typography, Input, FormControl } from "@mui/material";
+import {
+  TextField,
+  Grid,
+  Typography,
+  FormControl,
+  styled,
+  Button,
+} from "@mui/material";
 import show from "../../assets/icons/show 1.png";
 import hide from "../../assets/icons/hide.svg";
 import google from "../../assets/icons/Icon-Google.png";
+import upload from "../../assets/icons/upload-loop.svg";
 import axios from "axios";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { UserContext } from "../../context/UserContext.js";
+
+const VisuallyHiddenInput = styled("input")({
+  clip: "rect(0 0 0 0)",
+  clipPath: "inset(50%)",
+  height: 1,
+  overflow: "hidden",
+  position: "absolute",
+  bottom: 0,
+  left: 0,
+  whiteSpace: "nowrap",
+  width: 1,
+});
 
 function Signup() {
   const navigate = useNavigate();
@@ -185,10 +205,10 @@ function Signup() {
               </FormControl>
             </Grid>
             <Grid item xs={12}>
-              <Typography variant="p" component="p" className={style.imgTxt}>
+              {/* <Typography variant="p" component="p" className={style.imgTxt}>
                 Kindly Upload Your Image
-              </Typography>
-              <Input
+              </Typography> */}
+              {/* <Input
                 label="Upload Your Image"
                 name="picture"
                 type="file"
@@ -197,7 +217,7 @@ function Signup() {
                   width: "100%",
                   padding: "10px",
                   margin: "10px 0",
-                  border: "1px solid #ccc",
+                  border: "none",
                   borderRadius: "5px",
                   fontSize: "16px",
                   "&:focus": {
@@ -205,7 +225,31 @@ function Signup() {
                     borderColor: "var(--main-background-color)",
                   },
                 }}
-              />
+              /> */}
+              <Button
+                component="label"
+                variant="contained"
+                sx={{
+                  backgroundColor: "#A3A3A3",
+                  width: "100%",
+                  color: "white",
+                  fontWeight: "700",
+                }}
+                onChange={handlePictureChange}
+                // startIcon={</>}
+                className={style.uploadBTN}
+              >
+                Kindly upload your image
+                <span className={style.upload}>
+                  <img
+                    src={upload}
+                    alt="upload symbol"
+                    height="40px"
+                    width="40px"
+                  />
+                </span>
+                <VisuallyHiddenInput type="file" />
+              </Button>
             </Grid>
           </Grid>
           <button className={style.submit} type="submit">
