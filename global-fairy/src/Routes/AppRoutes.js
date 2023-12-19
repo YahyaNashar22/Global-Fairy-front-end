@@ -12,6 +12,7 @@ import LayoutWithHeaderFooter from "./LayoutWithHeaderFooter";
 import LayoutWithoutHeaderFooter from "./LayoutWithoutHeaderFooter";
 import ProductDetails from "../pages/ProductDetails/ProductDetails";
 import SignupPage from "../pages/Signup/SignupPage";
+import Inventory from "../pages/ShoppingCart/Inventory";
 
 function AppRoutes() {
   return (

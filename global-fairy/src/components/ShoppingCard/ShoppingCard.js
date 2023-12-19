@@ -29,12 +29,12 @@ export default function ShoppingCard({item, index}) {
     <div className={styles.productContainer}>
         <img src={`${process.env.REACT_APP_PATH}/${objInventory.images[1]}`} alt='Product' className={styles.productImage} height={300} width={200}/>
             <ul className={styles.productInfo}>
-                <li>{objInventory.name}</li>
-                <li><h3>{objInventory.brand.name}</h3></li>
-                <li><h3>{description}</h3></li>
-                <li><p>Size: {objInventory.details[0].sizes[0]}</p></li>
-                <li><p className={styles.listColor}>Color: {objInventory.details[0].color}</p></li>
-                <li><button  onClick={()=> handleRemove(objInventory._id)} className={styles.removeItem}><Trash/>REMOVE</button></li>
+                <li className={styles.objName}>{objInventory.name}</li>
+                <li className={styles.objBrand}>{objInventory.brand.name}</li>
+                <li className={styles.objDescription}>{description}</li>
+                <li className={styles.objSize}>Size: {objInventory.details[0].sizes[0]}</li>
+                <li className={styles.objColor}>Color: {objInventory.details[0].color}</li>
+                <li className={styles.removeItem} onClick={()=> handleRemove(objInventory._id)}><Trash/>REMOVE</li>
             </ul>
         <div className={styles.productQuantity}>
             <div className={styles.inputContainer}>

@@ -1,6 +1,7 @@
 .productContainer{
     display: grid;
-    grid-template-columns: 200px auto 200px;
+    /* grid-template-columns: 200px auto 200px; */
+    grid-template-areas: 'image info quantity';
     width: 65vw;
     column-gap: 30px;
     margin: 30px 30px;
@@ -11,11 +12,8 @@
 .productImage{
     /* border: 1px solid #D96093; */
     border-radius: 5px;
-}
-
-.productInfo :first-child{
-    white-space: nowrap;
-    color: #D96093;
+    grid-area: image;
+    width: 200px;
 }
 
 .productInfo{
@@ -24,14 +22,31 @@
     flex-direction: column;
     justify-content: space-between;
     padding-bottom: 30px;
+    grid-area: info;
+    width: auto;
 }
 
 .productQuantity{
     display: flex;
     flex-direction: column;
     gap: 50px;
+    grid-area: quantity;
+    width: 200px;
 }
 
+
+.objName{
+    font-size: 1.5rem;
+    white-space: nowrap;
+    color: #D96093;
+}
+.objBrand{
+    font-weight: bolder;
+}
+
+.objDescription{
+    max-width: 300px;
+}
 
 .productInfo h3, .listColor{
     margin-top: -30px;
@@ -41,6 +56,11 @@
 .inputContainer{
     position: relative;
     margin-top: 20px;
+    align-self: flex-end;
+}
+
+.price{
+    align-self: flex-end;
 }
 
 .quantityInput{
@@ -72,6 +92,7 @@
     display: flex;
     align-items: center;
     color: white;
+    width: fit-content;
     padding: 3px 10px;
     border-radius: 5px;
     border: 1px solid #a7a7a7;
@@ -85,4 +106,16 @@
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+}
+
+.removeItem:hover{
+    background-color:rgba(217, 96, 147, 0.8)
+}
+
+
+@media (max-width: 993px) {
+    .productContainer{
+        /* grid-template-columns: 200px 100px 200px; */
+        width: 90vw;
+    }
 }
