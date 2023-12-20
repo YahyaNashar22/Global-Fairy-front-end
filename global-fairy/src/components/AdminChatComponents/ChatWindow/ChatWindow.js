@@ -6,7 +6,7 @@ import { UserContext } from "../../../context/UserContext.js";
 
 export default function ChatWindow({selectedMessages}) {
 
-    const [username, setUsername] = useState("Current User");
+    const [username, setUsername] = useState("admin");
     const [messages, setMessages] = useState([]);
     const { user } = useContext(UserContext);
     // setUsername("Current User");

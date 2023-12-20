@@ -1,3 +1,7 @@
 .windowContainer{
     height: 100%;
+    background-image: url('../../../pages/AdminChat/background.webp');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
 }

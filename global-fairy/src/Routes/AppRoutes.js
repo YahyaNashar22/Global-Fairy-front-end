@@ -18,6 +18,7 @@ import NotAuthorizatio from "../pages/NotAuthorization/NotAuthorization.js";
 import { useContext, useEffect, useState } from "react";
 import { UserContext } from "../context/UserContext.js";
 import AdminChat from "../pages/AdminChat/AdminChat";
+import UserChat from "../components/UserChat/UserChat";
 
 function AppRoutes() {
   const { user } = useContext(UserContext);
@@ -43,6 +44,7 @@ function AppRoutes() {
               element={
                 <LayoutWithHeaderFooter>
                   <Home />
+                  <UserChat/>
                 </LayoutWithHeaderFooter>
               }
             />
@@ -51,6 +53,7 @@ function AppRoutes() {
               element={
                 <LayoutWithHeaderFooter>
                   <Home />
+                  {/* <UserChat/> */}
                 </LayoutWithHeaderFooter>
               }
             />
