@@ -14,11 +14,13 @@ export default function UserChat() {
 
     const[chatOpen, setChatOpen]= useState(false);
     const { user } = useContext(UserContext);
+    const [username, setUserName] = useState("john doe");
     const [chatRoom, setChatRoom] = useState({});
     const [messages, setMessages] = useState([]);
 
     const sendMessage = async (text) => {
         try{
+            
             await axios.post('http://localhost:5000/chat/send', {
                 userId: user.id,
                  sender: user.name,
@@ -26,6 +28,7 @@ export default function UserChat() {
             }).then((res)=>{
                 console.log("message sent!");
                 console.log(res.data)
+                socket.emit("message", text, user.id);
                 // setMessages((prevMessages) => [...prevMessages, res.data[res.data.length]]);
             })
         } catch(err){
@@ -36,10 +39,7 @@ export default function UserChat() {
     const openChat = async()=>{
         setChatOpen(true);
         console.log(user);
-        // console.log("infoooooo",{
-        //     name: user.name,
-        //     userid: user.id,
-        // })
+
         try{
             await axios.post('http://localhost:5000/chat/create', {
                 name: user.name,
@@ -60,12 +60,47 @@ export default function UserChat() {
         setChatOpen(false);
     }
 
+    useEffect(()=>{
+        // socket.emit("userConnect", user.name);
+        // setMessages(res.data.chat)
+
+        const updateMessages = async()=>{
+            try{
+                await axios.post('http://localhost:5000/chat/create', {
+                    name: user.name,
+                    userid: user.id,
+                })
+                .then((res)=>{
+                    setMessages(res.data.chat)
+                })
+        } catch(err){
+            console.log(err.message)
+        }
+    }
+    updateMessages();
+    },[user, messages])
 
     useEffect(() => {
+        setUserName(user.name)
+        console.log("user name: connected: ",user.name)
+
+        // socket.emit("userConnect", user.name);
+
         socket.on("connection", () => {
           console.log("Connected to the server!");
         });
-    },[])
+
+        socket.on("message", (data) => {
+            console.log("a message was emitted!")
+            // setMessages((prevMessages) => [...prevMessages, { text: data, sender: user.name }]);   
+          });
+      
+          return () => {
+            socket.disconnect();
+          };
+    },[user, username, messages])
+
+    
 
   return (
     <>
@@ -76,7 +111,7 @@ export default function UserChat() {
                 <p className={style.closeBtn}>X</p>
             </div>
             <div className={style.userChatContainer}>
-                <Chat messages={messages} username={user.name} />
+                <Chat messages={messages} username={username} />
                 <div className={style.inputContainer}>
                 <Input sendMessage={sendMessage}/>
                 </div>
