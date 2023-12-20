@@ -17,6 +17,8 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { UserContext } from "../../context/UserContext.js";
+import { auth, provider } from "../../Firebase.js";
+import { signInWithPopup } from "@firebase/auth";
 
 const VisuallyHiddenInput = styled("input")({
   clip: "rect(0 0 0 0)",
@@ -33,6 +35,40 @@ const VisuallyHiddenInput = styled("input")({
 function Signup() {
   const navigate = useNavigate();
   const { setUser } = useContext(UserContext);
+
+  //GOOGLE SIGN UP
+
+  const handleGoogle = () => {
+    signInWithPopup(auth, provider).then((data) => {
+      axios
+        .post(
+          `${process.env.REACT_APP_PATH}/user/gsignup`,
+          {
+            name: data.user.displayName,
+            email: data.user.email,
+            photourl: data.user.photoURL,
+            role: "user",
+          },
+          {
+            headers: {
+              "Content-Type": "multipart/form-data",
+            },
+          }
+        )
+        .then((res) => {
+          setIsPending(false);
+          notify();
+          if (res) {
+            setUser(res.data.token.data);
+            console.log(res.data.token.data);
+          } else {
+            setUser("no user found");
+          }
+          navigate("/");
+        });
+    });
+  };
+
   // FORM DATA HANDLING
   const [name, setName] = useState("");
   const handleName = (e) => {
@@ -205,27 +241,6 @@ function Signup() {
               </FormControl>
             </Grid>
             <Grid item xs={12}>
-              {/* <Typography variant="p" component="p" className={style.imgTxt}>
-                Kindly Upload Your Image
-              </Typography> */}
-              {/* <Input
-                label="Upload Your Image"
-                name="picture"
-                type="file"
-                onChange={handlePictureChange}
-                sx={{
-                  width: "100%",
-                  padding: "10px",
-                  margin: "10px 0",
-                  border: "none",
-                  borderRadius: "5px",
-                  fontSize: "16px",
-                  "&:focus": {
-                    outline: "none",
-                    borderColor: "var(--main-background-color)",
-                  },
-                }}
-              /> */}
               <Button
                 component="label"
                 variant="contained"
@@ -236,7 +251,6 @@ function Signup() {
                   fontWeight: "700",
                 }}
                 onChange={handlePictureChange}
-                // startIcon={</>}
                 className={style.uploadBTN}
               >
                 Kindly upload your image
@@ -255,7 +269,7 @@ function Signup() {
           <button className={style.submit} type="submit">
             Create Account
           </button>
-          <button className={style.OAuth}>
+          <button className={style.OAuth} onClick={handleGoogle}>
             <span>
               <img src={google} alt="google logo" />
             </span>

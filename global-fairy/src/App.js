@@ -3,12 +3,13 @@ import AppRoutes from "./Routes/AppRoutes";
 import { ToastContainer } from "react-toastify";
 import axios from "axios";
 import { CartProvider } from "./context/ShoppingContext.js";
-import { UserContext, UserProvider } from "./context/UserContext.js";
+import { UserContext } from "./context/UserContext.js";
 import { useContext, useEffect } from "react";
 axios.defaults.withCredentials = true;
 
 function App() {
   const { user, setUser } = useContext(UserContext);
+
   async function getUserDAta() {
     try {
       if (Object.keys(user).length < 1) {
