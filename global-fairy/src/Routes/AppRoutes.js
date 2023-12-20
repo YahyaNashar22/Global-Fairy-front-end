@@ -14,7 +14,7 @@ import ProductDetails from "../pages/ProductDetails/ProductDetails";
 import SignupPage from "../pages/Signup/SignupPage";
 import SigninPage from "../pages/Signin/SigninPage";
 import Inventory from "../pages/ShoppingCart/Inventory.js";
-import NotAuthorizatio from "../pages/NotAuthorization/NotAuthorization.js";
+import NotAuthorization from "../pages/NotAuthorization/NotAuthorization.js";
 import { useContext, useEffect, useState } from "react";
 import { UserContext } from "../context/UserContext.js";
 
@@ -22,10 +22,10 @@ function AppRoutes() {
   const { user } = useContext(UserContext);
   const [authed, setAuthed] = useState("");
   useEffect(() => {
-    if (user.Role === "admin") {
+    if (user && user.Role && user.Role === "admin") {
       setAuthed(<Dashboard />);
     } else {
-      setAuthed(<NotAuthorizatio />);
+      setAuthed(<NotAuthorization />);
     }
   }, [user]);
 

@@ -14,7 +14,11 @@ const NavBar = ({ showBag }) => {
   const { user, setUser } = useContext(UserContext);
   const [profilePic, setProfilePic] = useState(null);
   useEffect(() => {
-    setProfilePic(`${process.env.REACT_APP_PATH}/images/${user.Picture}`);
+    if (user.Picture) {
+      setProfilePic(`${process.env.REACT_APP_PATH}/images/${user.Picture}`);
+    } else {
+      setProfilePic(user.photourl);
+    }
   }, [user]);
   const popup = () => {
     Swal.fire({
@@ -43,7 +47,6 @@ const NavBar = ({ showBag }) => {
     navigate("/login");
     setUser({});
   };
-  console.log(user);
   return (
     <nav className={style.nav}>
       <ul>
