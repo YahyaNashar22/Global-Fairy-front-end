@@ -5,6 +5,8 @@ import styles from "./Chat.module.css";
 function Chat({ messages, username }) {
     
     let myMessages = messages || [];
+
+
   return (
     <>
     {username === "admin" ?
@@ -14,6 +16,7 @@ function Chat({ messages, username }) {
           {msg.text}
         </p>)
       })}
+      <div className={styles.anchor}></div>
     </div>
     :
     <div className={styles.chatContainer}>
@@ -22,6 +25,7 @@ function Chat({ messages, username }) {
           {msg.text}
         </p>)
       })}
+      <div className={styles.anchor}></div>
     </div>
 }
     </>

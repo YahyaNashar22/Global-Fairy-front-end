@@ -6,6 +6,7 @@ import axios from 'axios';
 import Chat from '../AdminChatComponents/Chat/Chat';
 import Input from '../AdminChatComponents/Input/Input';
 import io from 'socket.io-client';
+import pingSound from '../../assets/sounds/ping.mp3'
 
 const socket = io('http://localhost:4500/');
 
@@ -17,6 +18,10 @@ export default function UserChat() {
     const [username, setUserName] = useState("john doe");
     const [chatRoom, setChatRoom] = useState({});
     const [messages, setMessages] = useState([]);
+
+    const ping = ()=>{
+        new Audio(pingSound).play()
+    }
 
     const sendMessage = async (text) => {
         try{
@@ -72,17 +77,19 @@ export default function UserChat() {
                 })
                 .then((res)=>{
                     setMessages(res.data.chat)
+                    // console.log("rrrr")
                 })
         } catch(err){
             console.log(err.message)
         }
     }
     updateMessages();
+    
     },[user, messages])
 
     useEffect(() => {
         setUserName(user.name)
-        console.log("user name: connected: ",user.name)
+        // console.log("user name: connected: ",user.name)
 
         // socket.emit("userConnect", user.name);
 
@@ -94,13 +101,23 @@ export default function UserChat() {
             console.log("a message was emitted!")
             // setMessages((prevMessages) => [...prevMessages, { text: data, sender: user.name }]);   
           });
+
+          socket.on("ping", () => {
+            ping();
+          });
       
           return () => {
             socket.disconnect();
           };
-    },[user, username, messages])
+        // },[user, username, messages])
+    },[user, messages])
+
+
 
     
+
+
+
 
   return (
     <>
@@ -111,10 +128,10 @@ export default function UserChat() {
                 <p className={style.closeBtn}>X</p>
             </div>
             <div className={style.userChatContainer}>
-                <Chat messages={messages} username={username} />
-                <div className={style.inputContainer}>
+                <Chat messages={messages} username={username}/>
+            </div>
+            <div className={style.inputContainer}>
                 <Input sendMessage={sendMessage}/>
-                </div>
             </div>
         </div>
     :

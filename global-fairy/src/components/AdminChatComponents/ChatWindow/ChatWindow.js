@@ -4,33 +4,37 @@ import Input from '../Input/Input.js'
 import styles from './ChatWindow.module.css'
 import { UserContext } from "../../../context/UserContext.js";
 
-export default function ChatWindow({selectedMessages}) {
+export default function ChatWindow({selectedMessages, adminusername, sendMessage}) {
 
     const [username, setUsername] = useState("admin");
     const [messages, setMessages] = useState([]);
     const { user } = useContext(UserContext);
+    
     // setUsername("Current User");
 
-    const sendMessage = (text) => {}
+
 
     useEffect(() => {
-        // console.log("in useeffect window",user)
+        console.log("user in chatwindow window",user)
         if(user.Role === "user"){
-            setUsername("admin");
+            setUsername(adminusername);
         }
 
         if (selectedMessages !== messages) {
           setMessages(selectedMessages);
+          
         }
+        
+        
 
         return ()=>{}
-      }, [selectedMessages, messages, user]);
+      }, [selectedMessages, messages, user, adminusername]);
 
   return (
     <div className={styles.windowContainer}>
       <h1>Real-Time Chat</h1>
-      {console.log("at chatwindowwww",messages)}
-      <Chat messages={messages} username={username} />
+      {console.log("messages at admin chatwindow",messages)}
+      <Chat messages={selectedMessages} username={username} />
       <Input sendMessage={sendMessage} />
     </div>
   )

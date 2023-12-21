@@ -7,11 +7,22 @@
     border-radius: 4px;
     padding: 20px;
     /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
+    /* overflow-y: scroll; */
     overflow-y: auto;
     max-height: 400px;
+
     height: 100%;
   }
   
+
+  .chatContainer * {
+    overflow-anchor: none;
+  }
+
+  .anchor {
+    overflow-anchor: auto;
+    height: 1px;
+  }
   /* ... existing styles ... */
   
   .chatMessage {
@@ -22,13 +33,13 @@
   }
   
   .sent {
-    background: #d1e7dd; /* Light green background for sent messages */
+    background: #e8e5e5; /* Light green background for sent messages */
     text-align: left;
     margin-left: 50%; /* Align to the right */
   }
-  
+  /* e8e5e5 */
   .received {
-    background: #e8e5e5; /* Light gray background for received messages */
+    background: #FF9BEE; /* Light gray background for received messages */
     text-align: left;
     margin-right: 50%; /* Align to the left */
   }

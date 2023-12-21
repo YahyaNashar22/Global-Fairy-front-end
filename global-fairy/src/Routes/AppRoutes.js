@@ -23,15 +23,23 @@ import UserChat from "../components/UserChat/UserChat";
 function AppRoutes() {
   const { user } = useContext(UserContext);
   const [authed, setAuthed] = useState("");
+  const [chatAllowed, setChatAllowed] = useState("");
   useEffect(() => {
     if (user.Role === "admin") {
       setAuthed(<Dashboard />);
     } else {
       setAuthed(<NotAuthorizatio />);
     }
+
+    if(user.Role === "user"){
+      setChatAllowed(<UserChat/>)
+    } else {
+      setChatAllowed("")
+    }
   }, [user]);
 
-  console.log("authed???: ", authed.key)
+  // console.log("authed???: ", authed.key)
+  console.log("user in approutes: ", user);
 
   return (
     <div>
@@ -44,7 +52,8 @@ function AppRoutes() {
               element={
                 <LayoutWithHeaderFooter>
                   <Home />
-                  <UserChat/>
+                  {/* {typeof(user.name) =="string" ? <UserChat/> : ""} */}
+                  {chatAllowed}
                 </LayoutWithHeaderFooter>
               }
             />
@@ -53,7 +62,7 @@ function AppRoutes() {
               element={
                 <LayoutWithHeaderFooter>
                   <Home />
-                  {/* <UserChat/> */}
+                  {/* {user !==null ? <UserChat/> : ""} */}
                 </LayoutWithHeaderFooter>
               }
             />
