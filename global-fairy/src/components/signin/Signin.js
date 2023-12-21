@@ -47,6 +47,7 @@ function Signin() {
   //TOAST NOTIFICATIONS
 
   const notify = () => toast("Logged in successfully !");
+  const notify2 = () => toast("Wrong email or password");
 
   //GOOGLE SIGN UP
 
@@ -102,13 +103,13 @@ function Signin() {
       .then((res) => {
         setIsPending(false);
         notify();
-        if (res) {
-          setUser(res.data.token.data);
-        } else {
-          setUser("no user found");
-        }
+        setUser(res.data.token.data);
+        navigate("/");
+      })
+      .catch((err) => {
+        notify2();
+        setIsPending(false);
       });
-    navigate("/");
     console.log(user);
   };
   return (
@@ -117,7 +118,7 @@ function Signin() {
         <Typography
           variant="h1"
           component="h1"
-          sx={{ fontSize: "32px" }}
+          sx={{ fontSize: "32px", marginBottom: "10px" }}
           className={style.header}
         >
           Log in to Exclusive
@@ -125,7 +126,7 @@ function Signin() {
         <Typography
           variant="p"
           component="p"
-          sx={{ fontSize: "16px" }}
+          sx={{ fontSize: "16px", marginBottom: "10px" }}
           className={style.subText}
         >
           Enter your details below
@@ -189,15 +190,16 @@ function Signin() {
               </FormControl>
             </Grid>
           </Grid>
+          <div className={style.buttons}>
+            <button className={style.submit} type="submit">
+              Log In
+            </button>
+            <Link to="/signup" className={style.signup}>
+              Sign Up
+            </Link>
+          </div>
         </form>
-        <div className={style.buttons}>
-          <button className={style.submit} type="submit">
-            Log In
-          </button>
-          <Link to="/signup" className={style.signup}>
-            Sign Up
-          </Link>
-        </div>
+
         <button
           className={style.OAuth}
           onClick={handleGoogle}

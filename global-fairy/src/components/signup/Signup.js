@@ -276,10 +276,11 @@ function Signup() {
               </Button>
             </Grid>
           </Grid>
+          <button className={style.submit} type="submit">
+            Create Account
+          </button>
         </form>
-        <button className={style.submit} type="submit">
-          Create Account
-        </button>
+
         <button
           className={style.OAuth}
           onClick={handleGoogle}
