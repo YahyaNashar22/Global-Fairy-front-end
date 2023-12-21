@@ -92,6 +92,7 @@ export default function UserChat() {
         // console.log("user name: connected: ",user.name)
 
         // socket.emit("userConnect", user.name);
+        socket.emit('online', user.id)
 
         socket.on("connection", () => {
           console.log("Connected to the server!");
@@ -107,10 +108,19 @@ export default function UserChat() {
           });
       
           return () => {
+            socket.emit('offline', user.id);
             socket.disconnect();
           };
         // },[user, username, messages])
     },[user, messages])
+
+    useEffect(()=>{
+        socket.emit('online', user.id)
+
+        return () => {
+            socket.emit('offline', user.id);
+          };
+    },[user])
 
 
 

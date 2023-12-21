@@ -2,7 +2,7 @@
 // import { useEffect, useState } from 'react'
 import styles from './SideMenu.module.css'
 
-export default function SideMenu({allChats, setSelectedMessages, setClientId}) {
+export default function SideMenu({allChats, setSelectedMessages, setClientId, onlineUsers}) {
 
   
     const handleClick = (element)=>{
@@ -21,7 +21,9 @@ export default function SideMenu({allChats, setSelectedMessages, setClientId}) {
         {allChats.map(element => {
             return <div className={styles.chatItem} 
                     onClick={()=>handleClick(element)}>
-                    {element.name}</div>
+                    <div>{element.name}</div>
+                    <div className={styles.onlineButton}>{onlineUsers.includes(element.userid) ? " Online": ""}</div>
+                    </div>
         })}
     </div>
   )

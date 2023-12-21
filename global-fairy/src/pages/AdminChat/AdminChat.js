@@ -14,6 +14,7 @@ export default function AdminChat() {
     const [username, setUserName] = useState("");
     // const { user } = useContext(UserContext);
     const [clientId, setClientId] = useState("");
+    const [onlineUsers,setOnlineUsers] = useState([])
 
    
     const ping = ()=>{
@@ -100,6 +101,11 @@ export default function AdminChat() {
 
       // socket.emit("userConnect", user.name);
 
+      socket.on('onlineUsers', (arr)=>{
+        setOnlineUsers(arr);
+      })
+      // console.log("all onloine ids:", onlineUsers);
+
       socket.on("connection", () => {
         console.log("Admin Connected to the server!");
       });
@@ -129,7 +135,7 @@ export default function AdminChat() {
   <>
   <div className={styles.chatContainer}>
     <div className={styles.sideList}>
-      <SideMenu allChats={allChats} setSelectedMessages={setSelectedMessages} setClientId={setClientId}/>
+      <SideMenu allChats={allChats} setSelectedMessages={setSelectedMessages} setClientId={setClientId} onlineUsers={onlineUsers}/>
     </div>
     <div className={styles.chatOpen}>
       <ChatWindow selectedMessages={selectedMessages} adminusername={username} sendMessage={sendMessage}/>
