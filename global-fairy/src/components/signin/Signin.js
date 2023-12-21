@@ -110,6 +110,7 @@ function Signin() {
         notify2();
         setIsPending(false);
       });
+    
     console.log(user);
   };
   return (

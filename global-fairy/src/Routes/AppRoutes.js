@@ -34,10 +34,13 @@ const LazyAddProduct = React.lazy(() =>
 const LazyProductDetails = React.lazy(() =>
   import("../pages/ProductDetails/ProductDetails.js")
 );
+import AdminChat from "../pages/AdminChat/AdminChat";
+import UserChat from "../components/UserChat/UserChat";
 
 function AppRoutes() {
   const { user } = useContext(UserContext);
   const [authed, setAuthed] = useState("");
+  const [chatAllowed, setChatAllowed] = useState("");
   useEffect(() => {
     if (user && user.Role && user.Role === "admin") {
       setAuthed(
@@ -59,7 +62,16 @@ function AppRoutes() {
     } else {
       setAuthed(<NotAuthorization />);
     }
+
+    if(user.Role === "user"){
+      setChatAllowed(<UserChat/>)
+    } else {
+      setChatAllowed("")
+    }
   }, [user]);
+
+  // console.log("authed???: ", authed.key)
+  console.log("user in approutes: ", user);
 
   return (
     <div>
@@ -72,6 +84,8 @@ function AppRoutes() {
               element={
                 <LayoutWithHeaderFooter>
                   <Home />
+                  {/* {typeof(user.name) =="string" ? <UserChat/> : ""} */}
+                  {chatAllowed}
                 </LayoutWithHeaderFooter>
               }
             />
@@ -80,6 +94,7 @@ function AppRoutes() {
               element={
                 <LayoutWithHeaderFooter>
                   <Home />
+                  {/* {user !==null ? <UserChat/> : ""} */}
                 </LayoutWithHeaderFooter>
               }
             />
@@ -217,6 +232,16 @@ function AppRoutes() {
                 </LayoutWithoutHeaderFooter>
               }
             />
+
+            <Route
+            path="/dashboard/chat"
+            element={
+              <LayoutWithoutHeaderFooter>
+                {user ? <AdminChat/> : <NotAuthorizatio/>}
+                </LayoutWithoutHeaderFooter>
+              }
+            />
+
             <Route
               path="/login"
               element={

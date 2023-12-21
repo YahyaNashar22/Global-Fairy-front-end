@@ -76,7 +76,7 @@
 }
 .numbers{
     position: relative;
-    z-index: 33;
+    /* z-index: 33; */
 }
 .imageSection1 figcaption,
 .imageSection2 figcaption {
