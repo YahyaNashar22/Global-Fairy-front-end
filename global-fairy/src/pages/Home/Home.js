@@ -1,3 +1,4 @@
+import React from "react";
 import Hero from "../../layout/Hero/Hero";
 import Brand from "../../components/Brand/brand";
 import Numbers from "../../components/Numbers/Numbers";
@@ -13,7 +14,9 @@ const Home = () => {
         <link rel="canonical" href="/Home" />
       </Helmet>
       <Hero />
+
       <Brand />
+
       <Numbers />
     </div>
   );
