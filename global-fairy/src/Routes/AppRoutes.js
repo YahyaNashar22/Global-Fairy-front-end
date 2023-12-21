@@ -9,6 +9,8 @@ import NotAuthorization from "../pages/NotAuthorization/NotAuthorization.js";
 import { useContext, useEffect, useState } from "react";
 import { UserContext } from "../context/UserContext.js";
 import loading from "../assets/icons/refresh.png";
+import AdminChat from "../pages/AdminChat/AdminChat";
+import UserChat from "../components/UserChat/UserChat";
 import styles from "./AppRoutes.module.css";
 const LazyAbout = React.lazy(() => import("../pages/About/About.js"));
 const LazyContact = React.lazy(() => import("../pages/ContactUs/Contact.js"));
@@ -34,8 +36,6 @@ const LazyAddProduct = React.lazy(() =>
 const LazyProductDetails = React.lazy(() =>
   import("../pages/ProductDetails/ProductDetails.js")
 );
-import AdminChat from "../pages/AdminChat/AdminChat";
-import UserChat from "../components/UserChat/UserChat";
 
 function AppRoutes() {
   const { user } = useContext(UserContext);
@@ -63,10 +63,10 @@ function AppRoutes() {
       setAuthed(<NotAuthorization />);
     }
 
-    if(user.Role === "user"){
-      setChatAllowed(<UserChat/>)
+    if (user.Role === "user") {
+      setChatAllowed(<UserChat />);
     } else {
-      setChatAllowed("")
+      setChatAllowed("");
     }
   }, [user]);
 
@@ -234,10 +234,10 @@ function AppRoutes() {
             />
 
             <Route
-            path="/dashboard/chat"
-            element={
-              <LayoutWithoutHeaderFooter>
-                {user ? <AdminChat/> : <NotAuthorizatio/>}
+              path="/dashboard/chat"
+              element={
+                <LayoutWithoutHeaderFooter>
+                  {user ? <AdminChat /> : <NotAuthorization />}
                 </LayoutWithoutHeaderFooter>
               }
             />
