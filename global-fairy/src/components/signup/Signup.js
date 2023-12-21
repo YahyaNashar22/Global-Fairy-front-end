@@ -35,38 +35,48 @@ const VisuallyHiddenInput = styled("input")({
 function Signup() {
   const navigate = useNavigate();
   const { setUser } = useContext(UserContext);
+  const [disabled, setDisabled] = useState(false);
 
   //GOOGLE SIGN UP
 
   const handleGoogle = () => {
-    signInWithPopup(auth, provider).then((data) => {
-      axios
-        .post(
-          `${process.env.REACT_APP_PATH}/user/gsignup`,
-          {
-            name: data.user.displayName,
-            email: data.user.email,
-            photourl: data.user.photoURL,
-            role: "user",
-          },
-          {
-            headers: {
-              "Content-Type": "multipart/form-data",
+    signInWithPopup(auth, provider)
+      .then((data) => {
+        setDisabled(!disabled);
+        axios
+          .post(
+            `${process.env.REACT_APP_PATH}/user/gsignup`,
+            {
+              name: data.user.displayName,
+              email: data.user.email,
+              photourl: data.user.photoURL,
+              role: "user",
             },
-          }
-        )
-        .then((res) => {
-          setIsPending(false);
-          notify();
-          if (res) {
-            setUser(res.data.token.data);
-            console.log(res.data.token.data);
-          } else {
-            setUser("no user found");
-          }
-          navigate("/");
-        });
-    });
+            {
+              headers: {
+                "Content-Type": "multipart/form-data",
+              },
+            }
+          )
+          .then((res) => {
+            setIsPending(false);
+            notify();
+            if (res) {
+              setUser(res.data.token.data);
+              console.log(res.data.token.data);
+              setDisabled(!disabled);
+            } else {
+              setUser("no user found");
+            }
+            navigate("/");
+          });
+      })
+      .catch((err) => {
+        setDisabled(false);
+        if (err.code === "auth/popup-closed-by-user") {
+          console.log("exited the google auth");
+        }
+      });
   };
 
   // FORM DATA HANDLING
@@ -266,24 +276,28 @@ function Signup() {
               </Button>
             </Grid>
           </Grid>
-          <button className={style.submit} type="submit">
-            Create Account
-          </button>
-          <button className={style.OAuth} onClick={handleGoogle}>
-            <span>
-              <img src={google} alt="google logo" />
-            </span>
-            Sign up with Google
-          </button>
-          <p className={style.login}>
-            Already have an account ?{" "}
-            <span className={style.loginbtn}>
-              <Link to="/login" className={style.loginbtn}>
-                Log in
-              </Link>
-            </span>
-          </p>
         </form>
+        <button className={style.submit} type="submit">
+          Create Account
+        </button>
+        <button
+          className={style.OAuth}
+          onClick={handleGoogle}
+          disabled={disabled}
+        >
+          <span>
+            <img src={google} alt="google logo" />
+          </span>
+          Sign up with Google
+        </button>
+        <p className={style.login}>
+          Already have an account ?{" "}
+          <span className={style.loginbtn}>
+            <Link to="/login" className={style.loginbtn}>
+              Log in
+            </Link>
+          </span>
+        </p>
         {isPending && (
           <p className={style.pending}>
             Adding your account to the database, please wait . . .

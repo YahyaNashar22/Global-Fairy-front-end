@@ -16,12 +16,13 @@ font-weight: 500;
 line-height: 30px;
 letter-spacing: 1.44px;
 align-self: flex-start;
-margin-bottom: 40px;
+margin-bottom: 10px;
 line-height: 60px;
 }
 .subText{
 align-self: flex-start;
     color: var(--Text2, #000);
+    margin-bottom: 10px;
 font-family: Lato;
 font-size: 16px;
 font-style: normal;
@@ -29,14 +30,14 @@ font-weight: 400;
 line-height: 24px; 
 }
 .signinform{
-    margin: 40px auto;
+    margin: 5px auto;
     width: 30vw;
 }
 .signinInp, .passInp{
-    margin-bottom: 40px;
+    margin-bottom: 10px;
 }
 .submit, .signup{
-    margin : 10px 0;
+    margin : 20px 0;
     cursor: pointer;
 }
 .submit{
@@ -76,6 +77,24 @@ background-color: whitesmoke;
     justify-content: space-between;
     width: 100%;
 }
+.OAuth{
+    display: flex;
+    padding: 10px 86px;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    border-radius: 4px;
+    border: 1px solid rgba(0, 0, 0, 0.40);
+    color: var(--Text2, #000);
+    font-family: Lato;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 24px; 
+    margin-bottom: 20px;
+    cursor: pointer;
+    }
 .passContainer{
     position: relative;
 }
@@ -97,11 +116,11 @@ right: 1rem;
     justify-content: center;
     background-color: #D96093;
     color: white;
-    padding:10px;
+    padding:16px 86px;
     width: 100%;
     font-family: Lato;
     border-radius: 4px;
-font-size: 18px;
+font-size: 20px;
 font-style: normal;
 font-weight: 700;
 }
