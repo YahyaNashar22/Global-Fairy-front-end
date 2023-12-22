@@ -139,6 +139,10 @@ export default function AdminChat() {
 
   return (
   <>
+  <div className={styles.chatHeader}>
+    <h1 className={styles.chatHeaderTitle}>Real-Time Chat</h1>
+    <button className={styles.headerButtons}>Dashboard</button>
+  </div>
   <div className={styles.chatContainer}>
     <div className={styles.sideList}>
       <SideMenu allChats={allChats} setSelectedMessages={setSelectedMessages} setClientId={setClientId} onlineUsers={onlineUsers} setClientName={setClientName}/>

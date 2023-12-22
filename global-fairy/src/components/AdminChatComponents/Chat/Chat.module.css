@@ -24,18 +24,27 @@
     padding: 10px;
     margin: 5px 0;
     border-radius: 4px;
-    color: #333;
+    color: white;
   }
   
   .sent {
-    background: #e8e5e5; /* Light green background for sent messages */
+    background: #d30076; /* Light green background for sent messages */
     text-align: left;
-    margin-left: 50%; /* Align to the right */
+    margin-left: 70%; /* Align to the right */
   }
   /* e8e5e5 */
   .received {
-    background: #ffc9f6; /* Light gray background for received messages */
+    background: #372d36; /* Light gray background for received messages */
     text-align: left;
-    margin-right: 50%; /* Align to the left */
+    margin-right: 70%; /* Align to the left */
+  }
+
+  @media (max-width: 850px) {
+    .sent{
+      margin-left: 53%;
+    }
+    .received{
+      margin-right: 53%;
+    }
   }
   

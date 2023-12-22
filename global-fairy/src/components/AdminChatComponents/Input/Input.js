@@ -7,11 +7,13 @@ function Input({ sendMessage}) {
  
 
 
-  const handleSubmit = () => {
-    // e.preventDefault();
+  const handleSubmit = (e) => {
+    if(e.preventDefault){
+      e.preventDefault();
+    }
     // setMessage(inputMessage)
     console.log("my SETT MESSAGE: ", message )
-    if (message) {
+    if (message.trim() !== "") {
       console.log("my SETT MESSAGE2: ", message )
       sendMessage(message);
       setMessage("");
@@ -37,7 +39,7 @@ function Input({ sendMessage}) {
       // className={styles.inputField}
       borderRadius={5}
       cleanOnEnter
-      onEnter={(e)=>{handleSubmit(e)}}
+      onEnter={handleSubmit}
       placeholder="Type a message"
 
     />

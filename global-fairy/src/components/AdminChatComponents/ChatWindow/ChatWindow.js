@@ -32,7 +32,7 @@ export default function ChatWindow({selectedMessages, adminusername, sendMessage
 
   return (
     <div className={styles.windowContainer}>
-      <h1 className={styles.chatTitle}>{clientName ? `Chatting with: ${clientName}` : "Select Chat"}</h1>
+      <h1 className={styles.chatTitle}>{clientName ? `${clientName}` : "Select Chat"}</h1>
       {console.log("messages at admin chatwindow",messages)}
       <Chat messages={selectedMessages} username={username} />
       <Input sendMessage={sendMessage}/>
