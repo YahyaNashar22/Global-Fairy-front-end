@@ -26,6 +26,7 @@ export default function AdminChat() {
 
   const sendMessage = async(text) => {
     // console.log("at admin chat, user is: ",user)
+    setSelectedMessages((prevMessages) => [...prevMessages, { text: text, sender: "admin" }]);  
     console.log("room by userid selected is: ", clientId);
     try{
           
@@ -55,17 +56,23 @@ export default function AdminChat() {
           const response = await axios.get('http://localhost:5000/chat/all');
           setAllChats(response.data);
           console.log("all data: ",response.data);
-          const desiredChat = response.data.find(obj => obj.userid === clientId);
+          // const desiredChat = response.data.find(obj => obj.userid === clientId);
           // console.log("desired chatttttttttt: ", desiredChat.chat);
-          setSelectedMessages(desiredChat.chat)
+          // setSelectedMessages(desiredChat.chat)
         } catch (error) {
           console.error('Error fetching data:', error);
         }
       };
   
       fetchData();
+      return ()=>{}
+    },[clientId])
 
-    },[selectedMessages, clientId])
+    useEffect(()=>{
+      const desiredChat = allChats.find(obj => obj.userid === clientId) || [];
+      console.log("yoooooooo",desiredChat)
+      setSelectedMessages(desiredChat.chat || [])
+    },[allChats, clientId])
 
 
 
@@ -73,64 +80,36 @@ export default function AdminChat() {
       try {
         const response = await axios.get('http://localhost:5000/chat/all');
         setAllChats(response.data);
-        console.log(response.data);
+        console.log("hereee", response.data);
       } catch (error) {
         console.error('Error fetching data:', error);
       }
     };
 
-  //   useEffect(()=>{
-  //     // socket.emit("userConnect", user.name);
-  //     // setMessages(res.data.chat)
-      
-
-  //     const updateMessages = async()=>{
-  //         try{
-  //             await axios.post('http://localhost:5000/chat/all')
-  //             .then((res)=>{
-  //                 setMessages(res.data.chat)
-  //                 // console.log("rrrr")
-  //             })
-  //     } catch(err){
-  //         console.log(err.message)
-  //     }
-  // }
-  // updateMessages();
-  
-  // },[selectedMessages])
-
   useEffect(() => {
       
-      // console.log("user name: connected: ",user.name)
-
-      // socket.emit("userConnect", user.name);
-
       socket.on('onlineUsers', (arr)=>{
         setOnlineUsers(arr);
       })
-      // console.log("all onloine ids:", onlineUsers);
 
       socket.on("connection", () => {
         console.log("Admin Connected to the server!");
       });
 
       socket.on("message", (data) => {
-        // ping();
-          console.log("a message was emitted!")
-          setSelectedMessages((prevMessages) => [...prevMessages, { text: data, sender: "admin" }]);  
-          fetchData(); 
+        console.log("a message was emitted!");
+        setSelectedMessages((prevMessages) => [...prevMessages, { text: data, sender: "admin" }]);
+        fetchData();
+      });
           
-        });
+        
 
-        socket.on("ping", () => {
-          ping();
-        });
     
         return () => {
           socket.disconnect();
         };
       // },[user, username, messages])
-  },[])
+  },[ username])
 
 
 

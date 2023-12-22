@@ -1,10 +1,15 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./Chat.module.css";
 
 
 function Chat({ messages, username }) {
-    
-    let myMessages = messages || [];
+  const [myMessages, setMyMessages] = useState([]);
+    // let myMessages = messages || [];
+
+    useEffect(() => {
+      console.log("Messages changed:", messages);
+      setMyMessages(messages || []);
+    }, [messages]);
 
   return (
     <>

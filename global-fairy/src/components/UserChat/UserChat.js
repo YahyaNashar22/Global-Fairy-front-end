@@ -25,7 +25,7 @@ export default function UserChat() {
 
     const sendMessage = async (text) => {
         try{
-            
+            setMessages((prevMessages) => [...prevMessages, { text: text, sender: user.name }]);
             await axios.post('http://localhost:5000/chat/send', {
                 userId: user.id,
                  sender: user.name,
