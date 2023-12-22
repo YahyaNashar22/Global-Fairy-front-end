@@ -14,7 +14,9 @@ export default function AdminChat() {
     const [username, setUserName] = useState("");
     // const { user } = useContext(UserContext);
     const [clientId, setClientId] = useState("");
+    const [clientName, setClientName] = useState("");
     const [onlineUsers,setOnlineUsers] = useState([])
+    // const[currentMessages,setCurrentMessages] = useState([])
 
    
     const ping = ()=>{
@@ -44,7 +46,9 @@ export default function AdminChat() {
 
 
 
+
     useEffect( ()=>{
+      // ping();
       setUserName("admin")
       const fetchData = async () => {
         try {
@@ -111,9 +115,11 @@ export default function AdminChat() {
       });
 
       socket.on("message", (data) => {
+        // ping();
           console.log("a message was emitted!")
           setSelectedMessages((prevMessages) => [...prevMessages, { text: data, sender: "admin" }]);  
           fetchData(); 
+          
         });
 
         socket.on("ping", () => {
@@ -135,10 +141,10 @@ export default function AdminChat() {
   <>
   <div className={styles.chatContainer}>
     <div className={styles.sideList}>
-      <SideMenu allChats={allChats} setSelectedMessages={setSelectedMessages} setClientId={setClientId} onlineUsers={onlineUsers}/>
+      <SideMenu allChats={allChats} setSelectedMessages={setSelectedMessages} setClientId={setClientId} onlineUsers={onlineUsers} setClientName={setClientName}/>
     </div>
     <div className={styles.chatOpen}>
-      <ChatWindow selectedMessages={selectedMessages} adminusername={username} sendMessage={sendMessage}/>
+      <ChatWindow selectedMessages={selectedMessages} adminusername={username} sendMessage={sendMessage} clientName={clientName}/>
     </div>
   </div>
   </>

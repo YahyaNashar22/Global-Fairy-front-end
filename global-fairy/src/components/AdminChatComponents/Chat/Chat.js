@@ -6,7 +6,6 @@ function Chat({ messages, username }) {
     
     let myMessages = messages || [];
 
-
   return (
     <>
     {username === "admin" ?

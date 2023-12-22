@@ -4,7 +4,7 @@ import Input from '../Input/Input.js'
 import styles from './ChatWindow.module.css'
 import { UserContext } from "../../../context/UserContext.js";
 
-export default function ChatWindow({selectedMessages, adminusername, sendMessage}) {
+export default function ChatWindow({selectedMessages, adminusername, sendMessage, clientName}) {
 
     const [username, setUsername] = useState("admin");
     const [messages, setMessages] = useState([]);
@@ -32,10 +32,10 @@ export default function ChatWindow({selectedMessages, adminusername, sendMessage
 
   return (
     <div className={styles.windowContainer}>
-      <h1>Real-Time Chat</h1>
+      <h1 className={styles.chatTitle}>{clientName ? `Chatting with: ${clientName}` : "Select Chat"}</h1>
       {console.log("messages at admin chatwindow",messages)}
       <Chat messages={selectedMessages} username={username} />
-      <Input sendMessage={sendMessage} />
+      <Input sendMessage={sendMessage}/>
     </div>
   )
 }

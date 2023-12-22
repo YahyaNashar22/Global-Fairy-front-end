@@ -21,3 +21,8 @@
 .chatItem:hover{
     background-color: #e7e7e7;
 }
+
+.selected{
+    background-color: #D81A84;
+    color: white;
+}

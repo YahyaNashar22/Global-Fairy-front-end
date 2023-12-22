@@ -13,8 +13,7 @@
 .chatOpen{
     grid-area: chatWindow;
     border: 1px solid #222222;
-    max-height: 80vh;
-    height: 500px;
+    height: 100vh;
 }
 
 .chatInstance{
