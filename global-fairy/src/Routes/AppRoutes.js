@@ -25,6 +25,7 @@ function AppRoutes() {
   const [authed, setAuthed] = useState("");
   const [chatAllowed, setChatAllowed] = useState("");
   useEffect(() => {
+
     if (user.Role === "admin") {
       setAuthed(<Dashboard />);
     } else {
@@ -39,7 +40,7 @@ function AppRoutes() {
   }, [user]);
 
   // console.log("authed???: ", authed.key)
-  console.log("user in approutes: ", user);
+  // console.log("user in approutes: ", user);
 
   return (
     <div>

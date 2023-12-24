@@ -1,0 +1,26 @@
+
+.openChatHeader{
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 10px;
+    background-color: #F9F1E8;
+}
+
+.closeBtn{
+    cursor: pointer;
+}
+
+.userChatContainer{
+    position: relative;
+    width:100%;
+    /* height: 100%; */
+    height: 310px;
+
+}
+
+.inputContainer{
+    background-color: white;
+    /* border: 3px solid #D81A84; */
+    width: 95%;
+    margin: auto;
+}

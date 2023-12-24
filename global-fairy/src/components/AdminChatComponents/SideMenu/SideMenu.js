@@ -12,8 +12,9 @@ export default function SideMenu({allChats, setSelectedMessages, setClientId, on
         setSelectedMessages(element.chat)
         setClientId(element.userid)
         setClientName(element.name)
+        console.log("client selected: ", element.name)
         setSelectedIndex(index);
-        console.log("clicked! this element: ", element)
+        // console.log("clicked! this element: ", element)
     }
 
     // useEffect(()=>{

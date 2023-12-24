@@ -7,7 +7,7 @@ function Chat({ messages, username }) {
     // let myMessages = messages || [];
 
     useEffect(() => {
-      console.log("Messages changed:", messages);
+      // console.log("Messages changed:", messages);
       setMyMessages(messages || []);
     }, [messages]);
 

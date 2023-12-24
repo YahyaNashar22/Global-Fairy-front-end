@@ -20,7 +20,7 @@ export default function ChatWindow({selectedMessages, adminusername, sendMessage
 
 
     useEffect(() => {
-      console.log("ChatWindow useEffect triggered:", selectedMessages);
+      // console.log("ChatWindow useEffect triggered:", selectedMessages);
       // ... rest of the code
     }, [user, selectedMessages]);
 
@@ -43,7 +43,7 @@ export default function ChatWindow({selectedMessages, adminusername, sendMessage
   return (
     <div className={styles.windowContainer}>
       <h1 className={styles.chatTitle}>{clientName ? `${clientName}` : "Select Chat"}</h1>
-      {console.log("messages at admin chatwindow",messages)}
+      {/* {console.log("messages at admin chatwindow",messages)} */}
       <Chat messages={selectedMessages} username={"admin"} />
       <Input sendMessage={sendMessage}/>
     </div>

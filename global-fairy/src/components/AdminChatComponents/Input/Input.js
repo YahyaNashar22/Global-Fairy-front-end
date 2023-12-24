@@ -12,9 +12,9 @@ function Input({ sendMessage}) {
       e.preventDefault();
     }
     // setMessage(inputMessage)
-    console.log("my SETT MESSAGE: ", message )
+    // console.log("my SETT MESSAGE: ", message )
     if (message.trim() !== "") {
-      console.log("my SETT MESSAGE2: ", message )
+      // console.log("my SETT MESSAGE2: ", message )
       sendMessage(message);
       setMessage("");
     }

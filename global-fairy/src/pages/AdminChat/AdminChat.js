@@ -11,12 +11,10 @@ const socket = io('http://localhost:4500/');
 export default function AdminChat() {
     const [allChats, setAllChats] = useState([]);
     const [selectedMessages, setSelectedMessages] = useState([]);
-    const [username, setUserName] = useState("");
-    // const { user } = useContext(UserContext);
+    const [username] = useState("admin");
     const [clientId, setClientId] = useState("");
     const [clientName, setClientName] = useState("");
     const [onlineUsers,setOnlineUsers] = useState([])
-    // const[currentMessages,setCurrentMessages] = useState([])
 
    
     const ping = ()=>{
@@ -25,66 +23,46 @@ export default function AdminChat() {
 
 
   const sendMessage = async(text) => {
-    // console.log("at admin chat, user is: ",user)
-    setSelectedMessages((prevMessages) => [...prevMessages, { text: text, sender: "admin" }]);  
-    console.log("room by userid selected is: ", clientId);
+    const newMessage = { text: text, sender: "admin" }
+    setSelectedMessages((prevMessages) => [...prevMessages, newMessage]);
+    socket.emit("message", text, clientName);  
     try{
           
       await axios.post('http://localhost:5000/chat/send', {
           userId: clientId,
            sender: "admin",
             text: text
-      }).then((res)=>{
-          console.log("message sent!");
-          console.log(res.data)
-          socket.emit("message", text, clientId);
-          // setMessages((prevMessages) => [...prevMessages, res.data[res.data.length]]);
+      }).then(()=>{
+          console.log("message sent!", text);
       })
   } catch(err){
       console.log("error sending message", err.message)
   }
   }
 
-
-
-
     useEffect( ()=>{
-      // ping();
-      setUserName("admin")
       const fetchData = async () => {
         try {
           const response = await axios.get('http://localhost:5000/chat/all');
           setAllChats(response.data);
-          console.log("all data: ",response.data);
-          // const desiredChat = response.data.find(obj => obj.userid === clientId);
-          // console.log("desired chatttttttttt: ", desiredChat.chat);
-          // setSelectedMessages(desiredChat.chat)
         } catch (error) {
           console.error('Error fetching data:', error);
         }
       };
-  
       fetchData();
       return ()=>{}
-    },[clientId])
+    },[])
 
     useEffect(()=>{
       const desiredChat = allChats.find(obj => obj.userid === clientId) || [];
-      console.log("yoooooooo",desiredChat)
       setSelectedMessages(desiredChat.chat || [])
-    },[allChats, clientId])
+      socket.emit("joinRoom", clientName, "admin")
 
-
-
-    const fetchData = async () => {
-      try {
-        const response = await axios.get('http://localhost:5000/chat/all');
-        setAllChats(response.data);
-        console.log("hereee", response.data);
-      } catch (error) {
-        console.error('Error fetching data:', error);
+      return ()=>{
+        socket.emit("leaveRoom", clientName, "admin" )
       }
-    };
+    },[clientId, clientName, allChats])
+
 
   useEffect(() => {
       
@@ -93,27 +71,19 @@ export default function AdminChat() {
       })
 
       socket.on("connection", () => {
-        console.log("Admin Connected to the server!");
+
       });
 
       socket.on("message", (data) => {
-        console.log("a message was emitted!");
-        setSelectedMessages((prevMessages) => [...prevMessages, { text: data, sender: "admin" }]);
-        fetchData();
+        console.log("a message was received!");
+        setSelectedMessages((prevMessages) => [...prevMessages, { text: data, sender: clientName }]);
+        ping();
       });
+
+
           
-        
-
-    
-        return () => {
-          socket.disconnect();
-        };
-      // },[user, username, messages])
-  },[ username])
-
-
-
-
+      return ()=>{}
+  },[])
 
 
   return (
