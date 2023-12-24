@@ -2,12 +2,16 @@
 .openChatHeader{
     display: flex;
     justify-content: space-between;
-    padding: 5px 10px;
-    background-color: #F9F1E8;
+    padding: 13px 20px;
+    background-color: #d81a84;
+    color: white;
+    font-size: 1.2em;
+    box-shadow: 0 1px 5px #d81a84;
 }
 
 .closeBtn{
     cursor: pointer;
+    font-weight: 900;
 }
 
 .userChatContainer{
@@ -21,6 +25,6 @@
 .inputContainer{
     background-color: white;
     /* border: 3px solid #D81A84; */
-    width: 95%;
+    width: 100%;
     margin: auto;
 }

@@ -1,11 +1,13 @@
 // import React, { useEffect, useState } from 'react'
 // import { useEffect, useState } from 'react'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import styles from './SideMenu.module.css'
 
 export default function SideMenu({allChats, setSelectedMessages, setClientId, onlineUsers, setClientName}) {
 
+    
     const [selectedIndex, setSelectedIndex]= useState();
+    const [sideOnlineUsers, setSideOnlineUsers] = useState([]);
 
     const handleClick = (element, index)=>{
       // setChatElement(element);
@@ -17,17 +19,22 @@ export default function SideMenu({allChats, setSelectedMessages, setClientId, on
         // console.log("clicked! this element: ", element)
     }
 
-    // useEffect(()=>{
-    //   setSelectedMessages(chatElement)
-    // },[])
+   useEffect(()=>{
+    setSideOnlineUsers(onlineUsers);
+   }, [onlineUsers])
+
+   console.log("online users: ", sideOnlineUsers);
+
 
   return (
     <div>
         {allChats.map((element,index) => {
             return <div className={`${styles.chatItem} ${selectedIndex === index ? styles.selected : ""}`} 
-                    onClick={()=>handleClick(element, index)}>
-                    <div>{element.name}</div>
-                    <div className={styles.onlineButton}>{onlineUsers.includes(element.userid) ? " Online": ""}</div>
+                      onClick={()=>handleClick(element, index)}>
+                        <div>{element.name}</div>
+                        {sideOnlineUsers.some(item => element.userid === item.id) ? 
+                        <span className={styles.onlineButton}>&#x2022;</span>
+                        : ""}
                     </div>
         })}
     </div>

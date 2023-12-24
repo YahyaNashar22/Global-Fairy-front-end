@@ -1,11 +1,13 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { UserContext } from '../../context/UserContext';
+import { UserContext } from '../../../context/UserContext';
 import style from './UserChatComponent.module.css'
-import Chat from '../AdminChatComponents/Chat/Chat';
-import Input from '../AdminChatComponents/Input/Input';
+// import Chat from '../../AdminChatComponents/Chat/Chat';
+import Chat from '../UserChat/Chat'
+// import Input from '../../AdminChatComponents/Input/Input';
+import Input from '../UserInput/Input'
 import axios from 'axios';
 import io from 'socket.io-client';
-import pingSound from '../../assets/sounds/ping.mp3'
+import pingSound from '../../../assets/sounds/ping.mp3'
 const socket = io('http://localhost:4500/');
 
 
@@ -19,9 +21,16 @@ export default function UserChatComponent({closeChat, savedMessages}) {
         new Audio(pingSound).play()
     }
     
+    function ISODateFormat() {
+        const date = new Date;
+        const isoString = date.toISOString();
+        return isoString;
+      }
 
     const sendMessage = async (text) => {
-        const newMessage = { text: text, sender: user.name }
+
+     
+        const newMessage = { text: text, sender: user.name, createdAt: ISODateFormat() }
         setMessages((prevMessages) => [...prevMessages, newMessage]);
         socket.emit("message", text, user.name);
         await axios.post('http://localhost:5000/chat/send', {
@@ -55,20 +64,24 @@ export default function UserChatComponent({closeChat, savedMessages}) {
             
         socket.on("connection", () => {
             console.log("I connected the room as a user")
+            
         });
+
+        socket.emit("userConnected", user.name, user.id);
   
         socket.emit("joinRoom", user.name, user.name)
   
-        socket.emit("userConnected", user.name, user.id);
+        
   
         socket.on("message", (data) => {
             console.log("user has received a message! ", data)
-            setMessages((prevMessages) => [...prevMessages, { text: data, sender: "admin" }]);  
+            setMessages((prevMessages) => [...prevMessages, { text: data, sender: "admin", createdAt: ISODateFormat() }]);  
             ping(); 
         });
   
         return () => {
             socket.emit("leaveRoom", user.name, user.name)
+            socket.emit("userDisconnected", user.name, user.id);
         };
     }
 // }, [user, socket]);

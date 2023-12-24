@@ -21,9 +21,18 @@ export default function AdminChat() {
       new Audio(pingSound).play()
   }
 
+  function ISODateFormat() {
+    const date = new Date();
+    const isoString = date.toISOString();
+    return isoString;
+  }
+
 
   const sendMessage = async(text) => {
-    const newMessage = { text: text, sender: "admin" }
+
+
+
+    const newMessage = { text: text, sender: "admin", createdAt: ISODateFormat() }
     setSelectedMessages((prevMessages) => [...prevMessages, newMessage]);
     socket.emit("message", text, clientName);  
     try{
@@ -66,9 +75,9 @@ export default function AdminChat() {
 
   useEffect(() => {
       
-      socket.on('onlineUsers', (arr)=>{
-        setOnlineUsers(arr);
-      })
+     socket.on("updateOnline", (array)=>{
+      setOnlineUsers(array);
+     })
 
       socket.on("connection", () => {
 
@@ -76,7 +85,7 @@ export default function AdminChat() {
 
       socket.on("message", (data) => {
         console.log("a message was received!");
-        setSelectedMessages((prevMessages) => [...prevMessages, { text: data, sender: clientName }]);
+        setSelectedMessages((prevMessages) => [...prevMessages, { text: data, sender: clientName, createdAt: ISODateFormat() }]);
         ping();
       });
 

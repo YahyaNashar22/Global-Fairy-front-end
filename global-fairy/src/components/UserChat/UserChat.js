@@ -3,7 +3,7 @@ import style from './UserChat.module.css'
 import ChatIcon from '../svgIcons/ChatIcon'
 import { UserContext } from '../../context/UserContext';
 import axios from 'axios';
-import UserChatComponent from '../UserChatComponent/UserChatComponent';
+import UserChatComponent from '../UserChatComponent/UserSocket/UserChatComponent';
 
 
 export default function UserChat() {

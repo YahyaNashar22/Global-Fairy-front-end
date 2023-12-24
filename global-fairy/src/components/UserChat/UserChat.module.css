@@ -17,7 +17,7 @@
 .openChat{
     position: fixed;
     width: 300px;
-    height: 400px;
+    height: auto;
     background-color: rgba(255,255,255,0.9);
     border: 3px solid  #D81A84;
     border-radius: 5px;
