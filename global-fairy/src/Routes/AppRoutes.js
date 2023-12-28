@@ -14,18 +14,21 @@ import ProductDetails from "../pages/ProductDetails/ProductDetails";
 import SignupPage from "../pages/Signup/SignupPage";
 import SigninPage from "../pages/Signin/SigninPage";
 import Inventory from "../pages/ShoppingCart/Inventory.js";
-import NotAuthorization from "../pages/NotAuthorization/NotAuthorization.js";
+import NotAuthorizatio from "../pages/NotAuthorization/NotAuthorization.js";
 import { useContext, useEffect, useState } from "react";
 import { UserContext } from "../context/UserContext.js";
+import DashboardLayout from '../Routes/DashboardLayout'
+import App from '../pages/Dashboard/page'
+
 
 function AppRoutes() {
   const { user } = useContext(UserContext);
   const [authed, setAuthed] = useState("");
   useEffect(() => {
-    if (user && user.Role && user.Role === "admin") {
+    if (user.Role === "admin") {
       setAuthed(<Dashboard />);
     } else {
-      setAuthed(<NotAuthorization />);
+      setAuthed(<NotAuthorizatio />);
     }
   }, [user]);
 
@@ -137,6 +140,14 @@ function AppRoutes() {
                 <LayoutWithoutHeaderFooter>
                   <ProductDetails />
                 </LayoutWithoutHeaderFooter>
+              }
+            />
+            <Route
+              path="/chart"
+              element={
+                <DashboardLayout>
+                  <App/>
+                </DashboardLayout> 
               }
             />
           </Routes>

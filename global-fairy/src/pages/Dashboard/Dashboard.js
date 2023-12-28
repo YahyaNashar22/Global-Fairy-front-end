@@ -7,6 +7,7 @@ import logo from "../../assets/images/logo.jpg";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
+// import App from '../../pages/Dashboard/page'
 const Dashboard = () => {
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
@@ -131,6 +132,9 @@ const Dashboard = () => {
           <Link to={"/actions/:operation"}>
             {" "}
             <input type="submit" value="Add Product " />{" "}
+          </Link>
+          <Link to={'/chart'} >
+            <input type="submit" value="Return Home"/>
           </Link>
         </div>
       </div>
