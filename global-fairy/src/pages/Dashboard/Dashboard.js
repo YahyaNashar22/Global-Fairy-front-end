@@ -3,7 +3,7 @@ import style from "./Dashboard.module.css";
 import pen from "../../assets/icons/pen 1.png";
 import deleteicon from "../../assets/icons/delete 1.png";
 import viewicon from "../../assets/icons/show 1.png";
-import logo from "../../assets/images/logo.jpg";
+import logo from "../../assets/images/logo.webp";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
@@ -117,7 +117,10 @@ const Dashboard = () => {
     <div>
       <Helmet>
         <title>Dashboard</title>
-        <meta name="description" content="Dashboard to show all notifications"></meta>
+        <meta
+          name="description"
+          content="Dashboard to show all notifications"
+        ></meta>
         <link rel="canonical" href="/dashboard" />
       </Helmet>
 

@@ -1,15 +1,15 @@
 import style from "./brand.module.css";
-import shein from "../../assets/images/shein.jpg";
-import addidas from "../../assets/images/addidas.jpg";
-import handm from "../../assets/images/h&m.jpg";
-import hudaBeauty from "../../assets/images/hudabeauty.jpg";
-import mango from "../../assets/images/mango.jpg";
-import bershka from "../../assets/images/bershka.jpg";
-import robyRose from "../../assets/images/robyRose.jpg";
-import zara from "../../assets/images/zara.jpg";
-import nyx from "../../assets/images/nyx.jpg";
-import nike from "../../assets/images/nike.jpg";
-import nars from "../../assets/images/nars.jpg";
+import shein from "../../assets/images/shein.webp";
+import addidas from "../../assets/images/addidas.webp";
+import handm from "../../assets/images/h&m.webp";
+import hudaBeauty from "../../assets/images/hudabeauty.webp";
+import mango from "../../assets/images/mango.webp";
+import bershka from "../../assets/images/bershka.webp";
+import robyRose from "../../assets/images/robyRose.webp";
+import zara from "../../assets/images/zara.webp";
+import nyx from "../../assets/images/nyx.webp";
+import nike from "../../assets/images/nike.webp";
+import nars from "../../assets/images/nars.webp";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 const Brand = () => {

@@ -113,24 +113,24 @@
 }
 
 .imageA {
-    background-image: url("../../assets/images/jean.jpeg");
+    background-image: url("../../assets/images/jean.webp");
 }
 
 .imageB {
-    background-image: url("../../assets/images/client.jpg");
+    background-image: url("../../assets/images/client.webp");
 }
 
 .imageC {
-    background-image: url("../../assets/images/makeup0.jpg");  
+    background-image: url("../../assets/images/makeup0.webp");  
 }
 
 .imageD {   
-    background-image: url("../../assets/images/shop.jpeg");
+    background-image: url("../../assets/images/shop.webp");
 
 }
 
 .imageE {
-    background-image: url("../../assets/images/clt2.jpg");
+    background-image: url("../../assets/images/clt2.webp");
 }
 
 @media (max-width:940px){
