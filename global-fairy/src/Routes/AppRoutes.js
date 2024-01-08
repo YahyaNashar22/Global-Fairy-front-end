@@ -1,36 +1,77 @@
+import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { DataProvider } from "../context/DataContext";
 import Home from "../pages/Home/Home";
-import About from "../pages/About/About";
-import Contact from "../pages/ContactUs/Contact";
-import Brand from "../pages/Brand/Brand";
-import Dashboard from "../pages/Dashboard/Dashboard";
-import Addproduct from "../pages/Addproduct/Addproduct";
-import ProductView from "../pages/ProductView/ProductView";
 import NotFound from "../pages/NotFound/NotFound";
 import LayoutWithHeaderFooter from "./LayoutWithHeaderFooter";
 import LayoutWithoutHeaderFooter from "./LayoutWithoutHeaderFooter";
-import ProductDetails from "../pages/ProductDetails/ProductDetails";
-import SignupPage from "../pages/Signup/SignupPage";
-import SigninPage from "../pages/Signin/SigninPage";
-import Inventory from "../pages/ShoppingCart/Inventory.js";
-import NotAuthorizatio from "../pages/NotAuthorization/NotAuthorization.js";
+import NotAuthorization from "../pages/NotAuthorization/NotAuthorization.js";
 import { useContext, useEffect, useState } from "react";
 import { UserContext } from "../context/UserContext.js";
-import DashboardLayout from '../Routes/DashboardLayout'
-import App from '../pages/Dashboard/page'
-
+import loading from "../assets/icons/refresh.png";
+import styles from "./AppRoutes.module.css";
+const LazyAbout = React.lazy(() => import("../pages/About/About.js"));
+const LazyContact = React.lazy(() => import("../pages/ContactUs/Contact.js"));
+const LazyBrand = React.lazy(() => import("../pages/Brand/Brand.js"));
+const LazyDashboard = React.lazy(() =>
+  import("../pages/Dashboard/Dashboard.js")
+);
+const LazyProductView = React.lazy(() =>
+  import("../pages/ProductView/ProductView.js")
+);
+const LazyInventory = React.lazy(() =>
+  import("../pages/ShoppingCart/Inventory.js")
+);
+const LazySignupPage = React.lazy(() =>
+  import("../pages/Signup/SignupPage.js")
+);
+const LazySigninPage = React.lazy(() =>
+  import("../pages/Signin/SigninPage.js")
+);
+const LazyAddProduct = React.lazy(() =>
+  import("../pages/Addproduct/Addproduct.js")
+);
+const LazyProductDetails = React.lazy(() =>
+  import("../pages/ProductDetails/ProductDetails.js")
+);
+import AdminChat from "../pages/AdminChat/AdminChat";
+import UserChat from "../components/UserChat/UserChat";
 
 function AppRoutes() {
   const { user } = useContext(UserContext);
   const [authed, setAuthed] = useState("");
+  const [chatAllowed, setChatAllowed] = useState("");
   useEffect(() => {
-    if (user.Role === "admin") {
-      setAuthed(<Dashboard />);
+    if (user && user.Role && user.Role === "admin") {
+      setAuthed(
+        <React.Suspense
+          fallback={
+            <div className={styles.loading}>
+              <img
+                className={styles.imageLoading}
+                src={loading}
+                alt="loading"
+              />
+              <h1 className={styles.titleLoading}>Loading...</h1>
+            </div>
+          }
+        >
+          <LazyDashboard />
+        </React.Suspense>
+      );
     } else {
-      setAuthed(<NotAuthorizatio />);
+      setAuthed(<NotAuthorization />);
+    }
+
+    if(user.Role === "user"){
+      setChatAllowed(<UserChat/>)
+    } else {
+      setChatAllowed("")
     }
   }, [user]);
+
+  // console.log("authed???: ", authed.key)
+  console.log("user in approutes: ", user);
 
   return (
     <div>
@@ -43,6 +84,8 @@ function AppRoutes() {
               element={
                 <LayoutWithHeaderFooter>
                   <Home />
+                  {/* {typeof(user.name) =="string" ? <UserChat/> : ""} */}
+                  {chatAllowed}
                 </LayoutWithHeaderFooter>
               }
             />
@@ -51,6 +94,7 @@ function AppRoutes() {
               element={
                 <LayoutWithHeaderFooter>
                   <Home />
+                  {/* {user !==null ? <UserChat/> : ""} */}
                 </LayoutWithHeaderFooter>
               }
             />
@@ -58,7 +102,20 @@ function AppRoutes() {
               path="/about"
               element={
                 <LayoutWithHeaderFooter>
-                  <About />
+                  <React.Suspense
+                    fallback={
+                      <div className={styles.loading}>
+                        <img
+                          className={styles.imageLoading}
+                          src={loading}
+                          alt="loading"
+                        />
+                        <h1 className={styles.titleLoading}>Loading...</h1>
+                      </div>
+                    }
+                  >
+                    <LazyAbout />
+                  </React.Suspense>
                 </LayoutWithHeaderFooter>
               }
             />
@@ -66,7 +123,20 @@ function AppRoutes() {
               path="/contact"
               element={
                 <LayoutWithHeaderFooter>
-                  <Contact />
+                  <React.Suspense
+                    fallback={
+                      <div className={styles.loading}>
+                        <img
+                          className={styles.imageLoading}
+                          src={loading}
+                          alt="loading"
+                        />
+                        <h1 className={styles.titleLoading}>Loading...</h1>
+                      </div>
+                    }
+                  >
+                    <LazyContact />
+                  </React.Suspense>
                 </LayoutWithHeaderFooter>
               }
             />
@@ -74,7 +144,20 @@ function AppRoutes() {
               path="/Products/:type/:nameType?"
               element={
                 <LayoutWithHeaderFooter>
-                  <Brand />
+                  <React.Suspense
+                    fallback={
+                      <div className={styles.loading}>
+                        <img
+                          className={styles.imageLoading}
+                          src={loading}
+                          alt="loading"
+                        />
+                        <h1 className={styles.titleLoading}>Loading...</h1>
+                      </div>
+                    }
+                  >
+                    <LazyBrand />
+                  </React.Suspense>
                 </LayoutWithHeaderFooter>
               }
             />
@@ -82,7 +165,20 @@ function AppRoutes() {
               path="/view/:productId"
               element={
                 <LayoutWithHeaderFooter>
-                  <ProductView />
+                  <React.Suspense
+                    fallback={
+                      <div className={styles.loading}>
+                        <img
+                          className={styles.imageLoading}
+                          src={loading}
+                          alt="loading"
+                        />
+                        <h1 className={styles.titleLoading}>Loading...</h1>
+                      </div>
+                    }
+                  >
+                    <LazyProductView />
+                  </React.Suspense>
                 </LayoutWithHeaderFooter>
               }
             />
@@ -90,7 +186,20 @@ function AppRoutes() {
               path="/cart"
               element={
                 <LayoutWithHeaderFooter>
-                  <Inventory />
+                  <React.Suspense
+                    fallback={
+                      <div className={styles.loading}>
+                        <img
+                          className={styles.imageLoading}
+                          src={loading}
+                          alt="loading"
+                        />
+                        <h1 className={styles.titleLoading}>Loading...</h1>
+                      </div>
+                    }
+                  >
+                    <LazyInventory />
+                  </React.Suspense>
                 </LayoutWithHeaderFooter>
               }
             />
@@ -106,15 +215,51 @@ function AppRoutes() {
               path="/signup"
               element={
                 <LayoutWithoutHeaderFooter>
-                  <SignupPage />
+                  <React.Suspense
+                    fallback={
+                      <div className={styles.loading}>
+                        <img
+                          className={styles.imageLoading}
+                          src={loading}
+                          alt="loading"
+                        />
+                        <h1 className={styles.titleLoading}>Loading...</h1>
+                      </div>
+                    }
+                  >
+                    <LazySignupPage />
+                  </React.Suspense>
                 </LayoutWithoutHeaderFooter>
               }
             />
+
+            <Route
+            path="/dashboard/chat"
+            element={
+              <LayoutWithoutHeaderFooter>
+                {user ? <AdminChat/> : <NotAuthorizatio/>}
+                </LayoutWithoutHeaderFooter>
+              }
+            />
+
             <Route
               path="/login"
               element={
                 <LayoutWithoutHeaderFooter>
-                  <SigninPage />
+                  <React.Suspense
+                    fallback={
+                      <div className={styles.loading}>
+                        <img
+                          className={styles.imageLoading}
+                          src={loading}
+                          alt="loading"
+                        />
+                        <h1 className={styles.titleLoading}>Loading...</h1>
+                      </div>
+                    }
+                  >
+                    <LazySigninPage />
+                  </React.Suspense>
                 </LayoutWithoutHeaderFooter>
               }
             />
@@ -122,7 +267,20 @@ function AppRoutes() {
               path="/actions/:operation"
               element={
                 <LayoutWithoutHeaderFooter>
-                  <Addproduct />
+                  <React.Suspense
+                    fallback={
+                      <div className={styles.loading}>
+                        <img
+                          className={styles.imageLoading}
+                          src={loading}
+                          alt="loading"
+                        />
+                        <h1 className={styles.titleLoading}>Loading...</h1>
+                      </div>
+                    }
+                  >
+                    <LazyAddProduct />
+                  </React.Suspense>
                 </LayoutWithoutHeaderFooter>
               }
             />
@@ -138,16 +296,21 @@ function AppRoutes() {
               path="products/:productID"
               element={
                 <LayoutWithoutHeaderFooter>
-                  <ProductDetails />
+                  <React.Suspense
+                    fallback={
+                      <div className={styles.loading}>
+                        <img
+                          className={styles.imageLoading}
+                          src={loading}
+                          alt="loading"
+                        />
+                        <h1 className={styles.titleLoading}>Loading...</h1>
+                      </div>
+                    }
+                  >
+                    <LazyProductDetails />
+                  </React.Suspense>
                 </LayoutWithoutHeaderFooter>
-              }
-            />
-            <Route
-              path="/chart"
-              element={
-                <DashboardLayout>
-                  <App/>
-                </DashboardLayout> 
               }
             />
           </Routes>

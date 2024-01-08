@@ -4,13 +4,17 @@ import { Link, useNavigate } from "react-router-dom";
 import { TextField, Grid, Typography, FormControl } from "@mui/material";
 import show from "../../assets/icons/show 1.png";
 import hide from "../../assets/icons/hide.svg";
+import google from "../../assets/icons/Icon-Google.png";
 import axios from "axios";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { UserContext } from "../../context/UserContext.js";
+import { auth, provider } from "../../Firebase.js";
+import { signInWithPopup } from "@firebase/auth";
 function Signin() {
   const navigate = useNavigate();
   const { user, setUser } = useContext(UserContext);
+  const [disabled, setDisabled] = useState(false);
 
   // FORM DATA HANDLING
   const [email, setEmail] = useState("");
@@ -43,6 +47,49 @@ function Signin() {
   //TOAST NOTIFICATIONS
 
   const notify = () => toast("Logged in successfully !");
+  const notify2 = () => toast("Wrong email or password");
+
+  //GOOGLE SIGN UP
+
+  const handleGoogle = () => {
+    signInWithPopup(auth, provider)
+      .then((data) => {
+        setDisabled(!disabled);
+        axios
+          .post(
+            `${process.env.REACT_APP_PATH}/user/gsignup`,
+            {
+              name: data.user.displayName,
+              email: data.user.email,
+              photourl: data.user.photoURL,
+              role: "user",
+            },
+            {
+              headers: {
+                "Content-Type": "multipart/form-data",
+              },
+            }
+          )
+          .then((res) => {
+            setIsPending(false);
+            notify();
+            if (res) {
+              setUser(res.data.token.data);
+              console.log(res.data.token.data);
+              setDisabled(!disabled);
+            } else {
+              setUser("no user found");
+            }
+            navigate("/");
+          });
+      })
+      .catch((err) => {
+        setDisabled(false);
+        if (err.code === "auth/popup-closed-by-user") {
+          console.log("exited the google auth");
+        }
+      });
+  };
 
   //POST WITH AXIOS
   const handleSubmit = async (e) => {
@@ -56,13 +103,14 @@ function Signin() {
       .then((res) => {
         setIsPending(false);
         notify();
-        if (res) {
-          setUser(res.data.token.data);
-        } else {
-          setUser("no user found");
-        }
+        setUser(res.data.token.data);
+        navigate("/");
+      })
+      .catch((err) => {
+        notify2();
+        setIsPending(false);
       });
-    navigate("/");
+    
     console.log(user);
   };
   return (
@@ -71,7 +119,7 @@ function Signin() {
         <Typography
           variant="h1"
           component="h1"
-          sx={{ fontSize: "32px" }}
+          sx={{ fontSize: "32px", marginBottom: "10px" }}
           className={style.header}
         >
           Log in to Exclusive
@@ -79,7 +127,7 @@ function Signin() {
         <Typography
           variant="p"
           component="p"
-          sx={{ fontSize: "16px" }}
+          sx={{ fontSize: "16px", marginBottom: "10px" }}
           className={style.subText}
         >
           Enter your details below
@@ -151,10 +199,21 @@ function Signin() {
               Sign Up
             </Link>
           </div>
-          <Link to="/" className={style.noLogin}>
-            Continue without Logging in
-          </Link>
         </form>
+
+        <button
+          className={style.OAuth}
+          onClick={handleGoogle}
+          disabled={disabled}
+        >
+          <span>
+            <img src={google} alt="google logo" />
+          </span>
+          Continue with Google
+        </button>
+        <Link to="/" className={style.noLogin}>
+          Continue without Logging in
+        </Link>
         {isPending && (
           <p className={style.pending}>Logging you in, please wait . . .</p>
         )}

@@ -1,0 +1,22 @@
+.chatContainer{
+    display: grid;
+    grid-template-areas: 'rooms chatWindow chatWindow chatWindow';
+    column-gap: 3vw;
+}
+
+.sideList{
+    grid-area: rooms;
+    /* max-width: 25vw; */
+    border: 1px solid #D81A84;
+}
+
+.chatOpen{
+    grid-area: chatWindow;
+    border: 1px solid #222222;
+    max-height: 80vh;
+    height: 500px;
+}
+
+.chatInstance{
+    background-color: black;
+}

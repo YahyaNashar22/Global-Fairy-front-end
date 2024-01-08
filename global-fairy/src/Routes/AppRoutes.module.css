@@ -1,0 +1,19 @@
+.loading {
+    width: 10%;
+    height: 800px;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 auto;
+  
+  
+  }
+  .imageLoading{
+   width:200px;
+   
+  }
+  .titleLoading{
+    color:#dc5f93;
+  padding-left: 2.5rem;
+    padding-top: 2rem;
+  }
