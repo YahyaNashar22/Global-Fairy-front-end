@@ -110,7 +110,7 @@ function Signin() {
         notify2();
         setIsPending(false);
       });
-    
+
     console.log(user);
   };
   return (
@@ -122,7 +122,7 @@ function Signin() {
           sx={{ fontSize: "32px", marginBottom: "10px" }}
           className={style.header}
         >
-          Log in to Exclusive
+          Log in
         </Typography>
         <Typography
           variant="p"
