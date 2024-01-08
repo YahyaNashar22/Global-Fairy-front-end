@@ -47,7 +47,7 @@ function Chat({ messages, username }) {
     <div className={styles.chatContainer}>
       {myMessages.map((msg, index) => {
         return( <div key={index} className={`${styles.chatMessage} ${ msg.sender === username ? styles.sent : styles.received}`}>
-           <p className={styles.chatMessageText}>{msg.text}</p>
+          <p className={styles.chatMessageText}>{msg.text}</p>
           <span className={styles.chatMessageTime}>{convertISOToDateTime(msg.createdAt)}</span>
         </div>)
       })}
@@ -57,7 +57,7 @@ function Chat({ messages, username }) {
     <div className={styles.chatContainer}>
       {myMessages.map((msg, index) => {
         return( <div key={index} className={`${styles.chatMessage} ${ msg.sender === "admin" ? styles.received : styles.sent}`}>
-           <p className={styles.chatMessageText}>{msg.text}</p>
+          <p className={styles.chatMessageText}>{msg.text}</p>
           <span className={styles.chatMessageTime}>{convertISOToDateTime(msg.createdAt)}</span>
         </div>)
       })}

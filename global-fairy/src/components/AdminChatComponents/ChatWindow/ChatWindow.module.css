@@ -1,7 +1,28 @@
 .windowContainer{
     height: 100%;
-    background-image: url('../../../pages/AdminChat/background.webp');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
+    /* background-image: url('../../../pages/AdminChat/background.webp'); */
+    /* background-position: center; */
+    /* background-repeat: no-repeat; */
+    /* background-size: cover; */
+    /* background-color: rgb(152, 27, 96); */
+    /* background-color: rgb(56, 8, 34); */
+    /* background-color: rgb(21 18 20); */
+    /* background-color: rgb(255 224 245); */
+    background-color: rgb(249 217 239);
+    display: flex;
+    flex-direction: column;
+    /* padding: 20px; */
+}
+
+.chatTitle{
+    /* background-color: rgba(216, 26, 132,0.7); */
+    /* background-color: rgb(255, 0, 143, 0.4); */
+    /* background-color: rgb(22, 6, 15, 0.8); */
+    background-color: rgba(34, 31, 33, 80%);
+    color: white;
+    padding: 10px;
+    font-size: 1.2em;
+    /* border-radius: 10px; */
+    /* border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px */
 }

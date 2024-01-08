@@ -71,7 +71,7 @@ function AppRoutes() {
   }, [user]);
 
   // console.log("authed???: ", authed.key)
-  console.log("user in approutes: ", user);
+  // console.log("user in approutes: ", user);
 
   return (
     <div>

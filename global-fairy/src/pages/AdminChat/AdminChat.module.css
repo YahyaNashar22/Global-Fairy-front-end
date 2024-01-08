@@ -1,22 +1,56 @@
 .chatContainer{
     display: grid;
-    grid-template-areas: 'rooms chatWindow chatWindow chatWindow';
-    column-gap: 3vw;
+    grid-template-areas: 'rooms chatWindow';
+    grid-template-columns: 15vw 85vw;
+    /* column-gap: 1vw; */
 }
 
 .sideList{
     grid-area: rooms;
-    /* max-width: 25vw; */
-    border: 1px solid #D81A84;
+    max-width: 15vw;
+    /* border: 1px solid #D81A84; */
+    /* background-color: white; */
+    /* background-color: rgba(19, 1, 16 ,80%); */
+    background-color: rgb(19, 1, 16);
+    
 }
 
 .chatOpen{
     grid-area: chatWindow;
-    border: 1px solid #222222;
-    max-height: 80vh;
-    height: 500px;
+    /* border: 1px solid #222222; */
+    height: 90vh;
+    width: auto;
+    /* height: auto; */
 }
 
 .chatInstance{
     background-color: black;
+}
+
+.chatHeader{
+    height: 8vh;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    /* background-color: #ffc9f6; */
+    background-color: #271d25;
+    color: white;
+    justify-content: space-between;
+
+}
+
+.headerButtons{
+    padding: 15px;
+    border-radius: 8px;
+    border: none;
+    color: white;
+    background-color: #D81A84;
+    font-size: 1.2em;
+}
+
+
+
+.headerButtons:hover{
+    background-color: rgba(216, 26, 132, 0.5);
+    cursor: pointer;
 }
