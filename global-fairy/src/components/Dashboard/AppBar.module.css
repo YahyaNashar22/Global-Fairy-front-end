@@ -1,0 +1,26 @@
+.hed {
+    background-color: #F9F1E8;
+    color: #374151;
+    font-family: lato;
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    size: 40%;
+    width: 100%;
+    padding: 20px
+}
+.title {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    font-size: larger;
+    font-weight: bolder;
+    color: #D96093;
+    gap: 20px;
+    text-transform: capitalize;
+    
+}
+.logoImage {
+    width: 20%;
+}
